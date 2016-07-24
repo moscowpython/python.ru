@@ -1,0 +1,12 @@
+{% load staticfiles %}
+<footer id="footer">
+  <div class="container">
+    <a href="mailto:team@python.ru" class="email">team@python.ru</a>
+    <span class="copyright">&copy; 2016 <a href="https://python.ru">Python.ru</a></span>
+    <ul class="social-list">
+      {% for social_link in social_links %}
+        <li class="{{ social_link.id }}"><a href="{{ social_link.url }}">{{ social_link.name }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</footer>

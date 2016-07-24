@@ -1,0 +1,8 @@
+Django==1.9.8
+django-model-utils==2.5
+feedparser==5.2.1
+Pillow==3.3.0
+python-dateutil==2.5.3
+lxml==3.6.1
+bleach==1.4.3
+html5lib==0.9999999

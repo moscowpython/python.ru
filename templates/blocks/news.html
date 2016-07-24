@@ -1,0 +1,46 @@
+{% load staticfiles %}
+<section class="news">
+  <div class="container">
+    <div class="news-holder">
+      <div class="main-news">
+        <img src="{% static "images/main-news.jpg" %}" alt=""/>
+        <div class="main-news-title">
+          <time>18 апреля 2016</time>
+          <h2><a href="#">Зачем предпринимателю ехать в Гонконг: стартап-виза, рынки, финансирование</a></h2>
+        </div>
+      </div>
+      <div class="latest-news">
+        <h2>Новости</h2>
+        <ul class="news-list">
+          {% for article in articles_top %}
+          <li>
+            <time>{{ article.published_at|date:"j E Y" }}</time>
+            <a href="{{ article.url }}" target="_blank">
+              {{ article.name }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div id="news-container">
+      <div class="gutter-sizer"></div>
+
+      {% for article in articles_all %}
+      <div class="news-item">
+        {% if article.image %}<img src="{{ article.image.url }}" alt="" />{% endif %}
+        <div class="text-block">
+          <time>{{ article.published_at|date:"j E Y" }}</time>
+          <h3><a href="{{ article.url }}" target="_blank">{{ article.name }}</a></h3>
+          {{ article.description|safe }}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+{#    <div class="more-btn">#}
+{#      <a href="#">Показать еще</a>#}
+{#    </div>#}
+  </div>
+</section>

@@ -1,0 +1,84 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	
+	<title>Python.Ru</title>
+	
+	<link media="all" rel="stylesheet" href="{% static "css/all.css" %}" />
+</head>
+<body>
+	<div id="wrapper">
+
+    {% include 'blocks/header.html' %}
+
+		<main>
+
+      {% include 'blocks/news.html' %}
+
+			<section class="subscription">
+				<div class="container">
+					<div class="holder">
+						<h2>Лучшая рассылка</h2>
+						<p>
+							Мы напишем, как будет что-то интересное, а спамить не будем, даже не просите
+						</p>
+					</div>
+					<form class="subscription-form">
+						<fieldset>
+							<input type="email" name="email" placeholder="Email" />
+							<button type="submit" class="form-btn">Подписаться</button>
+						</fieldset>
+					</form>
+				</div>
+			</section>
+			
+			{% include 'blocks/events.html' %}
+
+      {% include 'blocks/about_us.html' %}
+
+      {% include 'blocks/links.html' %}
+			
+			<section class="contact">
+				<div class="container">
+					<h2>Связаться с нами</h2>
+					<p>Есть идеи и пожелания по развитию сообщества? Пишите, будем рады знать.</p>
+					<form class="contact-form">
+						<fieldset>
+							<div class="row">
+								<input type="text" name="name" placeholder="Имя" />
+								<input type="email" name="email" placeholder="Email" />
+							</div>
+							<textarea name="message" cols="50" rows="10" placeholder="Сообщение"></textarea>
+							<button type="submit" class="form-btn">Отправить</button>
+						</fieldset>
+					</form>
+				</div>
+			</section>
+		</main>
+
+    {% include 'blocks/footer.html' %}
+
+	</div>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script type="text/javascript" src="{% static "js/masonry.pkgd.min.js" %}"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#news-container').masonry({
+		  		itemSelector: '.news-item',
+			  	singleMode: true,
+		  		isResizable: true,
+				isAnimated: true,
+				gutter: '.gutter-sizer',
+			  	animationOptions: { 
+					queue: false, 
+			  		duration: 300 
+				}
+			}); 
+	  });
+	</script>
+  {% include 'blocks/analytics.html' %}
+</body>
+</html>

@@ -1,0 +1,25 @@
+{% load staticfiles %}
+<section class="near-events">
+  <div class="container">
+    <h2>Ближайшие события</h2>
+    <div class="holder">
+      <div class="map">
+        <img src="{% static "images/map.png" %}" alt="Карта событий"/>
+      </div>
+      <ul class="events-list">
+        {% for event in events %}
+        <li>
+          <div class="event-date">
+            <span class="date">{{ event.date|date:"d" }}</span>
+									<span class="day">
+										<span>{{ event.date|date:"E" }},</span>
+										<span>{{ event.date|date:"l"|lower }}</span>
+									</span>
+          </div>
+          <h3><a href="{{ event.url }}" target="_blank">{{ event.name }}</a></h3>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>

@@ -12,3 +12,4 @@ python-dateutil==2.5.3
 lxml==3.6.1
 bleach==1.4.3
 html5lib==0.9999999
+requests==2.10.0

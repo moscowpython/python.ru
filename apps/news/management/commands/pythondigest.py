@@ -40,7 +40,7 @@ class Command(BaseCommand):
                 else:
                     article = Article.objects.create(**article_data)
                 if image_bytes and options['update_images']:
-                    article.image.save('cover.jpg', ContentFile(image_bytes))
+                    article.image.save('cover-%s.jpg' % article.id, ContentFile(image_bytes))
             except IntegrityError:
                 self.stdout.write(self.style.NOTICE('Already existing article "%s"' % article_data['name']))
             else:

@@ -10,10 +10,10 @@ class ArticleQuerySet(QuerySet):
         return self.filter(is_active=True)
 
     def featured(self):
-        try:
-            return self.active().filter(is_featured=True)[0]
-        except IndexError:
-            return self.active()[:1]
+        article = self.active().filter(is_featured=True).first()
+        if not article:
+            article = self.active().first()
+        return article
 
 
 class Article(TimeStampedModel):

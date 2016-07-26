@@ -13,3 +13,7 @@ lxml==3.6.1
 bleach==1.4.3
 html5lib==0.9999999
 requests==2.10.0
+codecov==2.0.5
+pytest_django==2.9.1
+pytest-cov==2.3.0
+factory_boy==2.7.0

@@ -18,23 +18,8 @@
 
       {% include 'blocks/news.html' %}
 
-			<section class="subscription">
-				<div class="container">
-					<div class="holder">
-						<h2>Лучшая рассылка</h2>
-						<p>
-							Мы напишем, как будет что-то интересное, а спамить не будем, даже не просите
-						</p>
-					</div>
-					<form class="subscription-form">
-						<fieldset>
-							<input type="email" name="email" placeholder="Email" />
-							<button type="submit" class="form-btn">Подписаться</button>
-						</fieldset>
-					</form>
-				</div>
-			</section>
-			
+      {% include 'blocks/subscribe.html' %}
+
 			{% include 'blocks/events.html' %}
 
       {% include 'blocks/about_us.html' %}

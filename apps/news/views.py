@@ -10,9 +10,12 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data()
+
+        article_featured = Article.objects.featured()
         context.update({
-            'articles_top': Article.objects.active()[:3],
-            'articles_all': Article.objects.active()[3:20],
+            'article_featured': article_featured,
+            'articles_top': [a for a in Article.objects.active()[:3] if a != article_featured],
+            'articles_all': [a for a in Article.objects.active()[3:10] if a != article_featured],
             'events': Event.objects.active()[:5],
             'links': sorted(Link.objects.all(), key=lambda i: Link.SECTION_SLUGS.index(i.section)),
             'social_links': [

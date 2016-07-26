@@ -2,13 +2,18 @@
 <section class="news">
   <div class="container">
     <div class="news-holder">
+
+      {# Featured article #}
       <div class="main-news">
-        <img src="{% static "images/main-news.jpg" %}" alt=""/>
+        {% if article_featured.image %}<img src="{{ article_featured.image.url }}" alt="" />{% endif %}
         <div class="main-news-title">
-          <time>18 апреля 2016</time>
-          <h2><a href="#">Зачем предпринимателю ехать в Гонконг: стартап-виза, рынки, финансирование</a></h2>
+          <time>{{ article_featured.published_at|date:"j E Y" }}</time>
+          <h2><a href="{{ article_featured.url }}" target="_blank">
+            {{ article_featured.name }}
+          </a></h2>
         </div>
       </div>
+
       <div class="latest-news">
         <h2>Новости</h2>
         <ul class="news-list">

@@ -9,6 +9,12 @@ class ArticleQuerySet(QuerySet):
     def active(self):
         return self.filter(is_active=True)
 
+    def featured(self):
+        try:
+            return self.active().filter(is_featured=True)[0]
+        except IndexError:
+            return self.active()[:1]
+
 
 class Article(TimeStampedModel):
     url = models.URLField('URL')
@@ -19,6 +25,7 @@ class Article(TimeStampedModel):
     external_id = models.CharField('Внешний ID', max_length=32, unique=True, blank=True, null=True, editable=False)
     image = models.ImageField('Изображение', blank=True, upload_to='articles')
     is_active = models.BooleanField('Показывать на сайте', default=True)
+    is_featured = models.BooleanField('Главная новость', default=False)
 
     objects = ArticleQuerySet.as_manager()
 

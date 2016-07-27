@@ -1,0 +1,309 @@
+[
+{
+    "model": "content.link",
+    "pk": 1,
+    "fields": {
+        "created": "2016-07-23T16:08:54.189Z",
+        "modified": "2016-07-23T16:08:54.385Z",
+        "url": "https://ru.coursera.org/learn/mathematics-and-python/",
+        "name": "\u041c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430 \u0438 Python \u0434\u043b\u044f \u0430\u043d\u0430\u043b\u0438\u0437\u0430 \u0434\u0430\u043d\u043d\u044b\u0445",
+        "section": "courses",
+        "order": 0
+    }
+},
+{
+    "model": "content.link",
+    "pk": 2,
+    "fields": {
+        "created": "2016-07-23T16:10:38.007Z",
+        "modified": "2016-07-23T16:10:38.008Z",
+        "url": "https://ru.coursera.org/specializations/python",
+        "name": "Learn to Program and Analyze Data with Python",
+        "section": "courses",
+        "order": 10
+    }
+},
+{
+    "model": "content.link",
+    "pk": 3,
+    "fields": {
+        "created": "2016-07-23T16:11:33.279Z",
+        "modified": "2016-07-23T16:11:33.280Z",
+        "url": "https://docs.python.org/3/installing/index.html",
+        "name": "Installing Python Modules",
+        "section": "docs",
+        "order": 0
+    }
+},
+{
+    "model": "content.link",
+    "pk": 4,
+    "fields": {
+        "created": "2016-07-23T16:12:09.348Z",
+        "modified": "2016-07-23T16:12:09.349Z",
+        "url": "https://docs.python.org/3/distributing/index.html",
+        "name": "Distributing Python Modules",
+        "section": "docs",
+        "order": 10
+    }
+},
+{
+    "model": "content.link",
+    "pk": 5,
+    "fields": {
+        "created": "2016-07-23T16:13:41.652Z",
+        "modified": "2016-07-23T16:13:41.653Z",
+        "url": "https://python.stamplayapp.com/",
+        "name": "Slack-\u043a\u0430\u043d\u0430\u043b python.ru",
+        "section": "community",
+        "order": 0
+    }
+},
+{
+    "model": "content.link",
+    "pk": 6,
+    "fields": {
+        "created": "2016-07-23T16:14:24.726Z",
+        "modified": "2016-07-23T16:14:24.727Z",
+        "url": "https://pythondigest.ru/",
+        "name": "Python \u0434\u0430\u0439\u0434\u0436\u0435\u0441\u0442",
+        "section": "community",
+        "order": 10
+    }
+},
+{
+    "model": "events.city",
+    "pk": 1,
+    "fields": {
+        "created": "2016-07-23T09:35:44.672Z",
+        "modified": "2016-07-23T09:35:44.672Z",
+        "name": "\u041c\u043e\u0441\u043a\u0432\u0430"
+    }
+},
+{
+    "model": "events.event",
+    "pk": 1,
+    "fields": {
+        "created": "2016-07-23T09:36:05.891Z",
+        "modified": "2016-07-23T09:42:05.761Z",
+        "name": "Moscow Python 38",
+        "city": 1,
+        "date": "2016-08-24T19:00:00Z",
+        "is_active": true,
+        "url": "https://moscowpython.ru"
+    }
+},
+{
+    "model": "events.event",
+    "pk": 2,
+    "fields": {
+        "created": "2016-07-23T09:38:42.110Z",
+        "modified": "2016-07-23T12:02:01.876Z",
+        "name": "\u041d\u0430\u0447\u0430\u043b\u043e \u043e\u0444\u043b\u0430\u0439\u043d-\u043a\u0443\u0440\u0441\u0430 Learn Python",
+        "city": 1,
+        "date": "2016-09-24T09:38:13Z",
+        "is_active": true,
+        "url": "https://learn.python.ru"
+    }
+},
+{
+    "model": "events.event",
+    "pk": 3,
+    "fields": {
+        "created": "2016-07-23T11:59:27.393Z",
+        "modified": "2016-07-23T11:59:27.587Z",
+        "name": "Moscow Python Conf",
+        "city": 1,
+        "date": "2016-10-12T12:00:00Z",
+        "is_active": true,
+        "url": "https://conf.python.ru"
+    }
+},
+{
+    "model": "news.article",
+    "pk": 1,
+    "fields": {
+        "created": "2016-07-24T10:19:51.056Z",
+        "modified": "2016-07-24T12:08:08.305Z",
+        "url": "http://github.com/MagicStack/asyncpg",
+        "name": "asyncpg - \u0431\u044b\u0441\u0442\u0440\u044b\u0439 \u0430\u0441\u0438\u043d\u0445\u0440\u043e\u043d\u043d\u044b\u0439 \u043a\u043b\u0438\u0435\u043d\u0442 \u0434\u043b\u044f PostgreSQL",
+        "description": "",
+        "published_at": "2016-07-24T05:31:36Z",
+        "source": "pythondigest",
+        "external_id": "9a2354d5b1bd003d0ca70f6f4cdb2ea4",
+        "image": "articles/cover1.jpg",
+        "is_active": true,
+        "is_featured": false
+    }
+},
+{
+    "model": "news.article",
+    "pk": 2,
+    "fields": {
+        "created": "2016-07-24T10:19:51.064Z",
+        "modified": "2016-07-24T12:08:07.721Z",
+        "url": "https://www.codevate.com/blog/7-concurrency-with-embedded-python-in-a-multi-threaded-c-application",
+        "name": "\u0412\u0441\u0442\u0440\u0430\u0438\u0432\u0430\u0435\u043c Python \u0432 \u043c\u043d\u043e\u0433\u043e\u043f\u043e\u0442\u043e\u0447\u043d\u043e\u0435 \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u0435 \u043d\u0430 C++",
+        "description": "",
+        "published_at": "2016-07-24T07:21:36Z",
+        "source": "pythondigest",
+        "external_id": "cf7a545c5865a2f7411446be858d413e",
+        "image": "",
+        "is_active": true,
+        "is_featured": false
+    }
+},
+{
+    "model": "news.article",
+    "pk": 3,
+    "fields": {
+        "created": "2016-07-24T10:19:51.065Z",
+        "modified": "2016-07-24T12:08:07.750Z",
+        "url": "https://khashtamov.com/2016/06/pycon-us-2016-portland/",
+        "name": "\u041f\u043e\u0435\u0437\u0434\u043a\u0430 \u043d\u0430 PyCon US 2016 \u0432 \u041f\u043e\u0440\u0442\u043b\u0435\u043d\u0434",
+        "description": "<p>\u0421\u043e\u0432\u0441\u0435\u043c \u043d\u0435\u0434\u0430\u0432\u043d\u043e \u0437\u0430\u043a\u043e\u043d\u0447\u0438\u043b\u0430\u0441\u044c \u0441\u0430\u043c\u0430\u044f \u043c\u0430\u0441\u0448\u0442\u0430\u0431\u043d\u0430\u044f \u043a\u043e\u043d\u0444\u0435\u0440\u0435\u043d\u0446\u0438\u044f \u0432 \u043c\u0438\u0440\u0435 Python \u2014 PyCon US 2016 \u0432 \u0433\u043e\u0440\u043e\u0434\u0435 \u041f\u043e\u0440\u0442\u043b\u0435\u043d\u0434. \u0412 \u044d\u0442\u043e\u043c \u0433\u043e\u0434\u0443 \u043c\u043d\u0435 \u043f\u043e\u0441\u0447\u0430\u0441\u0442\u043b\u0438\u0432\u0438\u043b\u043e\u0441\u044c \u0431\u044b\u0442\u044c \u0441\u0440\u0435\u0434\u0438 \u0435\u0451 \u0443\u0447\u0430\u0441\u0442\u043d\u0438\u043a\u043e\u0432. \u0412 \u044d\u0442\u043e\u0439 \u0437\u0430\u043c\u0435\u0442\u043a\u0435 \u0440\u0430\u0441\u0441\u043a\u0430\u0436\u0443 \u043e \u0441\u0432\u043e\u0438\u0445 \u0432\u043f\u0435\u0447\u0430\u0442\u043b\u0435\u043d\u0438\u044f\u0445 \u043e \u043f\u043e\u0435\u0437\u0434\u043a\u0435, \u043e \u0441\u0430\u043c\u043e\u0439 \u043a\u043e\u043d\u0444\u0435\u0440\u0435\u043d\u0446\u0438\u0438 \u0438 \u043d\u0435\u043c\u043d\u043e\u0433\u043e \u043e \u0434\u043e\u043a\u043b\u0430\u0434\u0430\u0445, \u043f\u0440\u043e\u0447\u0438\u0442\u0430\u043d\u043d\u044b\u0445 \u0442\u0430\u043c.</p>",
+        "published_at": "2016-07-24T09:11:36Z",
+        "source": "pythondigest",
+        "external_id": "08e6becb986474efa309dfabccb65364",
+        "image": "",
+        "is_active": true,
+        "is_featured": false
+    }
+},
+{
+    "model": "news.article",
+    "pk": 4,
+    "fields": {
+        "created": "2016-07-24T10:19:51.067Z",
+        "modified": "2016-07-26T06:54:15.061Z",
+        "url": "http://github.com/yasintoy/Slack-Gitsin",
+        "name": "Slack-Gitsin - \u041b\u0435\u0433\u043a\u043e\u0432\u0435\u0441\u043d\u044b\u0439 CLI \u0434\u043b\u044f Slack",
+        "description": "<a href=\"https://raw.githubusercontent.com/yasintoy/Slack-Gitsin/master/screen_shots/anim.gif\"></a>",
+        "published_at": "2016-07-19T22:35:01Z",
+        "source": "pythondigest",
+        "external_id": "5e2192532c0c0d87c39dda2e07c9a171",
+        "image": "articles/cover2.jpg",
+        "is_active": true,
+        "is_featured": true
+    }
+},
+{
+    "model": "news.article",
+    "pk": 5,
+    "fields": {
+        "created": "2016-07-24T10:19:51.068Z",
+        "modified": "2016-07-24T12:08:10.569Z",
+        "url": "http://github.com/huacnlee/PokemonGoMove",
+        "name": "PokemonGoMove - \u044d\u043c\u0443\u043b\u044f\u0442\u043e\u0440 GPS \u0434\u043b\u044f iOS \u0434\u043b\u044f \u043b\u043e\u0432\u043b\u0438 \u043f\u043e\u043a\u0435\u043c\u043e\u043d\u043e\u0432",
+        "description": "",
+        "published_at": "2016-07-24T03:41:36Z",
+        "source": "pythondigest",
+        "external_id": "e93125d87cdc52b7cbd5ed1d1850f8cd",
+        "image": "",
+        "is_active": true,
+        "is_featured": false
+    }
+},
+{
+    "model": "news.article",
+    "pk": 6,
+    "fields": {
+        "created": "2016-07-24T10:19:51.070Z",
+        "modified": "2016-07-24T12:08:10.574Z",
+        "url": "https://allmychanges.com/p/python/django-rest-framework/#3.4.0",
+        "name": "django-rest-framework - 3.4.0",
+        "description": "Rest full \u0444\u0440\u0435\u0439\u043c\u0432\u043e\u0440\u043a \u0434\u043b\u044f Django. \u0418\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u044f \u043e\u043f\u0438\u0441\u0430\u043d\u044b \u043f\u043e \u0441\u0441\u044b\u043b\u043a\u0435 <a href=\"https://allmychanges.com/p/python/django-rest-framework/#3.4.0\">https://allmychanges.com/p/python/django-rest-framework/#3.4.0</a>. \u0421\u043a\u0430\u0447\u0430\u0442\u044c \u043c\u043e\u0436\u043d\u043e \u043f\u043e \u0441\u0441\u044b\u043b\u043a\u0435: <a href=\"None\">None</a>",
+        "published_at": "2016-07-17T21:30:05Z",
+        "source": "pythondigest",
+        "external_id": "284c49a9c6f6af55bff8c907d17a2352",
+        "image": "",
+        "is_active": true,
+        "is_featured": false
+    }
+},
+{
+    "model": "news.article",
+    "pk": 7,
+    "fields": {
+        "created": "2016-07-24T10:19:51.071Z",
+        "modified": "2016-07-24T12:08:10.580Z",
+        "url": "https://allmychanges.com/p/python/pex/#1.1.13",
+        "name": "pex - 1.1.13",
+        "description": "\u0411\u0438\u0431\u043b\u0438\u043e\u0442\u0435\u043a\u0430 \u0438 \u0443\u0442\u0438\u043b\u0438\u0442\u0430 \u0434\u043b\u044f \u0433\u0435\u043d\u0435\u0440\u0430\u0446\u0438\u0438 .pex (Python EXecutable) \u0444\u0430\u0439\u043b\u043e\u0432. \u0418\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u044f \u043e\u043f\u0438\u0441\u0430\u043d\u044b \u043f\u043e \u0441\u0441\u044b\u043b\u043a\u0435 <a href=\"https://allmychanges.com/p/python/pex/#1.1.13\">https://allmychanges.com/p/python/pex/#1.1.13</a>. \u0421\u043a\u0430\u0447\u0430\u0442\u044c \u043c\u043e\u0436\u043d\u043e \u043f\u043e \u0441\u0441\u044b\u043b\u043a\u0435: <a href=\"None\">None</a>",
+        "published_at": "2016-07-17T21:30:05Z",
+        "source": "pythondigest",
+        "external_id": "8932cec438c39fb465857ffc7ec240ac",
+        "image": "",
+        "is_active": true,
+        "is_featured": false
+    }
+},
+{
+    "model": "news.article",
+    "pk": 8,
+    "fields": {
+        "created": "2016-07-24T10:19:51.073Z",
+        "modified": "2016-07-24T12:08:10.585Z",
+        "url": "https://github.com/awslabs/chalice",
+        "name": "Chalice - \u0432\u0435\u0431-\u0444\u0440\u0435\u0439\u043c\u0432\u043e\u0440\u043a \u0434\u043b\u044f \u043d\u0430\u043f\u0438\u0441\u0430\u043d\u0438\u044f \u043f\u0440\u043e\u0435\u043a\u0442\u043e\u0432 \u043d\u0430 \u0431\u0430\u0437\u0435 Amazon API",
+        "description": "<p>\u041f\u0435\u0440\u0432\u0430\u044f \u0432\u0435\u0440\u0441\u0438\u044f serverless \u0432\u0435\u0431-\u0444\u0440\u0435\u0439\u043c\u0432\u043e\u0440\u043a\u0430 \u043e\u0442 AWSLabs. \u041f\u043e\u0437\u0432\u043e\u043b\u044f\u0435\u0442 \u043f\u0438\u0441\u0430\u0442\u044c \u0438 \u0434\u0435\u043f\u043b\u043e\u0438\u0442\u044c \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u044f, \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u044e\u0449\u0438\u0435 Amazon API Gateway \u0438 AWS Lambda.</p>",
+        "published_at": "2016-07-19T10:35:01Z",
+        "source": "pythondigest",
+        "external_id": "e0ad27c6222362f48a2e2ccc964a602c",
+        "image": "",
+        "is_active": true,
+        "is_featured": false
+    }
+},
+{
+    "model": "news.article",
+    "pk": 9,
+    "fields": {
+        "created": "2016-07-24T10:19:51.074Z",
+        "modified": "2016-07-24T12:08:10.592Z",
+        "url": "https://allmychanges.com/p/python/aiohttp/#0.22.1",
+        "name": "aiohttp - 0.22.1",
+        "description": "http \u043a\u043b\u0438\u0435\u043d\u0442/\u0441\u0435\u0440\u0432\u0435\u0440 \u0434\u043b\u044f asyncio. \u0418\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u044f \u043e\u043f\u0438\u0441\u0430\u043d\u044b \u043f\u043e \u0441\u0441\u044b\u043b\u043a\u0435 <a href=\"https://allmychanges.com/p/python/aiohttp/#0.22.1\">https://allmychanges.com/p/python/aiohttp/#0.22.1</a>. \u0421\u043a\u0430\u0447\u0430\u0442\u044c \u043c\u043e\u0436\u043d\u043e \u043f\u043e \u0441\u0441\u044b\u043b\u043a\u0435: <a href=\"None\">None</a>",
+        "published_at": "2016-07-17T21:30:05Z",
+        "source": "pythondigest",
+        "external_id": "240c12b9b11c92f034f4ac6fa6114af3",
+        "image": "",
+        "is_active": true,
+        "is_featured": false
+    }
+},
+{
+    "model": "news.article",
+    "pk": 10,
+    "fields": {
+        "created": "2016-07-24T10:19:51.076Z",
+        "modified": "2016-07-24T10:51:26.866Z",
+        "url": "http://dev2dev.ru/",
+        "name": "PyCon Siberia 2016",
+        "description": "<p>\u041a\u043e\u043c\u0430\u043d\u0434\u0430 dev2dev.ru \u0441\u043e\u0432\u043c\u0435\u0441\u0442\u043d\u043e \u0441 Python \u0441\u043e\u043e\u0431\u0449\u0435\u0441\u0442\u043e\u043c PyNSK \u043e\u0440\u0433\u0430\u043d\u0438\u0437\u0443\u0435\u0442 \u043a\u043e\u043d\u0444\u0435\u0440\u0435\u043d\u0446\u0438\u044e 1-2 \u043e\u043a\u0442\u044f\u0431\u0440\u044f 2016 \u0433\u043e\u0434\u0430 \u0432 \u041a\u0440\u0430\u0441\u043d\u043e\u044f\u0440\u0441\u043a\u0435.</p>",
+        "published_at": "2016-07-18T07:54:26Z",
+        "source": "pythondigest",
+        "external_id": "d2db9da69a8920f0a4b6cba10c8bee5f",
+        "image": "",
+        "is_active": true,
+        "is_featured": false
+    }
+},
+{
+    "model": "news.article",
+    "pk": 11,
+    "fields": {
+        "created": "2016-07-24T11:35:56.039Z",
+        "modified": "2016-07-24T12:08:07.718Z",
+        "url": "http://github.com/PokemonGoF/PokemonGo-Bot",
+        "name": "PokemonGo-Bot - \u0431\u043e\u0442 \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430 \u043f\u043e\u043a\u0435\u043c\u043e\u043d\u043e\u0432",
+        "description": "",
+        "published_at": "2016-07-24T11:01:36Z",
+        "source": "",
+        "external_id": "0ca7fefacb3d0f2c8911b6ffbc6643b3",
+        "image": "",
+        "is_active": true,
+        "is_featured": false
+    }
+}
+]

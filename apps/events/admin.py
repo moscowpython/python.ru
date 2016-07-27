@@ -11,4 +11,4 @@ class CityAdmin(admin.ModelAdmin):
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
     list_display = ['name', 'city', 'date', 'is_active', 'url']
-    list_filter = ['city',]
+    list_filter = ['city']

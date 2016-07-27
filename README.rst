@@ -35,7 +35,7 @@ Tests
 =====
 ::
 
-    py.test
+    py.test --flake8 --cov=apps --cov=python_ru
 
 Deployment
 ==========

@@ -14,6 +14,7 @@ my_vcr = vcr.VCR(
     decode_compressed_response=True
 )
 
+
 @my_vcr.use_cassette
 @pytest.mark.django_db
 def test_pythondigest():

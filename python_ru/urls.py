@@ -7,7 +7,7 @@ from apps.news import  views as news_views
 
 
 urlpatterns = [
-    url(r'^$', news_views.IndexView.as_view(), name='home'),
+    url(r'^$', news_views.IndexView.as_view(), name='index'),
 
     url(r'^admin/', include(admin.site.urls)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

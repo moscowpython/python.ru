@@ -1,197 +1,217 @@
 <html>
-    <head>
-        <meta charset='utf-8'>
-        <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-        <style>
-            body.python {
-                font-size: 17px;
-                font-weight: inherit;
-                line-height: 1.2em;
-                margin-left: 200px;
-                margin-right: 200px;
-                letter-spacing: 0;
-                color: #5a5c5b;
-                font-family: 'PT Sans';
-                /*text-align: center;*/
-                background-color: rgb(211, 204, 195);
-            }
+<head>
+    <meta charset='utf-8'>
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <style>
+        body {
+            color: #5a5c5b;
+            font-family: 'PT Sans';
+            /*text-align: center;*/
+            background-color: rgb(211, 204, 195);
+        }
+        .python {
+            font-size: 17px;
+            font-weight: inherit;
+            line-height: 1.2em;
+            margin-left: 200px;
+            margin-right: 200px;
+            letter-spacing: 0;
+        }
 
-            .python h2 {
-                line-height: 56px;
-                text-transform: uppercase;
-                letter-spacing: .1em;
-                color: #5a5c5b;
-                font-size: 30px;
-                text-align: center;
-            }
+        .python h2 {
+            line-height: 56px;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: #5a5c5b;
+            font-size: 30px;
+            text-align: center;
+        }
 
-            .python img {
-                margin-bottom: 50px;
-            }
+        .python img {
+            margin-bottom: 50px;
+        }
 
-            .python .promo {
-                text-align: center;
-            }
-        </style>
-    </head>
-    <body class="python">
-        <div class="promo">
-            <h2>Тут скоро будет круто</h2>
-            <img src="static/images/star.png">
-            <div>А пока сходите на <a href="http://www.moscowpython.ru/">moscowpython.ru</a> – там много интересных докладов про Python.</div>
-            <div>Или гляньте <a href="https://www.facebook.com/groups/MoscowDjango/">нашу группу в Фейсбуке</a>, там вся движуха: анонсы, новости, вакансии, шуточки и котики.</div>
-            <div>А, и подпишитесь <a data-toggle="modal" data-target="#subscribeModal" href="#">на нашу рассылку</a>. Впереди много интересного и мы хотим об этом рассказать. Спама не будет, даже не просите.</div>
-        </div>
-        <br/>
-        <br/>
-        <br/>
-        <h2>Кто мы такие</h2>
-        <p>
-            Мы – евангелисты сообщества <a href="http://www.moscowpython.ru/">MoscowPython</a>. Занимаемся развитием Python-сообщества: организуем курсы, встречи, конференции и другую движуху.
-        </p>
-        <p>
-            Представьте, как круто: новички знают, где учиться, середнячки – где работать и что подтянуть, профи делятся опытом, принося пользу и себе и сообществу.
-            Все общаются в одной среде: знают, какие и где проходят мероприятия и могут организовать своё.
-        </p>
-        <p>
-            Представили? Мы как раз над этим и работаем.
-        </p>
-        <p>
-            Сейчас мы <a href="http://www.moscowpython.ru/">проводим митапы</a> и <a href="http://learn.python.ru/">офлайн-курсы для новичков</a>.
-        </p>
-        <p>
-            На внутренней кухне у нас тоже всё кипит: мы готовим много крутых штук, но рассказывать пока не будем – сюрприз.
-        </p>
-        <p>
-            А вот и сами мы: <a href="https://www.facebook.com/val.dombrovsky" target="_blank">Валентин</a>,
-                <a href="https://www.facebook.com/korneevm" target="_blank">Михаил</a>,
-                <a href="https://www.facebook.com/profile.php?id=100000764232977" target="_blank">Илья</a>,
-                <a href="https://www.facebook.com/grigoryvp" target="_blank">Григорий</a>,
-                <a href="https://www.facebook.com/pyhoster" target="_blank">Владимир</a>,
-                <a href="https://www.facebook.com/melevir" target="_blank">Илья</a>.
-        </p>
-        <p>
-            Мы открыты для предложений по продвижению Python в России.
-            Пишите кому-то в личку, а лучше на&nbsp;<a href="mailto:team@python.ru">team@python.ru</a> – так мы быстрее заметим письмо.
-        </p>
-        <p>
-            Особенно пишите, если вы – локальное Python-сообщество. Оповестим всех подряд, поможем с поиском партнёров, поделимся опытом.
-        </p>
-        <br/>
-        <br/>
-        <p>
-            <a data-toggle="modal" data-target="#subscribeModal" href="#">На нашу рассылку</a> подписались? Мы не просто так повторяем: там правда самый сок.
-        </p>
+        .python .promo {
+            text-align: center;
+        }
+        #top-banner {
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 100%;
+            height: 129px;
+            background-image:url("static/images/conf.banner.png");
+        }
+        #top-banner a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="top-banner">
+    <a href="http://conf.python.ru/?utm_source=pythonru&utm_medium=banner&utm_campaign=top" target="_blank"></a>
+</div>
+<div class="python">
+    <div class="promo">
+        <h2>Тут скоро будет круто</h2>
+        <img src="static/images/star.png">
+        <div>А пока сходите на <a href="http://www.moscowpython.ru/">moscowpython.ru</a> – там много интересных докладов про Python.</div>
+        <div>Или гляньте <a href="https://www.facebook.com/groups/MoscowDjango/">нашу группу в Фейсбуке</a>, там вся движуха: анонсы, новости, вакансии, шуточки и котики.</div>
+        <div>А, и подпишитесь <a data-toggle="modal" data-target="#subscribeModal" href="#">на нашу рассылку</a>. Впереди много интересного и мы хотим об этом рассказать. Спама не будет, даже не просите.</div>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <h2>Кто мы такие</h2>
+    <p>
+        Мы – евангелисты сообщества <a href="http://www.moscowpython.ru/">MoscowPython</a>. Занимаемся развитием Python-сообщества: организуем курсы, встречи, конференции и другую движуху.
+    </p>
+    <p>
+        Представьте, как круто: новички знают, где учиться, середнячки – где работать и что подтянуть, профи делятся опытом, принося пользу и себе и сообществу.
+        Все общаются в одной среде: знают, какие и где проходят мероприятия и могут организовать своё.
+    </p>
+    <p>
+        Представили? Мы как раз над этим и работаем.
+    </p>
+    <p>
+        Сейчас мы <a href="http://www.moscowpython.ru/">проводим митапы</a> и <a href="http://learn.python.ru/">офлайн-курсы для новичков</a>.
+    </p>
+    <p>
+        На внутренней кухне у нас тоже всё кипит: мы готовим много крутых штук, но рассказывать пока не будем – сюрприз.
+    </p>
+    <p>
+        А вот и сами мы: <a href="https://www.facebook.com/val.dombrovsky" target="_blank">Валентин</a>,
+        <a href="https://www.facebook.com/korneevm" target="_blank">Михаил</a>,
+        <a href="https://www.facebook.com/profile.php?id=100000764232977" target="_blank">Илья</a>,
+        <a href="https://www.facebook.com/grigoryvp" target="_blank">Григорий</a>,
+        <a href="https://www.facebook.com/pyhoster" target="_blank">Владимир</a>,
+        <a href="https://www.facebook.com/melevir" target="_blank">Илья</a>.
+    </p>
+    <p>
+        Мы открыты для предложений по продвижению Python в России.
+        Пишите кому-то в личку, а лучше на&nbsp;<a href="mailto:team@python.ru">team@python.ru</a> – так мы быстрее заметим письмо.
+    </p>
+    <p>
+        Особенно пишите, если вы – локальное Python-сообщество. Оповестим всех подряд, поможем с поиском партнёров, поделимся опытом.
+    </p>
+    <br/>
+    <br/>
+    <p>
+        <a data-toggle="modal" data-target="#subscribeModal" href="#">На нашу рассылку</a> подписались? Мы не просто так повторяем: там правда самый сок.
+    </p>
 
 
-        <div class="modal fade" tabindex="-1" role="dialog" id="subscribeModal">
-          <div class="modal-dialog">
+    <div class="modal fade" tabindex="-1" role="dialog" id="subscribeModal">
+        <div class="modal-dialog">
             <div class="modal-content">
-              <div class="modal-body">
-                <!-- Begin MailChimp Signup Form -->
-                <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
-                <style type="text/css">
-                    #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
-                    /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-                       We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-                </style>
-                <div id="mc_embed_signup">
-                <form action="//moscowpython.us10.list-manage.com/subscribe/post?u=c697064155714e24c8be7e9d8&amp;id=486b0715ab" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                    <div id="mc_embed_signup_scroll">
-                    <h2></h2>
-                <div class="mc-field-group">
-                    <label for="mce-EMAIL">Email *</label>
-                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
-                </div>
-                <div class="mc-field-group">
-                    <label for="mce-FNAME">Имя</label>
-                    <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
-                </div>
-                <div class="mc-field-group">
-                    <label for="mce-LNAME">Фамилия</label>
-                    <input type="text" value="" name="LNAME" class="" id="mce-LNAME">
-                </div>
-                    <div id="mce-responses" class="clear">
-                        <div class="response" id="mce-error-response" style="display:none"></div>
-                        <div class="response" id="mce-success-response" style="display:none"></div>
-                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_c697064155714e24c8be7e9d8_486b0715ab" tabindex="-1" value=""></div>
-                    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-                    </div>
-                    </form>
+                <div class="modal-body">
+                    <!-- Begin MailChimp Signup Form -->
+                    <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+                    <style type="text/css">
+                        #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+                        /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+                           We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+                    </style>
+                    <div id="mc_embed_signup">
+                        <form action="//moscowpython.us10.list-manage.com/subscribe/post?u=c697064155714e24c8be7e9d8&amp;id=486b0715ab" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                            <div id="mc_embed_signup_scroll">
+                                <h2></h2>
+                                <div class="mc-field-group">
+                                    <label for="mce-EMAIL">Email *</label>
+                                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+                                </div>
+                                <div class="mc-field-group">
+                                    <label for="mce-FNAME">Имя</label>
+                                    <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+                                </div>
+                                <div class="mc-field-group">
+                                    <label for="mce-LNAME">Фамилия</label>
+                                    <input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+                                </div>
+                                <div id="mce-responses" class="clear">
+                                    <div class="response" id="mce-error-response" style="display:none"></div>
+                                    <div class="response" id="mce-success-response" style="display:none"></div>
+                                </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_c697064155714e24c8be7e9d8_486b0715ab" tabindex="-1" value=""></div>
+                                <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                            </div>
+                        </form>
                     </div>
                     <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text'; /*
-                     * Translated default messages for the $ validation plugin.
-                     * Locale: RU
-                     */
+                 * Translated default messages for the $ validation plugin.
+                 * Locale: RU
+                 */
                     $.extend($.validator.messages, {
-                            required: "Это поле необходимо заполнить.",
-                            remote: "Пожалуйста, введите правильное значение.",
-                            email: "Пожалуйста, введите корректный адрес электронной почты.",
-                            url: "Пожалуйста, введите корректный URL.",
-                            date: "Пожалуйста, введите корректную дату.",
-                            dateISO: "Пожалуйста, введите корректную дату в формате ISO.",
-                            number: "Пожалуйста, введите число.",
-                            digits: "Пожалуйста, вводите только цифры.",
-                            creditcard: "Пожалуйста, введите правильный номер кредитной карты.",
-                            equalTo: "Пожалуйста, введите такое же значение ещё раз.",
-                            accept: "Пожалуйста, выберите файл с правильным расширением.",
-                            maxlength: $.validator.format("Пожалуйста, введите не больше {0} символов."),
-                            minlength: $.validator.format("Пожалуйста, введите не меньше {0} символов."),
-                            rangelength: $.validator.format("Пожалуйста, введите значение длиной от {0} до {1} символов."),
-                            range: $.validator.format("Пожалуйста, введите число от {0} до {1}."),
-                            max: $.validator.format("Пожалуйста, введите число, меньшее или равное {0}."),
-                            min: $.validator.format("Пожалуйста, введите число, большее или равное {0}.")
+                        required: "Это поле необходимо заполнить.",
+                        remote: "Пожалуйста, введите правильное значение.",
+                        email: "Пожалуйста, введите корректный адрес электронной почты.",
+                        url: "Пожалуйста, введите корректный URL.",
+                        date: "Пожалуйста, введите корректную дату.",
+                        dateISO: "Пожалуйста, введите корректную дату в формате ISO.",
+                        number: "Пожалуйста, введите число.",
+                        digits: "Пожалуйста, вводите только цифры.",
+                        creditcard: "Пожалуйста, введите правильный номер кредитной карты.",
+                        equalTo: "Пожалуйста, введите такое же значение ещё раз.",
+                        accept: "Пожалуйста, выберите файл с правильным расширением.",
+                        maxlength: $.validator.format("Пожалуйста, введите не больше {0} символов."),
+                        minlength: $.validator.format("Пожалуйста, введите не меньше {0} символов."),
+                        rangelength: $.validator.format("Пожалуйста, введите значение длиной от {0} до {1} символов."),
+                        range: $.validator.format("Пожалуйста, введите число от {0} до {1}."),
+                        max: $.validator.format("Пожалуйста, введите число, меньшее или равное {0}."),
+                        min: $.validator.format("Пожалуйста, введите число, большее или равное {0}.")
                     });}(jQuery));var $mcj = jQuery.noConflict(true);</script>
                     <!--End mc_embed_signup-->
-              </div>
+                </div>
             </div><!-- /.modal-content -->
-          </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</div>
 
 
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-        (function (d, w, c) {
-            (w[c] = w[c] || []).push(function() {
-                try {
-                    w.yaCounter36362740 = new Ya.Metrika({
-                        id:36362740,
-                        clickmap:true,
-                        trackLinks:true,
-                        accurateTrackBounce:true
-                    });
-                } catch(e) { }
-            });
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter36362740 = new Ya.Metrika({
+                    id:36362740,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
 
-            var n = d.getElementsByTagName("script")[0],
+        var n = d.getElementsByTagName("script")[0],
                 s = d.createElement("script"),
                 f = function () { n.parentNode.insertBefore(s, n); };
-            s.type = "text/javascript";
-            s.async = true;
-            s.src = "https://mc.yandex.ru/metrika/watch.js";
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
 
-            if (w.opera == "[object Opera]") {
-                d.addEventListener("DOMContentLoaded", f, false);
-            } else { f(); }
-        })(document, window, "yandex_metrika_callbacks");
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/36362740" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/36362740" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-76163383-1', 'auto');
-      ga('send', 'pageview');
+    ga('create', 'UA-76163383-1', 'auto');
+    ga('send', 'pageview');
 
     </script>
     <script src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script type="text/javascript">(window.Image ? (new Image()) : document.createElement('img')).src = location.protocol + '//vk.com/rtrg?r=rMFPKf5XsBOkyFnhVuuCB*sk2MtYdGxkHpF*/ydkYXmbvvXJXZCE0hZmetQgWrWd1umw7ylDNVS5Whv/pVUzLK0FT4Nrk*399Cy9nWwHw*RHMPDKusRyK0qifR5YFXy/iUv*LGjIB7HmGQ6crvbCv0j3eCS9NVHz5oDy4*FWvf0-';</script>
-    </body>
+</body>
 </html>

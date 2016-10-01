@@ -423,59 +423,50 @@ th {
 	padding: 0;
 }
 
+/* https://icomoon.io/app/ */
+
 @font-face {
-	font-family: "icomoon";
-	src: url("../fonts/icomoon.eot?4fizus");
-	src: url("../fonts/icomoon.eot?4fizus#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?4fizus") format("truetype"), url("../fonts/icomoon.woff?4fizus") format("woff"), url("../fonts/icomoon.svg?4fizus#icomoon") format("svg");
-	font-weight: normal;
-	font-style: normal;
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?7tgs5z');
+  src:  url('../fonts/icomoon.eot?7tgs5z#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?7tgs5z') format('truetype'),
+    url('../fonts/icomoon.woff?7tgs5z') format('woff'),
+    url('../fonts/icomoon.svg?7tgs5z#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
-[class^="icon-"],
-[class*=" icon-"] {
-	/* use !important to prevent issues with browser extensions that change fonts */
-	font-family: "icomoon" !important;
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1; /* Better Font Rendering =========== */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-bookmark:before {
-	content: "\e906";
+.icon-slack:before {
+  content: "\e901";
 }
-
 .icon-email:before {
-	content: "\e900";
+  content: "\e900";
 }
-
+.icon-bookmark:before {
+  content: "\1f328";
+}
 .icon-facebook:before {
-	content: "\e901";
+  content: "\ea90";
 }
-
-.icon-google-plus:before {
-	content: "\e902";
-}
-
-.icon-linkedin:before {
-	content: "\e903";
-}
-
 .icon-twitter:before {
-	content: "\e904";
+  content: "\ea96";
 }
 
-.icon-vkontakte:before {
-	content: "\e905";
-}
-
-.icon-bubble:before {
-	content: "\e96b";
-}
 
 .social-networks,
 .primary-menu,
@@ -1185,7 +1176,7 @@ input[type="submit"] {
 }
 
 .articles-list .title:before {
-	content: "\e906";
+	content: "\1f328";
 	position: absolute;
 	top: -2px;
 	left: -44px;

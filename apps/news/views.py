@@ -21,7 +21,7 @@ class IndexView(TemplateView):
             'social_links': [
                 {'id': 'facebook', 'url': 'https://www.facebook.com/groups/MoscowDjango/', 'name': 'facebook'},
                 {'id': 'twitter', 'url': 'https://twitter.com/moscowpython', 'name': 'twitter'},
-                # {'id': 'bubble', 'url': 'https://python.stamplayapp.com/', 'name': 'slack'},
+                {'id': 'slack', 'url': 'https://python.stamplayapp.com/', 'name': 'slack'},
             ]
         })
         return context

@@ -16,7 +16,7 @@ class IndexView(TemplateView):
             'article_featured': article_featured,
             'articles_top': [a for a in Article.objects.active()[:3] if a != article_featured],
             'articles_all': [a for a in Article.objects.active()[3:10] if a != article_featured],
-            'events': Event.objects.active()[:5],
+            'events': Event.objects.upcoming()[:5],
             'links': sorted(Link.objects.all(), key=lambda i: Link.SECTION_SLUGS.index(i.section)),
             'social_links': [
                 {'id': 'fb', 'url': 'https://www.facebook.com/groups/MoscowDjango/', 'name': 'facebook'},

@@ -35,16 +35,5 @@ Tests
 =====
 ::
 
-    py.test --flake8 --cov=apps --cov=python_ru
-
-Deployment
-==========
-
-For details, see `heroku deploying with git docs`_.
-
-::
-
-    git push heroku feature/launch:master
-    # after merging launch branch just: git push heroku master
-
-.. _heroku deploying with git docs: https://devcenter.heroku.com/articles/git
+    $ pip install tox
+    $ tox

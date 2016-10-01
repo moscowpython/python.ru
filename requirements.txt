@@ -4,7 +4,6 @@ dj-database-url==0.4.1
 gunicorn==19.6.0
 whitenoise==3.2
 django-storages==1.4.1
-boto==2.42
 django-model-utils==2.5
 feedparser==5.2.1
 Pillow==3.3.0

@@ -1,4 +1,5 @@
 import hashlib
+import logging
 
 import bleach
 import feedparser
@@ -10,6 +11,9 @@ from django.db import IntegrityError
 from lxml.html import fromstring
 
 from apps.news.models import Article
+
+
+logger = logging.getLogger('management.pythondigest')
 
 
 class Command(BaseCommand):
@@ -42,9 +46,9 @@ class Command(BaseCommand):
                 if image_bytes and options['update_images']:
                     article.image.save('cover-%s.jpg' % article.id, ContentFile(image_bytes))
             except IntegrityError:
-                self.stdout.write(self.style.NOTICE('Already existing article "%s"' % article_data['name']))
+                logger.info(self.style.NOTICE('Already existing article "%s"' % article_data['name']))
             else:
-                self.stdout.write(self.style.SUCCESS('Fetched article "%s"' % article.name))
+                logger.info(self.style.SUCCESS('Fetched article "%s"' % article.name))
 
 
 def fetch_image_from_summary(html):

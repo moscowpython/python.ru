@@ -3,6 +3,7 @@ from django.utils.translation import ugettext as _
 
 from apps.news.models import Article
 
+
 class HasImage(admin.SimpleListFilter):
     title = _('Есть картинка')
     parameter_name = 'image'

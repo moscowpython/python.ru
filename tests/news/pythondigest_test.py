@@ -27,7 +27,7 @@ def test_pythondigest():
     assert article.name == 'PokemonGo-Bot - бот для поиска покемонов'
     assert article.description == ''
     assert article.published_at == datetime.datetime(2016, 7, 24, 11, 1, 36, tzinfo=utc)
-    assert article.is_active
+    assert not article.is_active
     assert not article.is_featured
 
     article = Article.objects.order_by('-published_at', 'id').first()

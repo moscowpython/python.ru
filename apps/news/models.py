@@ -24,7 +24,7 @@ class Article(TimeStampedModel):
     source = models.CharField('Источник', max_length=32, choices=Choices('pythondigest',))
     external_id = models.CharField('Внешний ID', max_length=32, unique=True, blank=True, null=True, editable=False)
     image = models.ImageField('Изображение', blank=True, upload_to='articles')
-    is_active = models.BooleanField('Показывать на сайте', default=True)
+    is_active = models.BooleanField('Показывать', default=False)
     is_featured = models.BooleanField('Главная новость', default=False)
 
     objects = ArticleQuerySet.as_manager()

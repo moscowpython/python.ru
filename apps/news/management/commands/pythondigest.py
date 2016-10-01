@@ -20,13 +20,13 @@ class Command(BaseCommand):
             '--update',
             action='store_true',
             default=False,
-            help='Delete article and replace with new one',
+            help='Update existing articles data',
         )
         parser.add_argument(
             '--update-images',
             action='store_true',
             default=False,
-            help='Delete article and replace with new one',
+            help='Update existing articles images',
         )
 
     def handle(self, *args, **options):

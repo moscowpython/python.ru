@@ -5,64 +5,35 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>Python.ru</title>
-  <link rel="icon" type="image/png"  href="{% static "favicon/favicon.png" %} ">
 	<link media="all" rel="stylesheet" href="{% static "css/all.css" %}" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+	<link rel="apple-touch-icon" sizes="180x180" href="{% static "favicons/apple-touch-icon.png" %}">
+	<link rel="icon" type="image/png" href="{% static "favicons/favicon-32x32.png" %}" sizes="32x32">
+	<link rel="icon" type="image/png" href="{% static "favicons/favicon-16x16.png" %}" sizes="16x16">
+	<link rel="manifest" href="{% static "favicons/manifest.json" %}">
+	<link rel="mask-icon" href="{% static "favicons/safari-pinned-tab.svg" %}" color="#5bbad5">
+	<meta name="theme-color" content="#ffffff">
 </head>
 <body>
 	<div id="wrapper">
+		<div class="w1">
+      {% include 'blocks/header.html' %}
 
-    {% include 'blocks/header.html' %}
+      <main>
+        {% include 'blocks/news.html' %}
+        {% include 'blocks/subscribe.html' %}
+        {% include 'blocks/events.html' %}
+        {% include 'blocks/about_us.html' %}
+        {% include 'blocks/links.html' %}
+{#        {% include 'blocks/contact_us.html' %}#}
+      </main>
 
-		<main>
-
-      {% include 'blocks/news.html' %}
-
-      {% include 'blocks/subscribe.html' %}
-
-			{% include 'blocks/events.html' %}
-
-      {% include 'blocks/about_us.html' %}
-
-      {% include 'blocks/links.html' %}
-			
-			<section class="contact">
-				<div class="container">
-					<h2>Связаться с нами</h2>
-					<p>Есть идеи и пожелания по развитию сообщества? Пишите, будем рады знать.</p>
-					<form class="contact-form">
-						<fieldset>
-							<div class="row">
-								<input type="text" name="name" placeholder="Имя" />
-								<input type="email" name="email" placeholder="Email" />
-							</div>
-							<textarea name="message" cols="50" rows="10" placeholder="Сообщение"></textarea>
-							<button type="submit" class="form-btn">Отправить</button>
-						</fieldset>
-					</form>
-				</div>
-			</section>
-		</main>
-
-    {% include 'blocks/footer.html' %}
-
+      {% include 'blocks/footer.html' %}
+		</div>
 	</div>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script type="text/javascript" src="{% static "js/masonry.pkgd.min.js" %}"></script>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$('#news-container').masonry({
-		  		itemSelector: '.news-item',
-			  	singleMode: true,
-		  		isResizable: true,
-				isAnimated: true,
-				gutter: '.gutter-sizer',
-			  	animationOptions: { 
-					queue: false, 
-			  		duration: 300 
-				}
-			}); 
-	  });
-	</script>
+	<script type="text/javascript" src="{% static "js/jquery.main.js" %}"></script>
   {% include 'blocks/analytics.html' %}
 </body>
 </html>

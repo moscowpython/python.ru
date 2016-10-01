@@ -1,14 +1,14 @@
 {% load content_filters %}
-<section class="links">
+<section class="info-section">
   <div class="container">
-    <h2>Что полезного почитать</h2>
-    <div class="links-holder">
+    <div class="title"><h1>Что полезного почитать</h1></div>
+    <div class="columns-holder">
       {% regroup links by section as section_list %}
 
       {% for section in section_list %}
       <div class="column">
-        <h3>{{ section.grouper|get_section_name }}</h3>
-        <ul class="links-list">
+        <h2>{{ section.grouper|get_section_name }}</h2>
+        <ul>
           {% for link in section.list %}
           <li><a href="{{ link.url }}">{{ link.name }}</a></li>
           {% endfor %}

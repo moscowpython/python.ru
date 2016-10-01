@@ -1,51 +1,58 @@
 {% load staticfiles %}
-<section class="news">
+<section class="news-section">
   <div class="container">
-    <div class="news-holder">
+    <div class="js-masonry" data-masonry-options='{"columnWidth": 2, "itemSelector": ".grid-item" }'>
 
       {# Featured article #}
-      <div class="main-news">
-        {% if article_featured.image %}<img src="{{ article_featured.image.url }}" alt="" />{% endif %}
-        <div class="main-news-title">
-          <time>{{ article_featured.published_at|date:"j E Y" }}</time>
-          <h2><a href="{{ article_featured.url }}" target="_blank">
-            {{ article_featured.name }}
-          </a></h2>
+      <article class="grid-item large">
+        <div class="item-holder">
+          {% if article_featured.image %}<img src="{{ article_featured.image.url }}" width="792" height="529" alt="">{% endif %}
+          <div class="description">
+            <time datetime="">{{ article_featured.published_at|date:"j E Y" }}</time>
+            <h1><a href="{{ article_featured.url }}" target="_blank">
+              {{ article_featured.name }}
+            </a></h1>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="latest-news">
-        <h2>Новости</h2>
-        <ul class="news-list">
-          {% for article in articles_top %}
-          <li>
-            <time>{{ article.published_at|date:"j E Y" }}</time>
-            <a href="{{ article.url }}" target="_blank">
-              {{ article.name }}
-            </a>
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
-
-    <div id="news-container">
-      <div class="gutter-sizer"></div>
+      {# News right sidebar #}
+      <section class="grid-item articles-list">
+        <div class="item-holder">
+          <strong class="title">Новости</strong>
+          <div class="articles-holder">
+            {% for article in articles_top %}
+            <article class="article">
+              <time datetime="">{{ article.published_at|date:"j E Y" }}</time>
+              <h1><a href="{{ article.url }}" target="_blank">
+                {{ article.name }}
+              </a></h1>
+            </article>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
 
       {% for article in articles_all %}
-      <div class="news-item">
-        {% if article.image %}<img src="{{ article.image.url }}" alt="" />{% endif %}
-        <div class="text-block">
-          <time>{{ article.published_at|date:"j E Y" }}</time>
-          <h3><a href="{{ article.url }}" target="_blank">{{ article.name }}</a></h3>
-          {{ article.description|safe }}
+      <article class="grid-item">
+        <div class="item-holder">
+          {% if article.image %}
+          <div class="image-holder">
+            <img src="{{ article.image.url }}" width="384" height="256" alt="">
+          </div>
+          {% endif %}
+          <div class="text-holder">
+            <time datetime="">{{ article.published_at|date:"j E Y" }}</time>
+            <h1><a href="{{ article.url }}" target="_blank">{{ article.name }}</a></h1>
+            {{ article.description|safe }}
+          </div>
         </div>
-      </div>
+      </article>
       {% endfor %}
     </div>
 
-{#    <div class="more-btn">#}
-{#      <a href="#">Показать еще</a>#}
+{#    <div class="btn-holder">#}
+{#      <a href="#" class="btn-default btn-more">Показать ещё</a>#}
 {#    </div>#}
   </div>
 </section>

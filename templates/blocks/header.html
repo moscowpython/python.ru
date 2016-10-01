@@ -1,21 +1,27 @@
 {% load staticfiles %}
-<header id="header">
+<header class="header">
   <div class="container">
-    <h1 class="logo">
-      <a href="#">Python Ru</a>
-    </h1>
-    <ul class="social-list">
+    <!-- logo -->
+    <div class="logo"><a href="#"><img src="{% static 'images/logo.png' %}" width="133" height="27" alt="Python.ru"></a></div>
+    <!-- main navigation -->
+    <nav class="main-nav">
+      <a href="#" class="nav-opener"><span>Menu</span></a>
+      <div class="nav-drop">
+        <ul class="primary-menu">
+          <li><a href="#">Новости</a></li>
+          <li><a href="#">Анонсы</a></li>
+          <li><a href="#">О проекте</a></li>
+          <li><a href="#">Ресурсы</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- social networks -->
+    <ul class="social-networks">
       {% for social_link in social_links %}
-        <li class="{{ social_link.id }}"><a href="{{ social_link.url }}">{{ social_link.name }}</a></li>
+        <li>
+          <a href="{{ social_link.url }}" class="icon-{{ social_link.id }}">{{ social_link.name }}</a>
+        </li>
       {% endfor %}
     </ul>
-    <nav>
-      <ul class="nav" id="nav">
-        <li><a href="#">Новости</a></li>
-        <li><a href="#">Анонсы</a></li>
-        <li><a href="#">О проекте</a></li>
-        <li><a href="#">Ресурсы</a></li>
-      </ul>
-    </nav>
   </div>
 </header>

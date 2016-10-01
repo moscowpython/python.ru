@@ -1,22 +1,24 @@
 {% load staticfiles %}
-<section class="near-events">
+<section class="events-section">
   <div class="container">
-    <h2>Ближайшие события</h2>
-    <div class="holder">
-      <div class="map">
-        <img src="{% static "images/map.png" %}" alt="Карта событий"/>
-      </div>
+    <div class="title-holder">
+      <h1>Ближайшие события</h1>
+    </div>
+    <div class="image-holder">
+      <img src="{% static "images/img-map.png" %}" width="415" height="245" alt="Карта событий">
+    </div>
+    <div class="events-holder">
+      <!-- events list -->
       <ul class="events-list">
         {% for event in events %}
         <li>
-          <div class="event-date">
-            <span class="date">{{ event.date|date:"d" }}</span>
-									<span class="day">
-										<span>{{ event.date|date:"E" }},</span>
-										<span>{{ event.date|date:"l"|lower }}</span>
-									</span>
+          <time datetime="{{ event.date|date:"Y-m-d H:m" }}">
+            <span class="number-holder">{{ event.date|date:"d" }}</span>
+            <span class="text-holder">{{ event.date|date:"E, l"|lower }}</span>
+          </time>
+          <div class="event-holder">
+            <a href="{{ event.url }}" target="_blank">{{ event.name }}</a>
           </div>
-          <h3><a href="{{ event.url }}" target="_blank">{{ event.name }}</a></h3>
         </li>
         {% endfor %}
       </ul>

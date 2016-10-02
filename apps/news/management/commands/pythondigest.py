@@ -1,3 +1,4 @@
+import datetime
 import hashlib
 import logging
 
@@ -8,6 +9,7 @@ from dateutil import parser
 from django.core.files.base import ContentFile
 from django.core.management.base import BaseCommand
 from django.db import IntegrityError
+from django.utils.timezone import make_aware
 from lxml.html import fromstring
 
 from apps.news.models import Article
@@ -32,9 +34,18 @@ class Command(BaseCommand):
             default=False,
             help='Update existing articles images',
         )
+        parser.add_argument(
+            '--date',
+            help='Fetch json API for specific date instead of RSS',
+        )
 
     def handle(self, *args, **options):
-        for article_data, image_bytes in pydigest_article_feed():
+        if options['date']:
+            feed = pydigest_articles_for_date(parser.parse(options['date']))
+        else:
+            feed = pydigest_article_feed()
+
+        for article_data, image_bytes in feed:
             try:
                 if options['update']:
                     external_id = article_data.pop('external_id')
@@ -84,4 +95,25 @@ def pydigest_article_feed():
             description=clean_html(summary),
             published_at=parser.parse(item['published']),
             external_id=hashlib.md5(item['id'].encode('utf-8')).hexdigest(),
+        ), image_bytes
+
+
+def pydigest_articles_for_date(date):
+    response = requests.get('https://pythondigest.ru/api/items/{year}/{month}/{day}/'.format(
+        year=date.year, month=date.month, day=date.day
+    ), headers={'User-Agent': 'PythonRuFetcher/1.0 +https://python.ru/'})
+    if not response.json()['ok']:
+        logger.info('No stuff found')
+        return
+
+    for item in response.json()['items']:
+        image_bytes, summary = fetch_image_from_summary(item['description'])
+        yield dict(
+            url=item['link'],
+            name=item['title'],
+            description=clean_html(summary),
+            published_at=make_aware(datetime.datetime.combine(date, datetime.datetime.min.time())),
+            language=item['language'],
+            section=item['section__title'],
+            external_id=hashlib.md5(item['link'].encode('utf-8')).hexdigest(),
         ), image_bytes

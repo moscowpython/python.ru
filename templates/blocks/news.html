@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load staticfiles nginx_image %}
 <section class="news-section" id="news">
   <div class="container">
     <div class="js-masonry" data-masonry-options='{"columnWidth": 2, "itemSelector": ".grid-item" }'>
@@ -6,7 +6,9 @@
       {# Featured article #}
       <article class="grid-item large">
         <div class="item-holder">
-          {% if article_featured.image %}<img src="{{ article_featured.image.url }}" width="792" height="529" alt="">{% endif %}
+          {% if article_featured.image %}
+            <img src="{% thumbnail article_featured.image 792 529 crop=1 %}" width="792" height="529" alt="">
+          {% endif %}
           <div class="description">
             <time datetime="">{{ article_featured.published_at|date:"j E Y" }}</time>
             <h1><a href="{{ article_featured.url }}" target="_blank">
@@ -38,7 +40,7 @@
         <div class="item-holder">
           {% if article.image %}
           <div class="image-holder">
-            <img src="{{ article.image.url }}" width="384" height="256" alt="">
+            <img src="{% thumbnail article.image 384 256 crop=1 %}" width="384" height="256" alt="">
           </div>
           {% endif %}
           <div class="text-holder">

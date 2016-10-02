@@ -30,7 +30,6 @@ DEBUG = os.environ.get('DEBUG', True)
 
 ALLOWED_HOSTS = ['.python.ru']
 
-
 # Application definition
 
 INSTALLED_APPS = (
@@ -44,7 +43,6 @@ INSTALLED_APPS = (
     # http://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
-    'storages',
 
     'apps.content',
     'apps.events',
@@ -169,3 +167,5 @@ LOGGING = {
         },
     },
 }
+
+DISABLE_RESIZER = os.environ.get('DISABLE_RESIZER', False)

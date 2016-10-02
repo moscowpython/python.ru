@@ -1,5 +1,5 @@
 {% load staticfiles %}
-<section class="news-section">
+<section class="news-section" id="news">
   <div class="container">
     <div class="js-masonry" data-masonry-options='{"columnWidth": 2, "itemSelector": ".grid-item" }'>
 
@@ -23,7 +23,7 @@
           <div class="articles-holder">
             {% for article in articles_top %}
             <article class="article">
-              <time datetime="">{{ article.published_at|date:"j E Y" }}</time>
+              <time datetime="{{ event.date|date:"Y-m-d H:m" }}">{{ article.published_at|date:"j E Y" }}</time>
               <h1><a href="{{ article.url }}" target="_blank">
                 {{ article.name }}
               </a></h1>
@@ -42,7 +42,7 @@
           </div>
           {% endif %}
           <div class="text-holder">
-            <time datetime="">{{ article.published_at|date:"j E Y" }}</time>
+            <time datetime="{{ event.date|date:"Y-m-d H:m" }}">{{ article.published_at|date:"j E Y" }}</time>
             <h1><a href="{{ article.url }}" target="_blank">{{ article.name }}</a></h1>
             {{ article.description|safe }}
           </div>

@@ -123,4 +123,14 @@ function initMobileNav() {
 			$.data(this, 'MobileNav', instance);
 		});
 	};
+
+	$('.js-navigation a').on('click', function(e){
+		e.preventDefault();
+		jQuery('body').data('MobileNav').hide();
+		var dest = $(this).attr('href');
+		$('html,body').animate({
+			scrollTop: $(dest).offset().top
+		}, 'slow');
+	});
+
 }(jQuery));

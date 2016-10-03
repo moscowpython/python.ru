@@ -95,6 +95,7 @@ def pydigest_article_feed():
             description=clean_html(summary),
             published_at=parser.parse(item['published']),
             external_id=hashlib.md5(item['id'].encode('utf-8')).hexdigest(),
+            source='pythondigest',
         ), image_bytes
 
 
@@ -116,4 +117,5 @@ def pydigest_articles_for_date(date):
             language=item['language'],
             section=item['section__title'],
             external_id=hashlib.md5(item['link'].encode('utf-8')).hexdigest(),
+            source='pythondigest'
         ), image_bytes

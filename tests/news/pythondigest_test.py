@@ -29,6 +29,7 @@ def test_pythondigest():
     assert article.published_at == datetime.datetime(2016, 7, 24, 11, 1, 36, tzinfo=utc)
     assert not article.is_active
     assert not article.is_featured
+    assert article.source == 'pythondigest'
 
     article = Article.objects.order_by('-published_at', 'id').first()
     assert article.description == '<p>Плейлист с видео с конференции SciPy 2016</p>'

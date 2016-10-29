@@ -16,8 +16,7 @@ my_vcr = vcr.VCR(
 
 
 @my_vcr.use_cassette
-@pytest.mark.django_db
-def test_pythondigest():
+def test_pythondigest(db):
     call_command('pythondigest')
 
     assert Article.objects.count() == 10
@@ -33,3 +32,10 @@ def test_pythondigest():
 
     article = Article.objects.order_by('-published_at', 'id').first()
     assert article.description == '<p>Плейлист с видео с конференции SciPy 2016</p>'
+
+
+@my_vcr.use_cassette
+def test_pythondigest_daterange(db):
+    call_command('pythondigest', days=2, till_date='2016-10-29')
+
+    assert Article.objects.count() == 2

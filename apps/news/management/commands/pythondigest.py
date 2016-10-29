@@ -2,6 +2,7 @@ import datetime
 import hashlib
 import logging
 import os
+from itertools import chain
 
 import bleach
 import feedparser
@@ -40,10 +41,22 @@ class Command(BaseCommand):
             '--date',
             help='Fetch json API for specific date instead of RSS',
         )
+        parser.add_argument(
+            '--days',
+            help='Fetch json API fro N days',
+        )
+        parser.add_argument(
+            '--till-date',
+            help='Fetch json API till specific date via API',
+        )
 
     def handle(self, *args, **options):
         if options['date']:
             feed = pydigest_articles_for_date(parser.parse(options['date']))
+        elif options['days']:
+            till_date = parser.parse(options['till_date']) if options['till_date'] else datetime.datetime.now()
+            daterange = (till_date - datetime.timedelta(days=offset) for offset in range(int(options['days'])))
+            feed = chain.from_iterable(pydigest_articles_for_date(dt) for dt in daterange)
         else:
             feed = pydigest_article_feed()
 
@@ -96,7 +109,7 @@ def clean_html(html):
 def get_page_metadata(url):
     token = os.environ.get('READABILITY_PARSER_KEY', None)
     if not token:
-        return
+        return {}
     try:
         parser_client = ParserClient(token=os.environ.get('READABILITY_PARSER_KEY'))
         return parser_client.get_article(url).json()
@@ -132,9 +145,9 @@ def pydigest_articles_for_date(date):
         extra_metadata = get_page_metadata(item['link'])
 
         # fall back to readability data
-        summary = clean_html(summary) or clean_html(extra_metadata['excerpt'])
+        summary = clean_html(summary) or clean_html(extra_metadata.get('excerpt', ''))
         # fetch lead image from source
-        image_bytes = image_bytes or download_image(extra_metadata['lead_image_url'])
+        image_bytes = image_bytes or download_image(extra_metadata.get('lead_image_url', None))
 
         yield dict(
             url=item['link'],

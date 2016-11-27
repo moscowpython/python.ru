@@ -13,7 +13,6 @@ from django.core.management.base import BaseCommand
 from django.db import IntegrityError
 from django.utils.timezone import make_aware
 from lxml.html import fromstring
-from readability import ParserClient
 
 from apps.news.models import Article
 
@@ -107,14 +106,19 @@ def clean_html(html):
 
 
 def get_page_metadata(url):
-    token = os.environ.get('READABILITY_PARSER_KEY', None)
+    token = os.environ.get('MERCURY_PARSER_KEY', None)
     if not token:
         return {}
     try:
-        parser_client = ParserClient(token=os.environ.get('READABILITY_PARSER_KEY'))
-        return parser_client.get_article(url).json()
+        # Docs: https://mercury.postlight.com/web-parser/
+        session = requests.session()
+        session.headers.update({
+            'x-api-key': os.environ.get('MERCURY_PARSER_KEY'),
+            'User-Agent': 'PythonRuFetcher/1.0 +https://python.ru/'
+        })
+        return session.get('https://mercury.postlight.com/parser', params={'url': url}).json()
     except Exception:
-        logger.exception('Failed to readability for url %s', url)
+        logger.exception('Failed to parse data for url %s', url)
 
 
 def pydigest_article_feed():

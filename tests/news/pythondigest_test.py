@@ -4,6 +4,7 @@ import vcr
 from django.core.management import call_command
 from django.utils.timezone import utc
 
+from apps.news.management.commands.pythondigest import get_page_metadata
 from apps.news.models import Article
 
 my_vcr = vcr.VCR(
@@ -38,3 +39,15 @@ def test_pythondigest_daterange(db):
     call_command('pythondigest', days=2, till_date='2016-10-29')
 
     assert Article.objects.count() == 2
+
+
+@my_vcr.use_cassette
+def test_get_page_metadata(monkeypatch):
+    url = 'https://semaphoreci.com/community/tutorials/setting-up-a-bdd-stack-on-a-django-application'
+    metadata = get_page_metadata(url)
+    assert metadata == {}
+
+    monkeypatch.setenv('MERCURY_PARSER_KEY', 'xxx')
+    metadata = get_page_metadata(url)
+    assert metadata['excerpt'].startswith('Boost your Django and Python stack with Behavior Driven Development.')
+    assert metadata['lead_image_url'].startswith('https://d1dkupr86d302v.cloudfront.net/')

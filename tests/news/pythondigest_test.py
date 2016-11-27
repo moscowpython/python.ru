@@ -1,6 +1,5 @@
 # coding: utf-8
 import datetime
-import pytest
 import vcr
 from django.core.management import call_command
 from django.utils.timezone import utc

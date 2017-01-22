@@ -25,3 +25,7 @@ class IndexView(TemplateView):
             ]
         })
         return context
+
+
+class JuniorView(IndexView):
+    template_name = 'junior.html'

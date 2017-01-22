@@ -2272,3 +2272,76 @@ input[type="submit"] {
 	}
 }
 
+.junior h1 {
+    margin-top: 30px;
+    font-weight: bold;
+    text-align:center;
+}
+
+.junior-about h2 {
+    margin-bottom: 5px;
+    margin-top: 30px;
+}
+.junior-about {
+    display: table-cell;
+    width: 49%;
+}
+
+.junior-program {
+    display: table-cell;
+    width: 49%;
+}
+
+.junior-program .talk {
+    display: block;
+    margin-top: 25px;
+}
+
+.junior-program .author {
+    line-height: 1.2;
+    font-size: 12px;
+}
+
+.junior-program .speaker-image {
+    display: table-cell;
+    vertical-align: top;
+    width: 90px;
+    padding-right: 10px;
+}
+
+.junior-program .speaker-image img {
+    width: 80px;
+    height: 80px;
+}
+
+.junior-program .details {
+    display: table-cell;
+    vertical-align: top;
+}
+
+.junior-program .details h4 {
+    margin-bottom: 5px;
+}
+
+.junior .junior-register-wrapper .submit-holder {
+    margin: 40px 60px 0 40px;
+    max-width: inherit;
+}
+
+.junior .junior-register-wrapper .submit-holder button {
+    font-size: 20px;
+}
+
+
+.junior .submit-holder:hover {
+    border: 1px solid #ffd343;
+}
+
+
+.junior .submit-holder:hover button {
+	color: #ffd343;
+}
+
+.talk:last-child {
+    margin-bottom: 50px;
+}

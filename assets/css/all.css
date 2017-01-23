@@ -2302,6 +2302,12 @@ input[type="submit"] {
     font-size: 12px;
 }
 
+.junior-program .work {
+    line-height: 1.2;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
 .junior-program .speaker-image {
     display: table-cell;
     vertical-align: top;
@@ -2324,7 +2330,7 @@ input[type="submit"] {
 }
 
 .junior .junior-register-wrapper .submit-holder {
-    margin: 40px 60px 0 40px;
+    margin: 60px 60px 0 40px;
     max-width: inherit;
 }
 

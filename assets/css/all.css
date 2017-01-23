@@ -2351,3 +2351,19 @@ input[type="submit"] {
 .talk:last-child {
     margin-bottom: 50px;
 }
+
+@media (max-width: 767px) {
+    .junior-about {
+        display: block;
+        width: 100%;
+    }
+
+    .junior-program {
+        display: block;
+        width: 100%;
+    }
+
+    .junior .junior-register-wrapper .submit-holder {
+        margin: 40px 60px 60px 40px;
+    }
+}

@@ -2367,3 +2367,7 @@ input[type="submit"] {
         margin: 40px 60px 60px 40px;
     }
 }
+
+.slides_wrapper {
+	text-decoration: underline;
+}

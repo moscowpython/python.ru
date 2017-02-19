@@ -3,77 +3,55 @@
 
 <div class="container junior">
     <h1>Python Junior Meetup</h1>
-    <!--<div style="text-align: center">-->
-        <!--<iframe width="854" height="480" src="https://www.youtube.com/embed/u1_1Ca32GuI" frameborder="0" allowfullscreen></iframe>-->
-    <!--</div>-->
+    <h1>{{ object.name }}</h1>
+    {% if object.is_translation_alive %}
+        <div style="text-align: center">
+            {{ object.translation_video_code | safe }}
+        </div>
+    {% endif %}
     <div>
         <div class="junior-about">
-            <h2>Что это</h2>
-            <p>Python Junior&nbsp;&mdash; встреча в&nbsp;Москве для начинающих программистов на&nbsp;Python.</p>
-            <p>Наша цель&nbsp;&mdash; помочь быстрее разобраться с&nbsp;базовыми вопросами, научить писать более качественный код и&nbsp;дать возможность пообщаться с&nbsp;единомышленниками.</p>
-            <p>Мы&nbsp;хотим, чтобы как можно больше разработчиков на&nbsp;Python были знакомы друг с&nbsp;другом. Когда есть, с&nbsp;кем поболтать, спросить, помочь или поработать&nbsp;&mdash; это&nbsp;же круто!</p>
-
-            <h2>Место и&nbsp;время</h2>
-            <p>
-            <div>Митап начнётся <strong>9-го февраля в&nbsp;19:00</strong>&nbsp;в офисе Ingram Micro.</div>
-            <div>Адрес: Ленинградский Проспект, дом&nbsp;15, стр.&nbsp;18.</div>
-            <div>10&nbsp;минут пешком от&nbsp;станции метро Белорусская.</div>
-            </p>
-            <!--<div class="junior-register-wrapper">-->
-                <!--<div class="submit-holder">-->
-                    <!--<a href="https://moscowdjango.timepad.ru/event/433815/">-->
-                        <!--<button>Зарегистрироваться</button>-->
-                    <!--</a>-->
-                <!--</div>-->
-            <!--</div>-->
+            {{ object.description_html | safe }}
+            {% if object.is_registration_available %}
+                <div class="junior-register-wrapper">
+                    <div class="submit-holder">
+                        <a href="{{ object.register_url }}">
+                            <button>Зарегистрироваться</button>
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
         </div>
         <div class="junior-program">
             <h2>Программа</h2>
 
-            <div class="talk">
-                <div class="speaker-image">
-                    <img src="https://moscowdjango.s3.amazonaws.com/media/speakers/gp.jpg">
-                    <div class="author">Григорий Петров</div>
-                    <a class="work" href="https://voximplant.com/" target="_blank">VoxImplant</a>
-                </div>
-                <div class="details">
-                <h4>Что такое переменные</h4>
-                <div class="slides_wrapper"><a href="https://docs.google.com/presentation/d/1S9LtH5aMGvGm9MB2mWQPLsFXPexSYhw1aYo4UQ5Uriw/edit#slide=id.g1bc1d2b6f7_0_93">слайды</a></div>
-                <div>В&nbsp;своем выступлении я&nbsp;впервые попробую объяснить переменные:
-                не&nbsp;рассказывая предварительно как работает компьютер, память и&nbsp;компилятор;
-                не&nbsp;вводя мешок дополнительных сущностей вроде &laquo;присваивание&raquo;, &laquo;данные&raquo;, &laquo;оператор&raquo; и&nbsp;непереводимое &laquo;evaluate&raquo;;
-                не&nbsp;проводя аналогии с&nbsp;математикой.</div>
-                </div>
-            </div>
-
-            <div class="talk">
-                <div class="speaker-image">
-                    <img src="{% static "images/people/haerov.png" %}">
-                    <div class="author">Александр Хаёров</div>
-                    <a class="work" href="http://www.ingrammicro.com/" target="_blank">Ingram Micro</a>
-                </div>
-                <div class="details">
-                    <h4>Система типов в Python</h4>
-                    <div class="slides_wrapper"><a href="https://www.dropbox.com/s/f4ivjii13ek8p7a/khaerov-python-typing.pptx?dl=0">слайды</a></div>
-                    <div>Типизация&nbsp;&mdash; важный аспект, который зачастую характеризует тот или иной язык программирования, наделяя его разными свойствами. В&nbsp;докладе будут рассмотрена общая информация о&nbsp;типизации, ее&nbsp;роли. Узнаем подробно какая типизация в&nbsp;Python и&nbsp;как использовать для написания лучшего кода.</div>
-                </div>
-            </div>
-
-            <div class="talk">
-                <div class="speaker-image">
-                    <img src="{% static "images/people/lebedev.png" %}">
-                    <div class="author">Илья Лебедев</div>
-                    <a class="work" href="https://devman.org/" target="_blank">Devman</a>
-                </div>
-                <div class="details">
-                    <h4>Правила именования функций</h4>
-                    <div class="slides_wrapper"><a href="http://melevir.com/talks/python_junior.html">слайды</a></div>
-                    <div>Правильно называть сущности очень важно. Плохие названия превратят хороший код в&nbsp;плохой и&nbsp;нечитаемый.
-                        В&nbsp;докладе я&nbsp;расскажу о&nbsp;практиках, которые помогут начинающим разработчикам. Их&nbsp;легко применять на&nbsp;практике и&nbsp;они делают код заметно качественнее.
+            {% for talk in object.talks.all %}
+                <div class="talk">
+                    <div class="speaker-image">
+                        <img src="{{ talk.speaker.avatar.url }}">
+                        <div class="author">{{ talk.speaker.full_name }}</div>
+                        <a class="work" href="{{ talk.speaker.employer.url }}" target="_blank">{{ talk.speaker.employer.name }}</a>
+                    </div>
+                    <div class="details">
+                    <h4>{{ talk.title }}</h4>
+                        <div class="slides_wrapper">
+                            {% if talk.slides_url %}
+                                <span>
+                                    <img src="{% static 'images/speakerdeck.png' %}" width="20"/>
+                                    <a href="{{ talk.slides_url }}" target="_blank">слайды</a>
+                                </span>
+                            {% endif %}
+                            {% if talk.video_url %}
+                                <span>
+                                    <img src="{% static 'images/youtube.png' %}" width="20"/>
+                                    <a href="{{ talk.video_url }}" target="_blank">видео</a>
+                                </span>
+                            {% endif %}
+                        </div>
+                    <div>{{ talk.description | safe }}</div>
                     </div>
                 </div>
-            </div>
-
+            {% endfor %}
         </div>
     </div>
 </div>

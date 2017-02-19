@@ -31,6 +31,13 @@ class Event(TimeStampedModel):
     date = models.DateTimeField('Начало события', blank=True, null=True)
     is_active = models.BooleanField('Отображается на сайте', default=True)
     url = models.URLField('Ссылка на событие', blank=True)
+    slug = models.SlugField(default='none')
+    has_page_on_site = models.BooleanField(default=False)
+    translation_video_code = models.TextField(null=True, blank=True)
+    is_translation_alive = models.BooleanField(default=False)
+    register_url = models.CharField(max_length=1024, null=True, blank=True)
+    is_registration_available = models.BooleanField(default=False)
+    description_html = models.TextField(null=True, blank=True)
 
     objects = EventQuerySet.as_manager()
 

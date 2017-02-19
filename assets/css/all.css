@@ -2368,6 +2368,15 @@ input[type="submit"] {
     }
 }
 
-.slides_wrapper {
+.slides_wrapper a {
 	text-decoration: underline;
+}
+
+.slides_wrapper span {
+    margin-right: 10px;
+}
+
+.slides_wrapper img {
+    position: relative;
+    top: 3px;
 }

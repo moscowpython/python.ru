@@ -47,6 +47,7 @@ INSTALLED_APPS = (
     'apps.content',
     'apps.events',
     'apps.news',
+    'apps.meetups',
 )
 
 MIDDLEWARE_CLASSES = (

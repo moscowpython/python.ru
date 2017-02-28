@@ -1,3 +1,4 @@
+from django.views.generic import RedirectView
 from django.views.generic import TemplateView
 
 from apps.content.models import Link
@@ -27,5 +28,8 @@ class IndexView(TemplateView):
         return context
 
 
-class JuniorView(IndexView):
-    template_name = 'junior.html'
+class JuniorView(RedirectView):
+    permanent = True
+
+    def get_redirect_url(self, *args, **kwargs):
+        return '/meetups/junior/'  # FIXME: make this alive

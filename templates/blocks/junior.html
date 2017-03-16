@@ -11,6 +11,9 @@
     <div>
         <div class="junior-about">
             {{ object.description_html | safe }}
+        </div>
+        <div class="junior-about">
+            {{ object.place_and_time_html | safe }}
             {% if object.is_registration_available %}
                 <div class="junior-register-wrapper">
                     <div class="submit-holder">
@@ -33,21 +36,14 @@
                     </div>
                     <div class="details">
                     <h4>{{ talk.title }}</h4>
-                        <div class="slides_wrapper">
-                            {% if talk.slides_url %}
-                                <span>
-                                    <img src="{% static 'images/speakerdeck.png' %}" width="20"/>
-                                    <a href="{{ talk.slides_url }}" target="_blank">слайды</a>
-                                </span>
-                            {% endif %}
-                            {% if talk.video_url %}
-                                <span>
-                                    <img src="{% static 'images/youtube.png' %}" width="20"/>
-                                    <a href="{{ talk.video_url }}" target="_blank">видео</a>
-                                </span>
-                            {% endif %}
-                        </div>
                     <div>{{ talk.description | safe }}</div>
+                    {% if talk.slides_url or talk.video_url %}
+                        <div class="talk_info">
+                            {% if talk.slides_url %}<div class="slides_wrapper resizibleIframe" data-ratio="1.7">{{ talk.slides_url | safe }}</div>{% endif %}
+                            {% if talk.video_url %}<div class="video_wrapper resizibleIframe" data-ratio="1.7">{{ talk.video_url | safe }}</div>{% endif %}
+                        </div>
+                    {% endif %}
+
                     </div>
                 </div>
             {% endfor %}

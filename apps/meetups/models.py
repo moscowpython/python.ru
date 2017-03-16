@@ -38,8 +38,14 @@ class Talk(TimeStampedModel):
     speaker = models.ForeignKey('Speaker', related_name='talks')
     title = models.CharField(max_length=256)
     description = models.TextField()
-    slides_url = models.CharField(max_length=256, null=True, blank=True)
-    video_url = models.CharField(max_length=256, null=True, blank=True)
+    slides_url = models.CharField(
+        max_length=256, null=True, blank=True,
+        help_text='Айфрейм можно получить iframely.com',
+    )
+    video_url = models.CharField(
+        max_length=256, null=True, blank=True,
+        help_text='Лучше удалить атрибуты height и width у айфрейма'
+    )
 
     def __str__(self):
         return self.title

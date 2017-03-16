@@ -38,6 +38,7 @@ class Event(TimeStampedModel):
     register_url = models.CharField(max_length=1024, null=True, blank=True)
     is_registration_available = models.BooleanField(default=False)
     description_html = models.TextField(null=True, blank=True)
+    place_and_time_html = models.TextField(null=True, blank=True)
 
     objects = EventQuerySet.as_manager()
 

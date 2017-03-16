@@ -2288,8 +2288,7 @@ input[type="submit"] {
 }
 
 .junior-program {
-    display: table-cell;
-    width: 49%;
+	margin-top: 30px;
 }
 
 .junior-program .talk {
@@ -2352,7 +2351,35 @@ input[type="submit"] {
     margin-bottom: 50px;
 }
 
-@media (max-width: 767px) {
+.talk_info {
+	margin-top: 10px;
+	height: 400px;
+}
+
+.slides_wrapper {
+	width: 60%;
+	display: inline-block;
+}
+
+.video_wrapper {
+	width: 39%;
+	display: inline-block;
+}
+
+.talk_info .slides_wrapper {
+	height: 100%;
+}
+
+.talk_info .video_wrapper {
+	height: 60%;
+}
+
+.slides_wrapper iframe, .video_wrapper iframe  {
+	width: 100%;
+	height: 100%;
+}
+
+@media (max-width: 780px) {
     .junior-about {
         display: block;
         width: 100%;
@@ -2366,17 +2393,18 @@ input[type="submit"] {
     .junior .junior-register-wrapper .submit-holder {
         margin: 40px 60px 60px 40px;
     }
-}
 
-.slides_wrapper a {
-	text-decoration: underline;
-}
+	.slides_wrapper {
+		display: block;
+		width: 100%;
+	}
 
-.slides_wrapper span {
-    margin-right: 10px;
-}
+	.video_wrapper {
+		display: block;
+		width: 100%;
+	}
 
-.slides_wrapper img {
-    position: relative;
-    top: 3px;
+	.talk_info {
+		height: inherit;
+	}
 }

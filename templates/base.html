@@ -17,14 +17,14 @@
 </head>
 <body>
   <div id="wrapper">
-    <div id="top-banner" class="conf">
-      <a href="http://conf.python.ru/?utm_source=python-ru&amp;utm_medium=banner&amp;utm_campaign=python-ru-top" target="_blank"></a>
-    </div>
     <div class="w1">
 
       {% block header_block %}
         {% include 'blocks/header.html' %}
       {% endblock %}
+      <div id="top-banner" class="conf">
+        <a href="http://conf.python.ru/?utm_source=python-ru&amp;utm_medium=banner&amp;utm_campaign=python-ru-top" target="_blank"></a>
+      </div>
 
       <main>
         {% block main_content %}{% endblock %}

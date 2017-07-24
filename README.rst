@@ -22,18 +22,3 @@ Contributing
     $ python manage.py createsuperuser --username admin --email=team@python.ru
 
 
-Updating development fixture
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-::
-
-    $ python manage.py dumpdata --exclude=auth --exclude=sessions --exclude=contenttypes --exclude=admin --indent 4 > fixtures/development.json
-    $ cp -R media/ fixtures/media/
-
-    # Commit fixtures, keeping their size reasonable
-
-Tests
-=====
-::
-
-    $ pip install tox
-    $ tox

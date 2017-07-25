@@ -1,20 +1,20 @@
 from django.views.generic import View
-from django.core import serializers
-from django.http import HttpResponse, JsonResponse
-
+from django.http import JsonResponse
 from cards.models import Card
 
 
-class Api(View):
+class CardsListJsonView(View):
 
     def get(self, request):
-        first_element = int(request.GET.get('from'))
-        last_element = int(request.GET.get('to'))
+        default_first_elem = 0
+        default_last_elem = len(Card.objects.all())
+        first_element = int(request.GET.get('from', default_first_elem))
+        last_element = int(request.GET.get('to', default_last_elem))
         cards = Card.objects.all()[first_element:last_element]
         response_cards = []
         for card in cards:
             card_dict = {'url': card.url,
-                         'image': card.image.path, #TODO fix image output
+                         'image': card.image.url,
                          'type': card.type,
                          'preview': card.preview,
                          'category': card.category.title,
@@ -22,5 +22,13 @@ class Api(View):
                          'has_button': card.has_button,
                          'button_text': card.button_text,
                          'button_url': card.button_url}
+            meta = {'from': first_element,
+                    'to': last_element}
+            image_info_dict = {'data': response_cards,
+                               'meta': meta}
             response_cards.append(card_dict)
-        return JsonResponse(response_cards, safe=False)
+        meta = {'from': first_element,
+                'to': last_element}
+        image_info_dict = {'data': response_cards,
+                           'meta': meta}
+        return JsonResponse(image_info_dict)

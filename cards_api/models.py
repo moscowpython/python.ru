@@ -23,7 +23,7 @@ class Card(TimeStampedModel, StatusModel):
     type = StatusField(choices_name='TYPE_CHOICES')
 
     url = models.URLField(null=True, blank=True)
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(null=True, blank=True, upload_to='cards_images')
     category = models.ForeignKey('CardCategory', null=True, blank=True)
     title = models.CharField(max_length=512)
     preview = models.CharField(max_length=1024)

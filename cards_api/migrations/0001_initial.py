@@ -48,6 +48,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='card',
             name='category',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='cards.CardCategory'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='cards_api.CardCategory'),
         ),
     ]

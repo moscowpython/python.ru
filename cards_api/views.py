@@ -1,6 +1,6 @@
 from django.views.generic import View
 from django.http import JsonResponse
-from cards.models import Card
+from cards_api.models import Card
 
 
 class CardsListJsonView(View):

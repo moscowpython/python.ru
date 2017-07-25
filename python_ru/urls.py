@@ -1,8 +1,8 @@
-from django.conf.urls import url
-from python_ru.views import CardsListJsonView
+from django.conf.urls import url, include
 from django.contrib import admin
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api/', CardsListJsonView.as_view()),
+    url(r'^api/cards/', include('cards_api.urls')),
 ]

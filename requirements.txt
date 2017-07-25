@@ -1,2 +1,4 @@
 Django==1.11.3
 django-model-utils==2.5
+django-extensions==1.8.1
+ipython==6.1.0

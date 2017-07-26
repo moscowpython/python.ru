@@ -91,3 +91,6 @@ ENV/
 # Django default sqlite database
 db.sqlite3
 media/*
+
+
+.idea/*

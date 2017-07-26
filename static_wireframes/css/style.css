@@ -1,0 +1,137 @@
+@media (min-width: 1200px) {
+	.container {
+		width: 940px;
+	}
+}
+@media (min-width: 992px) {
+	.container {
+		width: 940px;
+	}
+}
+body {
+	font-family: Open Sans, sans-serif;
+}
+.head-banner {
+	background-color: #e3e4e6;
+}
+.head-banner img{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.navbar .container-fluid {
+	margin-bottom: -20px;
+}
+.navbar-right li a {
+	font-family: OpenSans-Semibold, sans-serif;
+	font-size: 20px;
+	color: #000;
+}
+.navbar-brand > img {
+	margin-left: -15px;
+}
+ul.navbar-right {
+	padding-top: 7px;
+}
+
+.hr-divider {
+	color: #979797;
+	background-color: #979797;
+	border: none;
+	height: 2px;
+}
+.header-news h1 {
+	font-size: 28px;
+	font-weight: bold;
+	color: #000;
+	margin-top: 5px;
+	line-height: 38px;
+}
+.header-news p {
+	font-size: 20px;
+	color: #a5a5a5;
+}
+.header-news button {
+	font-size: 16px;
+	color: #fff;
+	font-weight: bold;
+}
+.header-text {
+	padding-left: 27px;
+	padding-right: 0;
+}
+p.tag {
+	font-size: 12px;
+	font-weight: bold;
+	color: #000;
+	padding-top: 10px;
+	text-transform: lowercase;
+}
+.article h4 {
+	font-weight: bold;
+}
+.article p.text {
+	font-size: 14px;
+	color: #000;
+	opacity: 0.5;
+	line-height: 20px;
+}
+.article p.date {
+	opacity: 0.5;
+	font-size: 12px;
+	font-weight: bold;
+}
+.event-date {
+	text-align: center;
+	font-size: 60px;
+	color: #e93f33;
+	line-height: 2.9em;
+}
+.event button {
+	background-color: #fed243;
+	text-transform: uppercase;
+}
+.event h4 {
+	font-weight: bold;
+}
+.event p.text {
+	font-size: 14px;
+	color: #000;
+	opacity: 0.5;
+	line-height: 20px;
+}
+.landing .col-md-4 {
+	min-height: 400px;
+}
+.img-container {
+	height: 13em;
+	display: inline-block;
+	vertical-align: middle;
+	float: none;
+}
+.subscribe {
+	background-color: #2573ad;
+	color: #fff;
+	padding-left: 25px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	margin-bottom: 30px;
+	margin-left: -5px;
+}
+.subscribe button {
+	background-color: #fed243;
+	text-transform: uppercase;
+	color: #000;
+}
+.subscribe h3 {
+	padding-left: 15px;
+}
+.subscribe p {
+	font-size: 14px;
+}
+.btn.btn-square {
+	border-radius: 0;
+}
+.form-control.input-square {
+	border-radius: 0;
+}

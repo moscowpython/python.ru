@@ -11,29 +11,14 @@
           {% endif %}
           <div class="description">
             <time datetime="">{{ article_featured.published_at|date:"j E Y" }}</time>
-            <h1><a href="{{ article_featured.url }}" target="_blank">
+            <h1><a {% if not article_featured.is_our %}href="{{ article_featured.url }}" target="_blank"{% else %}href="{% url 'post_page' article_featured.id %}"{% endif %}>
               {{ article_featured.name }}
             </a></h1>
           </div>
         </div>
       </article>
 
-      {# News right sidebar #}
-      <section class="grid-item articles-list">
-        <div class="item-holder">
-          <strong class="title">Новости</strong>
-          <div class="articles-holder">
-            {% for article in articles_top %}
-            <article class="article">
-              <time datetime="{{ event.date|date:"Y-m-d H:m" }}">{{ article.published_at|date:"j E Y" }}</time>
-              <h1><a href="{{ article.url }}" target="_blank">
-                {{ article.name }}
-              </a></h1>
-            </article>
-            {% endfor %}
-          </div>
-        </div>
-      </section>
+    {% include 'blocks/news_right_sidebar.html' %}
 
       {% for article in articles_all %}
       <article class="grid-item">
@@ -45,14 +30,13 @@
           {% endif %}
           <div class="text-holder">
             <time datetime="{{ event.date|date:"Y-m-d H:m" }}">{{ article.published_at|date:"j E Y" }}</time>
-            <h1><a href="{{ article.url }}" target="_blank">{{ article.name }}</a></h1>
+            <h1><a {% if not article.is_our %}href="{{ article.url }}" target="_blank"{% else %}href="{% url 'post_page' article.id %}" {% endif %}>{{ article.name }}</a></h1>
             {{ article.description|safe }}
           </div>
         </div>
       </article>
       {% endfor %}
     </div>
-
 {#    <div class="btn-holder">#}
 {#      <a href="#" class="btn-default btn-more">Показать ещё</a>#}
 {#    </div>#}

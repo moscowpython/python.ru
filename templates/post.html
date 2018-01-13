@@ -10,34 +10,21 @@
         <div class="item-holder">
             <div class="text-holder">
               {% if article_featured.image %}
-                <img src="{% thumbnail article_featured.image 792 529 %}" width="792" height="529" alt="">
+                <img src="{% thumbnail article_featured.image %}" width="792" height="529" alt="">
               {% endif %}
-              <div class="description">
+              <div>
                 <time datetime="">{{ article_featured.published_at|date:"j E Y" }}</time>
                 <h1>{{ post.name }}</h1>
+                  {% if post.url %}<time datetime="">{{ post.url }}</time>{% endif %}
                    <article class="article">
-                       {{ post.description }}
+                       {{ post.text|safe }}
                    </article>
               </div>
             </div>
         </div>
       </article>
 
-      {# News right sidebar #}
-      <section class="grid-item articles-list">
-        <div class="item-holder">
-          <strong class="title">Новости</strong>
-          <div class="articles-holder">
-            {% for article in articles_top %}
-              <time datetime="{{ event.date|date:"Y-m-d H:m" }}">{{ article.published_at|date:"j E Y" }}</time>
-              <h1><a href="{{ article.url }}" target="_blank">
-                {{ article.name }}
-              </a></h1>
-            </article>
-            {% endfor %}
-          </div>
-        </div>
-      </section>
+    {% include 'blocks/news_right_sidebar.html' %}
 
     </div>
 

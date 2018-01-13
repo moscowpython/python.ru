@@ -13,8 +13,8 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
-import dj_database_url
 import sys
+import dj_database_url
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '(t(ga4%7#r%9)m&41%6&)cz&o%j%y^*$uuv)f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', True)
 
-ALLOWED_HOSTS = ['.python.ru']
+ALLOWED_HOSTS = ['.python.ru', '127.0.0.1']
 
 # Application definition
 
@@ -133,8 +133,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "assets"),)
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'assets'),
+    )
 STATIC_URL = '/static/'
 
 # Simplified static file serving.
@@ -142,7 +146,9 @@ STATIC_URL = '/static/'
 if not sys.argv[0].endswith('py.test'):
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_ROOT = (
+    os.path.join(BASE_DIR, 'media'),
+    )
 MEDIA_URL = '/media/'
 
 LOGGING = {

@@ -19,7 +19,7 @@ class Speaker(TimeStampedModel):
     last_name = models.CharField(max_length=256)
     contact_url = models.CharField(max_length=256, null=True, blank=True)
     avatar = models.ImageField(upload_to='speaker_avatars')
-    employer = models.ForeignKey('Employer', related_name='speakers')
+    employer = models.ForeignKey('Employer', related_name='speakers', on_delete=models.CASCADE)
 
     @property
     def full_name(self):
@@ -34,8 +34,10 @@ class Speaker(TimeStampedModel):
 
 
 class Talk(TimeStampedModel):
-    event = models.ForeignKey('events.Event', related_name='talks')
-    speaker = models.ForeignKey('Speaker', related_name='talks')
+    event = models.ForeignKey(
+        'events.Event', related_name='talks', on_delete=models.CASCADE)
+    speaker = models.ForeignKey(
+        'Speaker', related_name='talks', on_delete=models.CASCADE)
     title = models.CharField(max_length=256)
     description = models.TextField()
     slides_url = models.CharField(

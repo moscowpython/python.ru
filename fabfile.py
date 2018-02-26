@@ -26,9 +26,9 @@ config = {
 
     "deploy_server": "dev.python.ru",
     "compose_path": "/opt/servers",
-    "compose_block_name": "pythonru-dev",
+    "compose_block_name": "pythonru",
 
-    "post_deploy": "docker exec -i -t servers_pythonru-dev_1 python3 manage.py migrate --noinput"
+    "post_deploy": "docker exec -i -t servers_pythonru_1 python3 manage.py migrate --noinput"
 }
 
 

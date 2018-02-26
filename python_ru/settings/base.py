@@ -15,6 +15,7 @@ import os
 
 import sys
 import dj_database_url
+from decouple import config
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -22,13 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', '(t(ga4%7#r%9)m&41%6&)cz&o%j%y^*$uuv)f%5i)eh-&*j+7y')
+SECRET_KEY = config('DJANGO_SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', True)
-
-ALLOWED_HOSTS = ['.python.ru', '127.0.0.1']
+ALLOWED_HOSTS = ['python.ru', '.python.ru', '127.0.0.1']
 
 # Application definition
 
@@ -43,7 +40,7 @@ INSTALLED_APPS = (
     # http://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
     # 'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
-
+    'apps.banners',
     'apps.content',
     'apps.events',
     'apps.news',
@@ -90,7 +87,7 @@ WSGI_APPLICATION = 'python_ru.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, '../../db.sqlite3'),
     }
 }
 db_from_env = dj_database_url.config(conn_max_age=500)
@@ -138,7 +135,7 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, '../staticfiles')
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'assets'),
+    os.path.join(BASE_DIR, '../../assets'),
     )
 STATIC_URL = '/static/'
 
@@ -147,9 +144,7 @@ STATIC_URL = '/static/'
 # if not sys.argv[0].endswith('py.test'):
 #    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-MEDIA_ROOT = (
-    os.path.join(BASE_DIR, '../media'),
-    )
+MEDIA_ROOT = os.path.join('media')
 MEDIA_URL = '/media/'
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 

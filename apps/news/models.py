@@ -18,7 +18,7 @@ class ArticleQuerySet(QuerySet):
 
 
 class Article(TimeStampedModel):
-    url = models.URLField('URL')
+    url = models.URLField('URL', blank=True, null=True)
     name = models.CharField('Заголовок', max_length=1024)
     description = models.TextField('Описание', blank=True)
     text = RichTextUploadingField('Текст', blank=True, default='')

@@ -9,13 +9,16 @@
       <article class="grid-item large">
         <div class="item-holder">
             <div class="text-holder">
-              {% if article_featured.image %}
-                <img src="{% thumbnail article_featured.image %}" width="792" height="529" alt="">
-              {% endif %}
               <div>
                 <time datetime="">{{ article_featured.published_at|date:"j E Y" }}</time>
                 <h1>{{ post.name }}</h1>
                   {% if post.url %}<time datetime="">{{ post.url }}</time>{% endif %}
+                  {% if post.image %}
+                    <img src="{% thumbnail post.image %}" width="792" height="529" alt="">
+                  {% endif %}
+                    <br/>
+                    <br/>
+                    <br/>
                    <article class="article">
                        {{ post.text|safe }}
                    </article>
@@ -30,7 +33,6 @@
 
   </div>
 </section>
-
 	{% include 'blocks/subscribe.html' %}
 	{% include 'blocks/links.html' %}
 {% endblock %}

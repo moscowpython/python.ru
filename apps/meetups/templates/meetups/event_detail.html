@@ -8,7 +8,11 @@
 
 {% block main_content %}
 	{% include 'blocks/junior.html' %}
-	{% include 'blocks/events_stub.html' %}
+    {% if events %}
+	    {% include 'blocks/events.html' %}
+    {% else %}
+	    {% include 'blocks/events_stub.html' %}
+    {% endif %}
 	{% include 'blocks/about_us.html' %}
 {% endblock %}
 

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+{% load staticfiles nginx_image %}
+<section class="news-section" id="news">
+  <div class="container">
+    <div class="js-masonry" data-masonry-options='{"columnWidth": 2, "itemSelector": ".grid-item" }'>
+
+      <article class="grid-item large">
+        <div class="item-holder">
+            <div class="text-holder">
+              <div>
+                <time datetime="">{{ article_featured.published_at|date:"j E Y" }}</time>
+                <h1>{{ post.name }}</h1>
+                  {% if post.url %}<time datetime="">{{ post.url }}</time>{% endif %}
+                  {% if post.image %}
+                    <img src="{% thumbnail post.image %}" width="792" height="529" alt="">
+                  {% endif %}
+                    <br/>
+                    <br/>
+                    <br/>
+                   <article class="article">
+                       {{ post.text|safe }}
+                   </article>
+              </div>
+            </div>
+        </div>
+      </article>
+
+    {% include 'blocks/news_right_sidebar.html' %}
+
+    </div>
+
+  </div>
+</section>
+	{% include 'blocks/subscribe.html' %}
+	{% include 'blocks/links.html' %}
+{% endblock %}

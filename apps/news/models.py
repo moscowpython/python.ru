@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models import QuerySet
 from model_utils import Choices
 from model_utils.models import TimeStampedModel
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class ArticleQuerySet(QuerySet):
@@ -17,9 +18,11 @@ class ArticleQuerySet(QuerySet):
 
 
 class Article(TimeStampedModel):
-    url = models.URLField('URL')
+    url = models.URLField('URL', blank=True, null=True)
     name = models.CharField('Заголовок', max_length=1024)
     description = models.TextField('Описание', blank=True)
+    text = RichTextUploadingField('Текст', blank=True, default='')
+    is_our = models.BooleanField('Наш пост?', default=False)
     published_at = models.DateTimeField('Дата публикации')
     section = models.CharField('Категория', max_length=100, blank=True)
     language = models.CharField('Язык', max_length=2, choices=Choices(('ru', '🇷🇺'), ('en', '🇬🇧')))

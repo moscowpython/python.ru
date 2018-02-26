@@ -1,5 +1,5 @@
-
-    {# News right sidebar #}
+{# News right sidebar #}
+{% load staticfiles url_tag %}
       <section class="grid-item articles-list">
         <div class="item-holder">
           <strong class="title">Новости</strong>
@@ -11,9 +11,7 @@
                 {{ article.name }}
               </a></h1>
             </article>
-            {% if not article.is_our %}
-                <time>{{ article.url }}</time>
-            {% endif %}
+            {% if not article.is_our %}<time>{% get_host_from_url article.url %}</time>{% endif %}
             {% endfor %}
           </div>
         </div>

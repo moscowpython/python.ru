@@ -15,8 +15,8 @@ class IndexView(TemplateView):
         article_featured = Article.objects.featured()
         context.update({
             'article_featured': article_featured,
-            'articles_top': [a for a in Article.objects.active()[:3] if a != article_featured],
-            'articles_all': [a for a in Article.objects.active()[3:10] if a != article_featured],
+            'articles_top': [a for a in Article.objects.active()[:4] if a != article_featured],
+            'articles_all': [a for a in Article.objects.active()[4:10] if a != article_featured],
             'events': Event.objects.upcoming()[:5],
             'links': sorted(Link.objects.all(), key=lambda i: Link.SECTION_SLUGS.index(i.section)),
             'social_links': [
@@ -39,8 +39,7 @@ class PostView(TemplateView):
         article_featured = Article.objects.featured()
         context.update({
             'article_featured': article_featured,
-            'articles_top': [a for a in Article.objects.active()[:3] if a != article_featured],
-            'articles_all': [a for a in Article.objects.active()[3:10] if a != article_featured],
+            'articles_top': [a for a in Article.objects.active()[:4] if a != article_featured],
             'events': Event.objects.upcoming()[:5],
             'post': post,
             'links': sorted(Link.objects.all(), key=lambda i: Link.SECTION_SLUGS.index(i.section)),

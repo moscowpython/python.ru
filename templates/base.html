@@ -22,7 +22,9 @@
       {% block header_block %}
         {% include 'blocks/header.html' %}
       {% endblock %}
-        <div id="block_top_banner"></div>
+      <div id="top-banner" class="conf">
+        <a href="http://conf.python.ru/?utm_source=python-ru&amp;utm_medium=banner&amp;utm_campaign=python-ru-top" target="_blank"></a>
+      </div>
 
       <main>
         {% block main_content %}{% endblock %}
@@ -34,6 +36,7 @@
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script type="text/javascript" src="{% static "js/masonry.pkgd.min.js" %}"></script>
   <script type="text/javascript" src="{% static "js/jquery.main.js" %}"></script>
+  <script type="text/javascript">(window.Image ? (new Image()) : document.createElement('img')).src = 'https://vk.com/rtrg?p=VK-RTRG-140885-7lEHE';</script>
   {% include 'blocks/analytics.html' %}
   {% block extra_js %}{% endblock %}
 </body>

@@ -27,7 +27,7 @@ class EventQuerySet(QuerySet):
 
 class Event(TimeStampedModel):
     name = models.CharField('Название события', max_length=256)
-    city = models.ForeignKey(City, on_delete=models.CASCADE)
+    city = models.ForeignKey(City)
     date = models.DateTimeField('Начало события', blank=True, null=True)
     is_active = models.BooleanField('Отображается на сайте', default=True)
     url = models.URLField('Ссылка на событие', blank=True)

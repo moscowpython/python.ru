@@ -13,9 +13,8 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
-import sys
 import dj_database_url
-from decouple import config
+import sys
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -23,9 +22,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
-SECRET_KEY = config('DJANGO_SECRET_KEY')
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.environ.get('SECRET_KEY', '(t(ga4%7#r%9)m&41%6&)cz&o%j%y^*$uuv)f%5i)eh-&*j+7y')
 
-ALLOWED_HOSTS = ['python.ru', '.python.ru', '127.0.0.1']
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = os.environ.get('DEBUG', True)
+
+ALLOWED_HOSTS = ['.python.ru']
 
 # Application definition
 
@@ -40,24 +43,23 @@ INSTALLED_APPS = (
     # http://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
-    'apps.banners',
+
     'apps.content',
     'apps.events',
     'apps.news',
     'apps.meetups',
-    'ckeditor',
-    'ckeditor_uploader',
 )
 
-MIDDLEWARE = (
-    'django.middleware.security.SecurityMiddleware',
+MIDDLEWARE_CLASSES = (
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.security.SecurityMiddleware',
 )
 
 ROOT_URLCONF = 'python_ru.urls'
@@ -87,7 +89,7 @@ WSGI_APPLICATION = 'python_ru.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, '../../db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 db_from_env = dj_database_url.config(conn_max_age=500)
@@ -131,12 +133,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-
-STATIC_ROOT = os.path.join(BASE_DIR, '../staticfiles')
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, '../../assets'),
-    )
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "assets"),)
 STATIC_URL = '/static/'
 
 # Simplified static file serving.
@@ -144,19 +142,8 @@ STATIC_URL = '/static/'
 if not sys.argv[0].endswith('py.test'):
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-MEDIA_ROOT = os.path.join('media')
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = '/media/'
-CKEDITOR_UPLOAD_PATH = 'uploads/'
-
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': [['Source', 'Link', 'Unlink', 'SpecialChar', 'Image', 'CodeSnippet']],
-        'height': 400,
-        'width': 900,
-        'removePlugins': 'stylesheetparser',
-        'extraPlugins': 'codesnippet',
-    },
-}
 
 LOGGING = {
     'version': 1,

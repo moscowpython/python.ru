@@ -16,13 +16,10 @@ def thumbnail(image_url, width="-", height="-", crop=False):
                 url = image_url.url
         return url
     method = "crop" if crop else "resize"
-    if not settings.DEBUG:
-        url = "/{method}/{w}/{h}".format(
-            method=method,
-            w=width if width else "-",
-            h=height if height else "-")
-    else:
-        url = ""
+    url = "/{method}/{w}/{h}".format(
+        method=method,
+        w=width if width else "-",
+        h=height if height else "-")
     if isinstance(image_url, FieldFile):
         if getattr(image_url, 'name', None) and hasattr(image_url, 'url'):
             url += image_url.url

@@ -1,5 +1,4 @@
 {% load staticfiles nginx_image %}
-{% load staticfiles url_tag %}
 <section class="news-section" id="news">
   <div class="container">
     <div class="js-masonry" data-masonry-options='{"columnWidth": 2, "itemSelector": ".grid-item" }'>
@@ -15,12 +14,26 @@
             <h1><a href="{{ article_featured.url }}" target="_blank">
               {{ article_featured.name }}
             </a></h1>
-            {% if not article_featured.is_our %}<time>{% get_host_from_url article_featured.url %}</time>{% endif %}
           </div>
         </div>
       </article>
 
-    {% include 'blocks/news_right_sidebar.html' %}
+      {# News right sidebar #}
+      <section class="grid-item articles-list">
+        <div class="item-holder">
+          <strong class="title">Новости</strong>
+          <div class="articles-holder">
+            {% for article in articles_top %}
+            <article class="article">
+              <time datetime="{{ event.date|date:"Y-m-d H:m" }}">{{ article.published_at|date:"j E Y" }}</time>
+              <h1><a href="{{ article.url }}" target="_blank">
+                {{ article.name }}
+              </a></h1>
+            </article>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
 
       {% for article in articles_all %}
       <article class="grid-item">
@@ -32,11 +45,7 @@
           {% endif %}
           <div class="text-holder">
             <time datetime="{{ event.date|date:"Y-m-d H:m" }}">{{ article.published_at|date:"j E Y" }}</time>
-            <h1><a {% if article.url %}href="{{ article.url }}" target="_blank"
-                   {% else %}href="{% url 'post_page' article.id %}"{% endif %}">
-                   {{ article.name }}
-            </a></h1>
-          {% if article.url %}<time>{% get_host_from_url article.url %}</time>{% endif %}
+            <h1><a href="{{ article.url }}" target="_blank">{{ article.name }}</a></h1>
             {{ article.description|safe }}
           </div>
         </div>

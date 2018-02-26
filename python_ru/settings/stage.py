@@ -9,7 +9,11 @@ DEBUG = config('DEBUG', default=True, cast=bool)
 DATABASES = {
     'default': {
         'ENGINE': config('DATABASES_ENGINE'),
-        'NAME': os.path.join(BASE_DIR, config('DATABASES_NAME')),
+        'NAME': config('DATABASES_NAME'),
+        'USER': config('DATABASES_USER'),
+        'PASSWORD': config('DATABASES_PASSWORD'),
+        'HOST': config('DATABASES_HOST'),
+        'PORT': config('DATABASES_PORT', cast=int, default=5432),
     }
 }
 db_from_env = dj_database_url.config(conn_max_age=500)

@@ -33,7 +33,7 @@ config = {
 
 
 env.user = "deployer"
-env.hosts = ["event-test.nendazfreeride.ch"]
+env.hosts = ["dev.python.ru"]
 env.forward_agent = False
 
 env.roledefs = {

@@ -1,0 +1,5 @@
+statci/
+.travis.yml
+Dockerfile
+fabfile.py
+requirements-deploy.txt

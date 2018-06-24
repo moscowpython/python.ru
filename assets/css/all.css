@@ -466,7 +466,24 @@ th {
 .icon-twitter:before {
   content: "\ea96";
 }
-
+.icon-vk:before {
+  content: "\ea98";
+}
+.icon-yt:before {
+  content: "\ea9d";
+}
+.icon-youtube:before {
+  content: "\ea9e";
+}
+.icon-telegram:before {
+  content: "\ea95";
+}
+.icon-g-plus:before {
+  content: "\ea8b";
+}
+.icon-linkd:before {
+  content: "\eac9";
+}
 
 .social-networks,
 .primary-menu,

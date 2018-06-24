@@ -1,5 +1,5 @@
 from django.contrib import admin
-from apps.banners.models import Banner, OutputTemplates, Position
+from apps.banners.models import Banner, Position
 
 
 class BannerAdmin(admin.ModelAdmin):
@@ -7,14 +7,9 @@ class BannerAdmin(admin.ModelAdmin):
         'name', 'date_from', 'date_to', 'date_days', 'priority', 'active')
 
 
-class OutputTemplatesAdmin(admin.ModelAdmin):
-    list_display = ('name', 'template')
-
-
 class PositionAdmin(admin.ModelAdmin):
-    list_display = ('name', 'template')
+    list_display = ('name', 'tag')
 
 
 admin.site.register(Banner, BannerAdmin)
-admin.site.register(OutputTemplates, OutputTemplatesAdmin)
 admin.site.register(Position, PositionAdmin)

@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
+{% block title %} | {{ post.name }} {% endblock %}
+{% block head %}
 
+{% endblock %}
 {% block main_content %}
 {% load staticfiles nginx_image %}
 <section class="news-section" id="news">
@@ -11,6 +14,17 @@
             <div class="text-holder">
               <div>
                 <time datetime="">{{ article_featured.published_at|date:"j E Y" }}</time>
+              <div class="share-buttons-bar" style="font-family: icomoon">
+                  <a href="https://m.facebook.com/sharer.php?u=https://python.ru/post/{{ post.id }}"><span class="icon-facebook"></span></a>
+
+                  <a href="https://twitter.com/intent/tweet?url=https://python.ru/post/{{ post.id }}&amp;text=@moscowpython {{ post.name }}%20 &amp;via=@moscowpython"><span class="icon-twitter"></span></a>
+
+                  <a rel="nofollow" href="http://vkontakte.ru/share.php?url=https://python.ru/post/{{ post.id }}"><span class="icon-vk"></span></a>
+                  <a rel="nofollow" href="http://telegram.org/https://python.ru/post/{{ post.id }}"><span class="icon-telegram"></span></a>
+                  <a rel="nofollow" href="http://slake.com/https://python.ru/post/{{ post.id }}"><span class="icon-slack"></span></a>
+                  <a rel="nofollow" href="http://slake.com/https://python.ru/post/{{ post.id }}"><span class="icon-linkd"></span></a>
+                  <a rel="nofollow" href="http://slake.com/https://python.ru/post/{{ post.id }}"><span class="icon-g-plus"></span></a>
+              </div>
                 <h1>{{ post.name }}</h1>
                   {% if post.url %}<time datetime="">{{ post.url }}</time>{% endif %}
                   {% if post.image %}

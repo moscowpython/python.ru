@@ -1,0 +1,13 @@
+{% load staticfiles nginx_image %}
+
+<div id="banner" style="text-align: center;">
+
+    {% if image %}
+        <img src="{% thumbnail image %}" width="{{width}}" height="{{height}}" alt="">
+    {% endif %}
+
+    {% if context %}
+        {{ context }}
+    {% endif %}
+
+</div>

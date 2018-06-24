@@ -22,6 +22,13 @@
 
     {% include 'blocks/news_right_sidebar.html' %}
 
+    {% load banner_tag %}
+    <article class="grid-item" >
+        <div class="item-holder">
+            <div id="block_banner">{% get_banner "under_news" %}</div>
+        </div>
+    </article>
+
       {% for article in articles_all %}
       <article class="grid-item">
         <div class="item-holder">
@@ -32,10 +39,12 @@
           {% endif %}
           <div class="text-holder">
             <time datetime="{{ event.date|date:"Y-m-d H:m" }}">{{ article.published_at|date:"j E Y" }}</time>
-            <h1><a {% if article.url %}href="{{ article.url }}" target="_blank"
+            <h1>
+                <a {% if article.url %}href="{{ article.url }}" target="_blank"
                    {% else %}href="{% url 'post_page' article.id %}"{% endif %}">
                    {{ article.name }}
-            </a></h1>
+                </a>
+            </h1>
           {% if article.url %}<time>{% get_host_from_url article.url %}</time>{% endif %}
             {{ article.description|safe }}
           </div>

@@ -5,7 +5,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="google-site-verification" content="RAskX0UNOnUGX4OiXn7jalIRZj-SwZej5FRKUlBHEnM" />
-  <title>Python.ru</title>
+  <title>Python.ru{% block title %} {% endblock %}</title>
+    {% block head %}
+
+    {% endblock %}
   <link media="all" rel="stylesheet" href="{% static "css/all.css" %}" />
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
   <link rel="apple-touch-icon" sizes="180x180" href="{% static "favicons/apple-touch-icon.png" %}">
@@ -18,11 +21,12 @@
 <body>
   <div id="wrapper">
     <div class="w1">
-
+    {% load staticfiles nginx_image %}
       {% block header_block %}
         {% include 'blocks/header.html' %}
       {% endblock %}
-        <div id="block_top_banner"></div>
+      {% load banner_tag %}
+        <div id="block_top_banner">{% get_banner "top_banner" %}</div>
 
       <main>
         {% block main_content %}{% endblock %}

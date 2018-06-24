@@ -45,7 +45,7 @@
             {% for article in articles_top %}
             <article class="article">
               <time datetime="{{ event.date|date:"Y-m-d H:m" }}">{{ article.published_at|date:"j E Y" }}</time>
-              <h1><a href="{{ article.url }}" target="_blank">
+              <h1><a {% if not article.is_our %}href="{{ article.url }}" target="_blank"{% else %}href="{% url 'post_page' article.id %}" {% endif %}>
                 {{ article.name }}
               </a></h1>
             </article>

@@ -2,6 +2,14 @@
 {% block title %} | {{ post.name }} {% endblock %}
 {% block head %}
 
+    <meta property="og:url" content="">
+    {% if post.image %}
+    <meta property="og:image" content="{% thumbnail post.image %}" />
+    {% endif %}
+    <meta property="og:title" content="python.ru | {{ post.name }} " />
+    <meta property="og:description" content="{{ post.description }} " />
+    <meta property="og:type" content="article" />
+
 {% endblock %}
 {% block main_content %}
 {% load staticfiles nginx_image %}
@@ -20,10 +28,9 @@
                   <a href="https://twitter.com/intent/tweet?url=https://python.ru/post/{{ post.id }}&amp;text=@moscowpython {{ post.name }}%20 &amp;via=@moscowpython"><span class="icon-twitter"></span></a>
 
                   <a rel="nofollow" href="http://vkontakte.ru/share.php?url=https://python.ru/post/{{ post.id }}"><span class="icon-vk"></span></a>
-                  <a rel="nofollow" href="http://telegram.org/https://python.ru/post/{{ post.id }}"><span class="icon-telegram"></span></a>
-                  <a rel="nofollow" href="http://slake.com/https://python.ru/post/{{ post.id }}"><span class="icon-slack"></span></a>
-                  <a rel="nofollow" href="http://slake.com/https://python.ru/post/{{ post.id }}"><span class="icon-linkd"></span></a>
-                  <a rel="nofollow" href="http://slake.com/https://python.ru/post/{{ post.id }}"><span class="icon-g-plus"></span></a>
+                  <a rel="nofollow" href="https://t.me/share/url?url=https://python.ru/post/{{ post.id }}"><span class="icon-telegram"></span></a>
+                  <a rel="nofollow" href=" http://www.linkedin.com/shareArticle?mini=true&url=https://python.ru/post/{{ post.id }}"><span class="icon-linkd"></span></a>
+                  <a rel="nofollow" href="https://plus.google.com/share?url=https://python.ru/post/{{ post.id }}"><span class="icon-g-plus"></span></a>
               </div>
                 <h1>{{ post.name }}</h1>
                   {% if post.url %}<time datetime="">{{ post.url }}</time>{% endif %}

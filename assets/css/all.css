@@ -427,11 +427,11 @@ th {
 
 @font-face {
   font-family: 'icomoon';
-  src:  url('../fonts/icomoon.eot?7tgs5z');
-  src:  url('../fonts/icomoon.eot?7tgs5z#iefix') format('embedded-opentype'),
-    url('../fonts/icomoon.ttf?7tgs5z') format('truetype'),
-    url('../fonts/icomoon.woff?7tgs5z') format('woff'),
-    url('../fonts/icomoon.svg?7tgs5z#icomoon') format('svg');
+  src:  url('../fonts/icomoon.eot');
+  src:  url('../fonts/icomoon.eot') format('embedded-opentype'),
+    url('../fonts/IcoMoon-Free.ttf') format('truetype'),
+    url('../fonts/icomoon.woff') format('woff'),
+    url('../fonts/icomoon.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }

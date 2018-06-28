@@ -4,7 +4,7 @@ from .base import *
 
 # Setting the development status:
 
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config('DEBUG', default=True, cast=bool)
 
 DATABASES = {
     'default': {

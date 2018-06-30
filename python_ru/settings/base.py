@@ -40,11 +40,11 @@ INSTALLED_APPS = (
     # http://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
     # 'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
-    'apps.banners',
     'apps.content',
     'apps.events',
     'apps.news',
     'apps.meetups',
+    'apps.banners',
     'ckeditor',
     'ckeditor_uploader',
 )
@@ -144,7 +144,7 @@ STATIC_URL = '/static/'
 # if not sys.argv[0].endswith('py.test'):
 #    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-MEDIA_ROOT = os.path.join('media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 

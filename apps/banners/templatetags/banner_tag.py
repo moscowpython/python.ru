@@ -38,7 +38,12 @@ def get_banner(context, place):
             day.append(192)
             day.append(254)
 
-    all_banners = Banner.objects.filter(date_from__lte=now, date_to__gte=now, date_time_from__lte=nowtime, date_time_to__gte=nowtime, position__tag=place, active=True)
+    all_banners = Banner.objects.filter(date_from__lte=now,
+                                        date_to__gte=now,
+                                        date_time_from__lte=nowtime,
+                                        date_time_to__gte=nowtime,
+                                        position__tag=place,
+                                        active=True)
     banners = all_banners.filter(reduce(or_, [Q(date_days=dt) for dt in day]))
 
     if not banners:

@@ -14,7 +14,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 	supervisor && \
     BUILD_DEPS='build-essential python3-dev libxml2-dev libxslt-dev libssl-dev libffi-dev python-lxml zlib1g-dev git' && \
     apt-get install -y --no-install-recommends ${BUILD_DEPS} && \
-#    pip3 install -U pip setuptools && \
+    pip3 install -U setuptools wheel && \
     pip3 install -U uwsgi
 
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf

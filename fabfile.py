@@ -13,18 +13,18 @@ from fabric.contrib import files
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 config = {
-    "name": "Python.ru dev deploy",
+    "name": "Python.ru prod deploy",
 
-    "build_server": "dev.python.ru",
+    "build_server": "new.python.ru",
     "repo_url": "git@github.com:moscowpython/python.ru.git",
     "app_path": "~/python.ru",
-    "app_branch": "develop",
+    "app_branch": "master",
 
     "docker_image": "korneevm/pythonru",
-    "image_type": "dev",
+    "image_type": "prod",
     "image_version": "latest",
 
-    "deploy_server": "dev.python.ru",
+    "deploy_server": "new.python.ru",
     "compose_path": "/opt/servers",
     "compose_block_name": "pythonru",
 
@@ -33,7 +33,7 @@ config = {
 
 
 env.user = "deployer"
-env.hosts = ["dev.python.ru"]
+env.hosts = ["new.python.ru"]
 env.forward_agent = False
 
 env.roledefs = {

@@ -48,12 +48,14 @@ def get_banner(context, place):
 
     if not banners:
         return ''
-    for banner in banners:
 
-        response = loader.render_to_string("blocks/banner.html", {
-            'image': banner.file_img,
-            'place': place,
-            'width': banner.width,
-            'height': banner.height,
-        })
+    banner = banners.first()
+
+    response = loader.render_to_string("blocks/banner.html", {
+        'image': banner.file_img,
+        'place': place,
+        'width': banner.width,
+        'height': banner.height,
+        'link_to': banner.link_to,
+    })
     return response

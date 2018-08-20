@@ -1,13 +1,13 @@
 {% load staticfiles nginx_image %}
 
 <div id="banner" style="text-align: center;">
+    <a href="{% if link_to %}{{ link_to }}{% endif %}">
+        {% if image %}
+            <img src="{% thumbnail image %}" width="{{width}}" height="{{height}}" alt="">
+        {% endif %}
 
-    {% if image %}
-        <img src="{% thumbnail image %}" width="{{width}}" height="{{height}}" alt="">
-    {% endif %}
-
-    {% if context %}
-        {{ context }}
-    {% endif %}
-
+        {% if context %}
+            {{ context }}
+        {% endif %}
+    </a>
 </div>

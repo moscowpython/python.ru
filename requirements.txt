@@ -28,7 +28,7 @@ lxml==3.6.1
 mccabe==0.6.1
 oauthlib==2.0.6
 paramiko==2.4.*
-Pillow==5.0.0
+Pillow==5.1.0
 pluggy==0.6.0
 py==1.5.2
 pyasn1==0.4.2

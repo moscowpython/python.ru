@@ -11,6 +11,19 @@
     <meta property="og:title" content="python.ru | {{ post.name }} " />
     <meta property="og:description" content="{{ post.description }} " />
     <meta property="og:type" content="article" />
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+        .title-post {
+            font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+            font-size: 40px;
+            line-height: 50px;
+        }
+        .text-post {
+            font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+            font-size: 18px;
+            line-height: 32px;
+        }
+    </style>
 
 {% endblock %}
 {% block main_content %}
@@ -23,6 +36,18 @@
             <div class="text-holder">
               <div>
                 <time datetime="">{{ article_featured.published_at|date:"j E Y" }}</time>
+                <h1 class="title-post">{{ post.name }}</h1>
+                  {% if post.url %}<time datetime="">{{ post.url }}</time>{% endif %}
+                  {% if post.image %}
+                    <img style="border-radius: 12px;" src="{% thumbnail post.image %}" width="792" height="529" alt="">
+                  {% endif %}
+                    <br/>
+                    <br/>
+                    <br/>
+                   <article class="text-post article">
+                       {{ post.text|safe }}
+                   </article>
+              </div>
               <div class="share-buttons-bar" style="font-family: icomoon">
                   <a href="https://m.facebook.com/sharer.php?u=https://python.ru/post/{{ post.id }}"><span class="icon-facebook"></span></a>
 
@@ -32,18 +57,6 @@
                   <a rel="nofollow" href="https://t.me/share/url?url=https://python.ru/post/{{ post.id }}"><span class="icons-telegram"></span></a>
                   <a rel="nofollow" href=" http://www.linkedin.com/shareArticle?mini=true&url=https://python.ru/post/{{ post.id }}"><span class="icons-linkd"></span></a>
                   <a rel="nofollow" href="https://plus.google.com/share?url=https://python.ru/post/{{ post.id }}"><span class="icons-g-plus"></span></a>
-              </div>
-                <h1>{{ post.name }}</h1>
-                  {% if post.url %}<time datetime="">{{ post.url }}</time>{% endif %}
-                  {% if post.image %}
-                    <img src="{% thumbnail post.image %}" width="792" height="529" alt="">
-                  {% endif %}
-                    <br/>
-                    <br/>
-                    <br/>
-                   <article class="article">
-                       {{ post.text|safe }}
-                   </article>
               </div>
             </div>
         </div>

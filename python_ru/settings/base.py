@@ -136,7 +136,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, '../../staticfiles')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, '../assets'),
-    )
+)
 STATIC_URL = '/static/'
 
 # Simplified static file serving.
@@ -150,11 +150,38 @@ CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar': [['Source', 'Link', 'Unlink', 'SpecialChar', 'Image', 'CodeSnippet']],
-        'height': 400,
-        'width': 900,
+        'toolbar_Basic': [['Source', 'Link', 'Unlink', 'SpecialChar', 'Image', 'CodeSnippet']],
+        'toolbar_CustomConfig': [
+            {'name': 'basicstyles',
+             'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat']},
+            {'name': 'paragraph',
+             'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-',
+                       'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl',
+                       'Language']},
+            {'name': 'links', 'items': ['Link', 'Unlink', 'Anchor']},
+            {'name': 'insert',
+             'items': ['Image', 'CodeSnippet', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak']},
+            '/',
+            {'name': 'styles', 'items': [
+                'Styles', 'Format', 'Font', 'FontSize']},
+            {'name': 'colors', 'items': ['TextColor', 'BGColor']},
+        ],
+        'toolbar': 'toolbar_CustomConfig',  # put tollbar config name here
         'removePlugins': 'stylesheetparser',
-        'extraPlugins': 'codesnippet',
+        'extraPlugins': ','.join([
+            'codesnippet',
+            'div',
+            'autolink',
+            'autoembed',
+            'embedsemantic',
+            'autogrow',
+            'widget',
+            'lineutils',
+            'clipboard',
+            'dialog',
+            'dialogui',
+            'elementspath'
+        ]),
     },
 }
 

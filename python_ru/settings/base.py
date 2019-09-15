@@ -160,14 +160,14 @@ CKEDITOR_CONFIGS = {
                        'Language']},
             {'name': 'links', 'items': ['Link', 'Unlink', 'Anchor']},
             {'name': 'insert',
-             'items': ['Image', 'CodeSnippet', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak']},
+             'items': ['Image', 'CodeSnippet', 'Embed', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak']},
             '/',
             {'name': 'styles', 'items': [
                 'Styles', 'Format', 'Font', 'FontSize']},
             {'name': 'colors', 'items': ['TextColor', 'BGColor']},
         ],
         'toolbar': 'toolbar_CustomConfig',  # put tollbar config name here
-        'removePlugins': 'stylesheetparser',
+        'removePlugins': ','.join(['stylesheetparser', 'flash']),
         'extraPlugins': ','.join([
             'codesnippet',
             'div',
@@ -180,7 +180,8 @@ CKEDITOR_CONFIGS = {
             'clipboard',
             'dialog',
             'dialogui',
-            'elementspath'
+            'elementspath',
+            'embed'
         ]),
     },
 }

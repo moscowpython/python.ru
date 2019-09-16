@@ -6,9 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="google-site-verification" content="RAskX0UNOnUGX4OiXn7jalIRZj-SwZej5FRKUlBHEnM" />
   <title>Python.ru{% block title %} {% endblock %}</title>
+  {% if request.path == "/" %}
+    <meta property="og:url" content="{{ request.get_host }}">
+    <meta property="og:image" content="{{ request.get_host }}{% static "images/python_ru_social_thumb.png" %}" />
+    <meta property="og:title" content="python.ru" />
+    <meta property="og:description" content="python.ru русскоязычное сообщество языка python" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="python.ru">
+  {% else %}
     {% block head %}
 
     {% endblock %}
+  {% endif %}
+
+    
   <link media="all" rel="stylesheet" href="{% static "css/all.css" %}" />
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
   <link rel="apple-touch-icon" sizes="180x180" href="{% static "favicons/apple-touch-icon.png" %}">
@@ -22,12 +33,7 @@
   <script>hljs.initHighlightingOnLoad();</script>
   <meta name="theme-color" content="#ffffff">
 
-    <meta property="og:url" content="">
-    <meta property="og:image" content="}" />
-    <meta property="og:title" content="python.ru" />
-    <meta property="og:description" content="python.ru русскоязычное сообщество языка python" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Хабр">
+    
 
 </head>
 <body>

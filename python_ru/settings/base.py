@@ -168,6 +168,7 @@ CKEDITOR_CONFIGS = {
         ],
         'toolbar': 'toolbar_CustomConfig',  # put tollbar config name here
         'removePlugins': ','.join(['stylesheetparser', 'flash']),
+        'allowedContent': True,
         'extraPlugins': ','.join([
             'codesnippet',
             'div',

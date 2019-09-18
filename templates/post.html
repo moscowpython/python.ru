@@ -4,11 +4,13 @@
 {% block title %} | {{ post.name }} {% endblock %}
 {% block head %}
 
-    <meta property="og:url" content="">
+    <meta property="og:url" content="{{ request.get_host }}{{ request.get_full_path }}">
     {% if post.image %}
     <meta property="og:image" content="{% thumbnail post.image %}" />
+    {% else %}
+    <meta property="og:image" content="{{ request.get_host }}{% static "images/python_ru_social_thumb.png" %}" />
     {% endif %}
-    <meta property="og:title" content="python.ru | {{ post.name }} " />
+    <meta property="og:title" content="{{ post.name }} " />
     <meta property="og:description" content="{{ post.description }} " />
     <meta property="og:type" content="article" />
 

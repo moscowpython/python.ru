@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 from django.db.models import QuerySet
 from model_utils import Choices
@@ -18,6 +19,8 @@ class ArticleQuerySet(QuerySet):
 
 
 class Article(TimeStampedModel):
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True, null=True)
+    tags = models.ManyToManyField('HashTag', blank=True, related_name='news')
     url = models.URLField('URL', blank=True, null=True)
     name = models.CharField('Заголовок', max_length=1024)
     description = models.TextField('Описание', blank=True)
@@ -41,3 +44,10 @@ class Article(TimeStampedModel):
         verbose_name = 'Новость'
         verbose_name_plural = 'Новости'
         ordering = ['-published_at', '-id']
+
+
+class HashTag(models.Model):
+    name = models.CharField('ХешТэг', max_length=100, unique=True)
+
+    def __str__(self):
+        return {self.name}

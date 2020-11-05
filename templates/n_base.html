@@ -41,16 +41,16 @@
     <div class="w1">
     {% load staticfiles nginx_image %}
       {% block header_block %}
-        {% include 'blocks/header.html' %}
+        {% include 'blocks/n_header.html' %}
       {% endblock %}
       {% load banner_tag %}
         <div id="block_top_banner">{% get_banner "top_banner" %}</div>
 
       <main>
-        {% block main_content %}{% endblock %}
+        {% block n_main_content %}{% endblock %}
       </main>
 
-      {% include 'blocks/footer.html' %}
+      {% include 'blocks/n_footer.html' %}
     </div>
   </div>
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>

@@ -446,6 +446,16 @@ th {
   font-style: normal;
 }
 
+@font-face {
+	font-family: 'Montserrat-Bold';
+	src: url('../fonts/Montserrat-Bolt.eot');
+	src: url('../fonts/Montserrat-Bolt.eot') format('embedded-opentype'),
+	url('../fonts/Montserrat-Bolt.ttf') format('truetype');
+	url('../fonts/Montserrat-Bolt.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+}
+
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
@@ -1267,6 +1277,7 @@ input[type="submit"] {
 	padding: 58px 0 43px;
 	color: #fff;
 }
+
 
 .subscribe-section .text-holder {
 	float: left;
@@ -2465,4 +2476,56 @@ input[type="submit"] {
 }
 #top-banner.conf {
 	background-image: url("../images/conf.banner.2017.jpg")
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.our_projects {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 1401px;
+  background-color: #eee;
+  margin: 0 auto;
+}
+
+.learn_python {
+  flex: 1;
+  background-color: #262525;
+  color: #FFFFFF;
+  padding: 40px 10px 100px;
+}
+
+.python_week {
+  flex: 1;
+  background-color: #0f1686;
+  color: #FFFFFF;
+  padding: 40px 10px 100px;
+}
+
+.python_podcast {
+  flex: 1;
+  background-color: #f8f9fa;
+  padding: 40px 10px 100px;
+}
+
+/* NEW subscribe section */
+.new_subscribe-section{
+	background-color: #ffffff;
+	border-radius: 10px;
+	box-shadow: 0px 50px 100px -95px #005fb3;
+	color: #262525;
+	font-family: Arial;
+	font-size: 18px;
+	flex: 1;
+  	margin: -80px auto;
+	max-width: 918px;
+	padding: 40px 0 40px;
+	position: relative;
+}
+.new_subscribe-section span{
+	color:#E7F0FE;
 }

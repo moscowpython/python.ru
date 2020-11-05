@@ -10,6 +10,8 @@ from apps.news import views as news_views
 
 urlpatterns = [
     url(r'^$', news_views.IndexView.as_view(), name='index'),
+    url(r'^n_main/$', news_views.MainView.as_view(), name='n_index'),
+    #"""url(r'^tags/$', tags_list, name='tags_list_url')""",
     url(r'^meetups/', include('apps.meetups.urls')),
     url(r'^junior/$', news_views.JuniorView.as_view(), name='junior'),
     url(r'^post/(?P<pk>\d+)/$', news_views.PostView.as_view(), name='post_page'),

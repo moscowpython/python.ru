@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{# Tags left sidebar #}
+{% load staticfiles url_tag %}
+      <section class="grid-item articles-list">
+        <div class="item-holder">
+          <strong class="title">Теги</strong>
+          <div class="tags-holder">
+            {% for article in articles_top %}
+            <article class="article">
+              <time datetime="{{ event.date|date:"Y-m-d H:m" }}">{{ article.published_at|date:"j E Y" }}</time>
+              <h1><a {% if not article.is_our %}href="{{ article.url }}" target="_blank"{% else %}href="{% url 'post_page' article.id %}" {% endif %}>
+                {{ article.name }}
+              </a></h1>
+            </article>
+            {% if not article.is_our %}<time>{% get_host_from_url article.url %}</time>{% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </section>

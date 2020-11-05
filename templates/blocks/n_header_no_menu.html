@@ -4,12 +4,19 @@
 <header class="header">
   <div class="container">
     <!-- logo -->
-    <div class="logo"><a href="/"><img src="{% static 'images/logo.png' %}" width="133" height="27" alt="Python.ru"></a></div>
+    <div class="logo"><a href="/"><img src="{% static 'images/new_logo.png' %}" width="107" height="40" alt="Python.ru"></a></div>
     <!-- main navigation -->
     <nav class="main-nav">
       <a href="#" class="nav-opener"><span>Menu</span></a>
       <div class="nav-drop">
         {% block navigation_menu %}{% endblock %}
+      </div>
+    </nav>
+      <!-- main navigation -->
+    <nav class="main-nav">
+      <a href="#" class="nav-opener"><span>Menu</span></a>
+      <div class="nav-drop">
+        {% block navigation %}{% endblock %}
       </div>
     </nav>
     <!-- social networks -->

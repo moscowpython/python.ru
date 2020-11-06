@@ -1,12 +1,26 @@
-{% extends 'blocks/n_header_no_menu.html' %}
+{% load staticfiles %}
 
-
-{% block navigation_menu %}
-  <ul class="primary-menu js-navigation">
-    <li><a href="#about">О проекте</a></li>
-    <li><a href="#news">Блог</a></li>
-    <li><a href="#events">Мероприятия</a></li>
-    <li><a href="#vacancies">Вакансии</a></li>
-    <li><a href="#resources">Ресурсы</a></li>
-  </ul>
-{% endblock %}
+<menu>
+    <ul class="nav justify-content-center">
+      <li style="position: absolute; left: 15%;">
+        <div class="logo navbar-brand">
+            <a href="/"><img class="d-inline-block align-top" src="{% static 'images/new_logo.png' %}" width="107" height="40" alt="Python.ru"></a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#">О проекте</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Блог</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Мероприятия</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Вакансии</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Ресурсы</a>
+      </li>
+    </ul>
+</menu>

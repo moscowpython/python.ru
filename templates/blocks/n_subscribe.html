@@ -1,25 +1,51 @@
-<section class="new_subscribe-section">
-  <div class="container">
-    <div class="container-inner">
-      <div class="text-holder">
-          <p>Подпишитесь на рассылку с последними новостями о Python, <span>причем без спама</span></p>
-      </div>
-      <div class="form-holder">
-        <!-- subscribe form -->
-        <form class="subscribe-form"
-              action="//moscowpython.us10.list-manage.com/subscribe/post?u=c697064155714e24c8be7e9d8&amp;id=486b0715ab"
-              id="mc-embedded-subscribe-form"
-              method="post" target="_blank">
-          <div class="form-row">
-            <input type="email" name="EMAIL" placeholder="Email" required class="required email" />
-            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_c697064155714e24c8be7e9d8_486b0715ab" tabindex="-1" value=""></div>
-          </div>
-          <div class="submit-holder">
-            <input type="submit" value="Подписаться">
-          </div>
-        </form>
-      </div>
+<dev class="new_subscribe-section">
+    <div class="text-holder">
+      <p>Подпишитесь на рассылку с последними новостями о Python, <span>причем без спама</span></p>
     </div>
-  </div>
-</section>
+    <!-- subscribe form -->
+    <form class="form-inline"
+          action="//moscowpython.us10.list-manage.com/subscribe/post?u=c697064155714e24c8be7e9d8&amp;id=486b0715ab"
+          id="mc-embedded-subscribe-form"
+          method="post" target="_blank">
+        <div class="group-input form-group mx-sm-3 mb-2">
+        <input type="email" name="EMAIL" placeholder="Email" required class="required email" />
+          <div class="">
+            <input class="mb-2" type="submit" value="Подписаться">
+          </div>
+        </div>
+    </form>
+</dev>
+
+<style>
+    new_subscribe-section span{
+	    color:#E7F0FE;
+    }
+    .text-holder {
+        font-family: 'Montserrat', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 145%;
+    }
+    .group-input {
+        width: 579px;
+        height: 64px;
+        padding-left: 15%   ;
+
+        background: #F8F9FA;
+        border: 1px solid #EDEFF1;
+        box-sizing: border-box;
+        border-radius: 8px;
+    }
+    .new_subscribe-section {
+        position: relative;
+        padding-left: 20%;
+        width: 918px;
+        height: 238px;
+
+        background: #FFFFFF;
+        border: 2px solid #FCFDFE;
+        box-sizing: border-box;
+        border-radius: 10px;
+    }
+</style>

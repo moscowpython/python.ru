@@ -19,44 +19,20 @@
     {% endblock %}
   {% endif %}
 
-    
-  <link media="all" rel="stylesheet" href="{% static "css/all.css" %}" />
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
-  <link rel="apple-touch-icon" sizes="180x180" href="{% static "favicons/apple-touch-icon.png" %}">
-  <link rel="icon" type="image/png" href="{% static "favicons/favicon-32x32.png" %}" sizes="32x32">
-  <link rel="icon" type="image/png" href="{% static "favicons/favicon-16x16.png" %}" sizes="16x16">
-  <link rel="manifest" href="{% static "favicons/manifest.json" %}">
-  <link rel="mask-icon" href="{% static "favicons/safari-pinned-tab.svg" %}" color="#5bbad5">
-  <link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/default.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  <meta name="theme-color" content="#ffffff">
 
-    
 
 </head>
 <body>
-  <div id="wrapper">
-    <div class="w1">
-    {% load staticfiles nginx_image %}
-      {% block header_block %}
-        {% include 'blocks/header.html' %}
-      {% endblock %}
-      {% load banner_tag %}
-        <div id="block_top_banner">{% get_banner "top_banner" %}</div>
 
-      <main>
-        {% block main_content %}{% endblock %}
-      </main>
-
-      {% include 'blocks/footer.html' %}
-    </div>
-  </div>
-  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-  <script type="text/javascript" src="{% static "js/masonry.pkgd.min.js" %}"></script>
-  <script type="text/javascript" src="{% static "js/jquery.main.js" %}"></script>
-  {% include 'blocks/analytics.html' %}
-  {% block extra_js %}{% endblock %}
+<!--SECTION EVENTS START-->
+{% include 'blocks/events_block.html' %}
+<!--SECTION EVENTS END-->
+<!--FOOTER START-->
+{% include 'blocks/footer_block.html' %}
+<!--FOOTER END-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<script src="{% static "/js/script.js" %}"></script>
 </body>
 </html>

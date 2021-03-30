@@ -45,6 +45,17 @@ class Article(TimeStampedModel):
         verbose_name_plural = 'Новости'
         ordering = ['-published_at', '-id']
 
+    def name_for_template(self):
+        if len(self.name) <= 48:
+            return self.name
+        else:
+            center_str = int(len(self.name) / 2)
+            return f"{self.name[:center_str]}</br>{self.name[center_str:]}"
+
+    def read_time(self):
+        count_symbol = len(self.text.split())
+        return f"{ count_symbol // 180 } min"
+
 
 class HashTag(models.Model):
     name = models.CharField('ХешТэг', max_length=100, unique=True)

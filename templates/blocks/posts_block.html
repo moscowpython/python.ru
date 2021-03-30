@@ -1,0 +1,83 @@
+{% load staticfiles %}
+<section class="posts_wrapper">
+    <div class="container">
+        <h2>Последние посты</h2>
+        <div class="posts_list">
+            <div class="posts_item">
+                {% if tags %}
+                    <h4>Тэги</h4>
+                {% endif %}
+                <ul class="tags">
+                    {% for tag in tags %}
+                        <li><a href="/tag/{{ tag.name }}"># {{ tag.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="posts_item sec_col">
+                <div class="articles">
+                    {% for article in articles_all %}
+
+                        <article>
+                        <a href="post/{{ article.id }}">
+                            <div class="user_info_content">
+{#                                <div class="avatar">#}
+{#                                    <img src="{% static "/img/avatar.png" %}" alt="avatar">#}
+{#                                </div>#}
+                                <div class="user_info">
+                                    <div class="name">
+                                        {% if article.author.first_name %}
+                                            {{ article.author.first_name }}
+                                        {% endif %}
+                                        {% if article.author.last_name %}
+                                            {{  article.author.last_name  }}
+                                        {% endif %}
+                                        {% if article.author.company %}
+                                            <span class="job">{{ article.author.company }}</span>
+                                        {% else %}
+                                            admin <span class="job">python.ru</span>
+                                        {% endif %}
+
+                                    </div>
+                                    <div class="date" datetime="{{ event.date|date:"Y-m-d H:m" }}">
+                                        {{ article.published_at|date:"j E Y" }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="article_title">
+                                {% if article.name %}
+                                    {{ article.name_for_template|safe }}
+                                {% endif %}
+                            </div>
+                        </a>
+                        <ul class="article_tags">
+                            {% for tag in article.tags.all %}
+                                <li><a href="/tags/{{ tag.name }}">#{{ tag.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        {% if article.image %}
+                            <img src="{{ article.image }}">
+                        {% endif %}
+                        <div class="article_descr">
+                            {{ article.description|safe }}
+                        </div>
+                        </article>
+
+                    {% endfor %}
+                    <div class="bonus_mobile">
+                        <a href="#">
+                            <img src="{% static "/img/bonus.jpg" %}" alt="image">
+                        </a>
+                    </div>
+                </div>
+                <button class="btn">все посты</button>
+            </div>
+            <div class="posts_item">
+                <div class="bonus">
+                    <a href="#">
+                        <img src="{% static "/img/bonus.jpg" %}" alt="image">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

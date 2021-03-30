@@ -17,30 +17,9 @@ class IndexView(TemplateView):
             'article_featured': article_featured,
             'articles_top': [a for a in Article.objects.active()[:4] if a != article_featured],
             'articles_all': [a for a in Article.objects.active()[4:10] if a != article_featured],
-            'events': Event.objects.upcoming()[:5],
+            'events': Event.objects.upcoming()[:2],
             'links': sorted(Link.objects.all(), key=lambda i: Link.SECTION_SLUGS.index(i.section)),
-            'social_links': [
-                {'id': 'facebook', 'url': 'https://www.facebook.com/groups/MoscowDjango/', 'name': 'facebook'},
-                {'id': 'twitter', 'url': 'https://twitter.com/moscowpython', 'name': 'twitter'},
-                {'id': 'slack', 'url': 'http://slack.python.ru/', 'name': 'slack'},
-            ]
-        })
-        return context
-
-
-class MainView(TemplateView):
-    template_name = 'n_index.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data()
-
-        article_featured = Article.objects.featured()
-        context.update({
-            'article_featured': article_featured,
-            'articles_top': [a for a in Article.objects.active()[:4] if a != article_featured],
-            'articles_all': [a for a in Article.objects.active()[4:10] if a != article_featured],
-            'events': Event.objects.upcoming()[:5],
-            'links': sorted(Link.objects.all(), key=lambda i: Link.SECTION_SLUGS.index(i.section)),
+            'tags': HashTag.objects.all(),
             'social_links': [
                 {'id': 'facebook', 'url': 'https://www.facebook.com/groups/MoscowDjango/', 'name': 'facebook'},
                 {'id': 'twitter', 'url': 'https://twitter.com/moscowpython', 'name': 'twitter'},
@@ -62,7 +41,7 @@ class PostView(TemplateView):
         context.update({
             'article_featured': article_featured,
             'articles_top': [a for a in Article.objects.active()[:4] if a != article_featured],
-            'events': Event.objects.upcoming()[:5],
+            'events': Event.objects.upcoming()[:2],
             'post': post,
             'links': sorted(Link.objects.all(), key=lambda i: Link.SECTION_SLUGS.index(i.section)),
             'social_links': [

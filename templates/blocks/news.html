@@ -43,6 +43,7 @@
                 <a {% if article.url %}href="{{ article.url }}" target="_blank"
                    {% else %}href="{% url 'post_page' article.id %}"{% endif %}">
                    {{ article.name }}
+                    {{ article.name_for_template }}
                 </a>
             </h1>
           {% if article.url %}<time>{% get_host_from_url article.url %}</time>{% endif %}

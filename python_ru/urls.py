@@ -12,6 +12,8 @@ from apps.content import views as content_views
 
 urlpatterns = [
     url(r'^$', news_views.IndexView.as_view(), name='index'),
+    url(r'^blog/$', news_views.BlogView.as_view(), name='blog'),
+    url(r'^events/$', news_views.EventsView.as_view(), name='events'),
     url(r'^get-avatar/(?P<msg_text>\w+).svg$', content_views.get_avatar, name='get_avatar'),
     url(r'^meetups/', include('apps.meetups.urls')),
     url(r'^junior/$', news_views.JuniorView.as_view(), name='junior'),

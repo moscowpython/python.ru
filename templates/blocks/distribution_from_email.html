@@ -1,0 +1,36 @@
+{% load staticfiles %}
+<section class="distribution_form_wrapper">
+    <div class="container">
+        <div class="distribution">
+            <div class="distribution_form">
+                <div class="distribution_item">
+                    <img src="{% static "/img/emaillove.png" %}" alt="email">
+                </div>
+                <div class="distribution_item">
+                    <div class="form_wrapper">
+                        <p class="title">
+                            Подпишитесь на рассылку с последними
+                            новостями от PythonRu <span>, причем без спама</span>
+                        </p>
+                         <!-- subscribe form -->
+                        <form class="subscribe-form"
+                              action="//moscowpython.us10.list-manage.com/subscribe/post?u=c697064155714e24c8be7e9d8&amp;id=486b0715ab"
+                              id="mc-embedded-subscribe-form"
+                              method="post" target="_blank">
+
+                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                            <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                                <input type="text" name="b_c697064155714e24c8be7e9d8_486b0715ab" tabindex="-1" value="">
+                            </div>
+
+                            <div class="forma">
+                                <input name="EMAIL" type="email" placeholder="Hello@Python.ru" required>
+                                <button type="submit" class="btn_distr">подписаться</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

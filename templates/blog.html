@@ -2,148 +2,7 @@
 {% load staticfiles %}
 
 {% block page %}
-
-<!--HEADER START-->
-<header class="header_wrapper">
-    <div class="projects_logo_wrapper">
-        <div class="learn_python">
-            <div class="logo">
-                <a href="">
-                    <p class="logo_title">
-                        <span class="blue">L</span>EARN <span class="yellow">P</span>YTHON
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="python_week">
-            <div class="logo">
-                <a href="#">
-                    <img src="{% static 'img/python_week.png' %}" alt="logo">
-                </a>
-            </div>
-        </div>
-        <div class="moscow_python">
-            <div class="logo">
-                <a href="#">
-                    <img src="{% static 'img/moscow_python.png' %}" alt="logo">
-                </a>
-            </div>
-        </div>
-        <div class="projects_list">
-            <div class="project_item learn_python">
-                <h6>Наш проект</h6>
-                <div class="logo">
-                    <a href="">
-                        <p class="logo_title">
-                            <span class="blue">L</span>EARN <span class="yellow">P</span>YTHON
-                        </p>
-                    </a>
-                </div>
-                <h4>
-                    Курс программирования
-                    на Python 3.8 для любого уровня
-                    с упором на практику
-                </h4>
-                <p class="date">
-                    <span>[</span>5 — 7 ноября 2020<span>]</span>
-                </p>
-                <p class="descr">Место для краткого описания</p>
-            </div>
-            <div class="project_item python_week">
-                <h6>Наш проект</h6>
-                <div class="logo">
-                    <a href="#">
-                        <img src="{% static 'img/python_week.png' %}" alt="logo">
-                    </a>
-                </div>
-                <h4>
-                    Профессиональная
-                    конференция для Python
-                    разработчиков
-                </h4>
-                <p class="date">
-                    14 — 18 сентября 2020
-                </p>
-                <p class="descr">Место для краткого описания</p>
-            </div>
-            <div class="project_item moscow_python">
-                <h6>Наш проект</h6>
-                <div class="logo">
-                    <a href="#">
-                        <img src="{% static 'img/moscow_python.png' %}" alt="logo">
-                    </a>
-                </div>
-                <h4>
-                    Подкаст о Python. Актуальные события мира IT, тренды, подходы и тд.
-                </h4>
-                <p class="date">
-                    Каждую неделю
-                </p>
-                <p class="descr">Место для краткого описания</p>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="main_menu_logo_wrapper">
-            <div class="mobile_menu_bg"></div>
-            <div class="logo">
-                <a href="">
-                    <img src="{% static 'img/python.png' %}" alt="logo" class="image">
-                    <img src="{% static 'img/PythonRu.png' %}" alt="logo" class="name">
-                </a>
-            </div>
-            <div class="main_menu_wrapper">
-                <a href="#" class="mobile_menu_btn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </a>
-                <div class="main_menu_block">
-                    <div class="main_menu">
-                        <ul class="nav">
-                            <li class="">
-                                <a href="main.html">О проекте</a>
-                            </li>
-                            <li class="active">
-                                <a href="/blog">Блог</a>
-                            </li>
-                            <li class="">
-                                <a href="/events">Мероприятия</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="mobile_projects_logo_wrapper">
-                        <h6>Наши проекты</h6>
-                        <div class="learn_python">
-                            <div class="logo">
-                                <a href="">
-                                    <p class="logo_title">
-                                        <span class="blue">L</span>EARN <span class="yellow">P</span>YTHON
-                                    </p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="python_week">
-                            <div class="logo">
-                                <a href="#">
-                                    <img src="{% static 'img/python_week.png' %}" alt="logo">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="moscow_python">
-                            <div class="logo">
-                                <a href="#">
-                                    <img src="{% static 'img/moscow_python.png' %}" alt="logo">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-<!--HEADER END-->
+{% include 'blocks/header_top_ad.html' %}
 <!--SECTION SEARCH START -->
 <section class="search_wrapper">
     <div class="container">
@@ -164,373 +23,57 @@
             <div class="posts_item sec_col">
                 <h1>Блог</h1>
                 <div class="articles">
+                    {% for post in posts %}
                     <article>
-                        <a href="#">
+                        <a href="/post/{{ post.id }}">
                             <div class="user_info_content">
                                 <div class="avatar">
-                                    <img src="static/new-design/img/avatar.png" alt="avatar">
+                                    <img src="/static/img/tmp_avatar.png" alt="avatar">
                                 </div>
                                 <div class="user_info">
-                                    <div class="name">Алексей Штырняев <span class="job">[X5 Group]</span></div>
-                                    <div class="date">17 апреля</div>
+                                    <div class="name">
+                                        {% if post.author.first_name %}
+                                            {{ post.author.first_name }}
+                                        {% endif %}
+                                        {% if post.author.last_name %}
+                                            {{  post.author.last_name  }}
+                                        {% endif %}
+                                        {% if not post.author.first_name %}
+                                            admin
+                                        {% endif %}
+                                        {% if post.author.company %}
+                                            <span class="job">{{ post.author.company }}</span>
+                                        {% else %}
+                                            <span class="job">python.ru</span>
+                                        {% endif %}
+                                    </div>
+                                    <div class="date">{{ post.published_at|date:"j E Y" }}</div>
                                 </div>
                             </div>
                             <div class="article_title">
-                                HR-аналитика и Python для чайников (есть котики)
+                                {{ post.name_for_template|safe }}
                             </div>
                         </a>
                         <ul class="article_tags">
-                            <li><a href="#">#Поиск работы</a></li>
-                            <li><a href="#">#Аналитика</a></li>
+                            {% for tag in post.tags.all %}
+                                <li><a href="/tags/{{ tag.name }}">#{{ tag.name }}</a></li>
+                            {% endfor %}
                         </ul>
+                        {% if post.image %}
+                            <img src="{{ post.image }}">
+                        {% endif %}
                         <div class="article_descr">
-                            В своём стремлении улучшить пользовательский опыт мы упускаем,
-                            что сделанные на базе интернет-аналитики выводы.
+                            {{ post.description|safe }}
                         </div>
                     </article>
-                    <article>
-                        <a href="#">
-                            <div class="user_info_content">
-                                <div class="avatar">
-                                    <img src="static/new-design/img/avatar.png" alt="avatar">
-                                </div>
-                                <div class="user_info">
-                                    <div class="name">Алексей Штырняев <span class="job">[X5 Group]</span></div>
-                                    <div class="date">17 апреля</div>
-                                </div>
-                            </div>
-                            <div class="article_title">
-                                HR-аналитика и Python для чайников (есть котики)
-                            </div>
-                        </a>
-                        <ul class="article_tags">
-                            <li><a href="#">#Поиск работы</a></li>
-                            <li><a href="#">#Аналитика</a></li>
-                        </ul>
-                        <div class="article_descr">
-                            В своём стремлении улучшить пользовательский опыт мы упускаем,
-                            что сделанные на базе интернет-аналитики выводы.
-                        </div>
-                    </article>
-                    <article>
-                        <a href="#">
-                            <div class="user_info_content">
-                                <div class="avatar">
-                                    <img src="static/new-design/img/avatar.png" alt="avatar">
-                                </div>
-                                <div class="user_info">
-                                    <div class="name">Алексей Штырняев <span class="job">[X5 Group]</span></div>
-                                    <div class="date">17 апреля</div>
-                                </div>
-                            </div>
-                            <div class="article_title">
-                                HR-аналитика и Python для чайников (есть котики)
-                            </div>
-                        </a>
-                        <ul class="article_tags">
-                            <li><a href="#">#Поиск работы</a></li>
-                            <li><a href="#">#Аналитика</a></li>
-                        </ul>
-                        <div class="article_descr">
-                            В своём стремлении улучшить пользовательский опыт мы упускаем,
-                            что сделанные на базе интернет-аналитики выводы.
-                        </div>
-                    </article>
-                    <article>
-                        <a href="#">
-                            <div class="user_info_content">
-                                <div class="avatar">
-                                    <img src="static/new-design/img/avatar.png" alt="avatar">
-                                </div>
-                                <div class="user_info">
-                                    <div class="name">Алексей Штырняев <span class="job">[X5 Group]</span></div>
-                                    <div class="date">17 апреля</div>
-                                </div>
-                            </div>
-                            <div class="article_title">
-                                HR-аналитика и Python для чайников (есть котики)
-                            </div>
-                        </a>
-                        <ul class="article_tags">
-                            <li><a href="#">#Поиск работы</a></li>
-                            <li><a href="#">#Аналитика</a></li>
-                        </ul>
-                        <div class="article_descr">
-                            В своём стремлении улучшить пользовательский опыт мы упускаем,
-                            что сделанные на базе интернет-аналитики выводы.
-                        </div>
-                    </article>
-                    <article>
-                        <a href="#">
-                            <div class="user_info_content">
-                                <div class="avatar">
-                                    <img src="static/new-design/img/avatar.png" alt="avatar">
-                                </div>
-                                <div class="user_info">
-                                    <div class="name">Алексей Штырняев <span class="job">[X5 Group]</span></div>
-                                    <div class="date">17 апреля</div>
-                                </div>
-                            </div>
-                            <div class="article_title">
-                                HR-аналитика и Python для чайников (есть котики)
-                            </div>
-                        </a>
-                        <ul class="article_tags">
-                            <li><a href="#">#Поиск работы</a></li>
-                            <li><a href="#">#Аналитика</a></li>
-                        </ul>
-                        <div class="article_descr">
-                            В своём стремлении улучшить пользовательский опыт мы упускаем,
-                            что сделанные на базе интернет-аналитики выводы.
-                        </div>
-                    </article>
-                    <article>
-                        <a href="#">
-                            <div class="user_info_content">
-                                <div class="avatar">
-                                    <img src="static/new-design/img/avatar.png" alt="avatar">
-                                </div>
-                                <div class="user_info">
-                                    <div class="name">Алексей Штырняев <span class="job">[X5 Group]</span></div>
-                                    <div class="date">17 апреля</div>
-                                </div>
-                            </div>
-                            <div class="article_title">
-                                HR-аналитика и Python для чайников (есть котики)
-                            </div>
-                        </a>
-                        <ul class="article_tags">
-                            <li><a href="#">#Поиск работы</a></li>
-                            <li><a href="#">#Аналитика</a></li>
-                        </ul>
-                        <div class="article_descr">
-                            В своём стремлении улучшить пользовательский опыт мы упускаем,
-                            что сделанные на базе интернет-аналитики выводы.
-                        </div>
-                    </article>
-                    <article>
-                        <a href="#">
-                            <div class="user_info_content">
-                                <div class="avatar">
-                                    <img src="static/new-design/img/avatar.png" alt="avatar">
-                                </div>
-                                <div class="user_info">
-                                    <div class="name">Алексей Штырняев <span class="job">[X5 Group]</span></div>
-                                    <div class="date">17 апреля</div>
-                                </div>
-                            </div>
-                            <div class="article_title">
-                                HR-аналитика и Python для чайников (есть котики)
-                            </div>
-                        </a>
-                        <ul class="article_tags">
-                            <li><a href="#">#Поиск работы</a></li>
-                            <li><a href="#">#Аналитика</a></li>
-                        </ul>
-                        <div class="article_descr">
-                            В своём стремлении улучшить пользовательский опыт мы упускаем,
-                            что сделанные на базе интернет-аналитики выводы.
-                        </div>
-                    </article>
-                    <article>
-                        <a href="#">
-                            <div class="user_info_content">
-                                <div class="avatar">
-                                    <img src="static/new-design/img/avatar.png" alt="avatar">
-                                </div>
-                                <div class="user_info">
-                                    <div class="name">Алексей Штырняев <span class="job">[X5 Group]</span></div>
-                                    <div class="date">17 апреля</div>
-                                </div>
-                            </div>
-                            <div class="article_title">
-                                HR-аналитика и Python для чайников (есть котики)
-                            </div>
-                        </a>
-                        <ul class="article_tags">
-                            <li><a href="#">#Поиск работы</a></li>
-                            <li><a href="#">#Аналитика</a></li>
-                        </ul>
-                        <div class="article_descr">
-                            В своём стремлении улучшить пользовательский опыт мы упускаем,
-                            что сделанные на базе интернет-аналитики выводы.
-                        </div>
-                    </article>
-                    <article>
-                        <a href="#">
-                            <div class="user_info_content">
-                                <div class="avatar">
-                                    <img src="static/new-design/img/avatar.png" alt="avatar">
-                                </div>
-                                <div class="user_info">
-                                    <div class="name">Алексей Штырняев <span class="job">[X5 Group]</span></div>
-                                    <div class="date">17 апреля</div>
-                                </div>
-                            </div>
-                            <div class="article_title">
-                                HR-аналитика и Python для чайников (есть котики)
-                            </div>
-                        </a>
-                        <ul class="article_tags">
-                            <li><a href="#">#Поиск работы</a></li>
-                            <li><a href="#">#Аналитика</a></li>
-                        </ul>
-                        <div class="article_descr">
-                            В своём стремлении улучшить пользовательский опыт мы упускаем,
-                            что сделанные на базе интернет-аналитики выводы.
-                        </div>
-                    </article>
-                    <article>
-                        <a href="#">
-                            <div class="user_info_content">
-                                <div class="avatar">
-                                    <img src="static/new-design/img/avatar.png" alt="avatar">
-                                </div>
-                                <div class="user_info">
-                                    <div class="name">Алексей Штырняев <span class="job">[X5 Group]</span></div>
-                                    <div class="date">17 апреля</div>
-                                </div>
-                            </div>
-                            <div class="article_title">
-                                HR-аналитика и Python для чайников (есть котики)
-                            </div>
-                        </a>
-                        <ul class="article_tags">
-                            <li><a href="#">#Поиск работы</a></li>
-                            <li><a href="#">#Аналитика</a></li>
-                        </ul>
-                        <div class="article_descr">
-                            В своём стремлении улучшить пользовательский опыт мы упускаем,
-                            что сделанные на базе интернет-аналитики выводы.
-                        </div>
-                    </article>
-                    <article>
-                        <a href="#">
-                            <div class="user_info_content">
-                                <div class="avatar">
-                                    <img src="static/new-design/img/avatar.png" alt="avatar">
-                                </div>
-                                <div class="user_info">
-                                    <div class="name">Алексей Штырняев <span class="job">[X5 Group]</span></div>
-                                    <div class="date">17 апреля</div>
-                                </div>
-                            </div>
-                            <div class="article_title">
-                                HR-аналитика и Python для чайников (есть котики)
-                            </div>
-                        </a>
-                        <ul class="article_tags">
-                            <li><a href="#">#Поиск работы</a></li>
-                            <li><a href="#">#Аналитика</a></li>
-                        </ul>
-                        <div class="article_descr">
-                            В своём стремлении улучшить пользовательский опыт мы упускаем,
-                            что сделанные на базе интернет-аналитики выводы.
-                        </div>
-                    </article>
-                    <article>
-                        <a href="#">
-                            <div class="user_info_content">
-                                <div class="avatar">
-                                    <img src="static/new-design/img/avatar.png" alt="avatar">
-                                </div>
-                                <div class="user_info">
-                                    <div class="name">Алексей Штырняев <span class="job">[X5 Group]</span></div>
-                                    <div class="date">17 апреля</div>
-                                </div>
-                            </div>
-                            <div class="article_title">
-                                HR-аналитика и Python для чайников (есть котики)
-                            </div>
-                        </a>
-                        <ul class="article_tags">
-                            <li><a href="#">#Поиск работы</a></li>
-                            <li><a href="#">#Аналитика</a></li>
-                        </ul>
-                        <div class="article_descr">
-                            В своём стремлении улучшить пользовательский опыт мы упускаем,
-                            что сделанные на базе интернет-аналитики выводы.
-                        </div>
-                    </article>
-                    <article>
-                        <a href="#">
-                            <div class="user_info_content">
-                                <div class="avatar">
-                                    <img src="static/new-design/img/avatar.png" alt="avatar">
-                                </div>
-                                <div class="user_info">
-                                    <div class="name">Алексей Штырняев <span class="job">[X5 Group]</span></div>
-                                    <div class="date">17 апреля</div>
-                                </div>
-                            </div>
-                            <div class="article_title">
-                                HR-аналитика и Python для чайников (есть котики)
-                            </div>
-                        </a>
-                        <ul class="article_tags">
-                            <li><a href="#">#Поиск работы</a></li>
-                            <li><a href="#">#Аналитика</a></li>
-                        </ul>
-                        <div class="article_descr">
-                            В своём стремлении улучшить пользовательский опыт мы упускаем,
-                            что сделанные на базе интернет-аналитики выводы.
-                        </div>
-                    </article>
-                    <article>
-                        <a href="#">
-                            <div class="user_info_content">
-                                <div class="avatar">
-                                    <img src="static/new-design/img/avatar.png" alt="avatar">
-                                </div>
-                                <div class="user_info">
-                                    <div class="name">Алексей Штырняев <span class="job">[X5 Group]</span></div>
-                                    <div class="date">17 апреля</div>
-                                </div>
-                            </div>
-                            <div class="article_title">
-                                HR-аналитика и Python для чайников (есть котики)
-                            </div>
-                        </a>
-                        <ul class="article_tags">
-                            <li><a href="#">#Поиск работы</a></li>
-                            <li><a href="#">#Аналитика</a></li>
-                        </ul>
-                        <div class="article_descr">
-                            В своём стремлении улучшить пользовательский опыт мы упускаем,
-                            что сделанные на базе интернет-аналитики выводы.
-                        </div>
-                    </article>
-                    <article>
-                        <a href="#">
-                            <div class="user_info_content">
-                                <div class="avatar">
-                                    <img src="static/new-design/img/avatar.png" alt="avatar">
-                                </div>
-                                <div class="user_info">
-                                    <div class="name">Алексей Штырняев <span class="job">[X5 Group]</span></div>
-                                    <div class="date">17 апреля</div>
-                                </div>
-                            </div>
-                            <div class="article_title">
-                                HR-аналитика и Python для чайников (есть котики)
-                            </div>
-                        </a>
-                        <ul class="article_tags">
-                            <li><a href="#">#Поиск работы</a></li>
-                            <li><a href="#">#Аналитика</a></li>
-                        </ul>
-                        <div class="article_descr">
-                            В своём стремлении улучшить пользовательский опыт мы упускаем,
-                            что сделанные на базе интернет-аналитики выводы.
-                        </div>
-                    </article>
+                    {% endfor %}
                     <div class="bonus_mobile">
                         <a href="#">
                             <img src="{% static 'img/bonus.jpg' %}" alt="image">
                         </a>
                     </div>
                 </div>
-                <button class="btn">еще 15</button>
+{#                <button class="btn">еще 15</button>#}
             </div>
             <div class="posts_item">
                 <div class="bonus">
@@ -543,8 +86,4 @@
     </div>
 </section>
 <!--SECTION POSTS END-->
-
-<!--SECTION EVENTS START-->
-{% include 'blocks/events_block.html' %}
-<!--SECTION EVENTS END-->
 {% endblock %}

@@ -2,6 +2,7 @@
 {% load staticfiles %}
 
 {% block page %}
+{% include 'blocks/header_top_ad.html' %}
 <!--SECTION SEARCH START -->
 <section class="events_page_search_wrapper">
     <div class="container">
@@ -56,45 +57,7 @@
                 <div class="mobile_heading">
                     <p>Мероприятия</p>
                 </div>
-                <h4>Тэги</h4>
-                <ul class="tags">
-                    <li><a href="#"># Tutorials</a></li>
-                    <li><a href="#"># Tutorials</a></li>
-                    <li><a href="#"># Tutorials</a></li>
-                    <li><a href="#"># Tutorials</a></li>
-                    <li><a href="#"># Tutorials</a></li>
-                    <li><a href="#"># Tutorials</a></li>
-                    <li><a href="#"># Tutorials</a></li>
-                    <li><a href="#"># Tutorials</a></li>
-                    <li><a href="#"># Tutorials</a></li>
-                    <li><a href="#"># Tutorials</a></li>
-                </ul>
-                <div class="sponsor_wrapper">
-                    <div class="sponsor_title">
-                        <div class="title">Community sponsor</div>
-                        <div class="heart">
-                            <img src="{% static 'img/heart.png' %}" alt="heart">
-                        </div>
-                    </div>
-                    <div class="sponsor_list">
-                        <div class="sponsor_item">
-                            <img src="{% static 'img/drylabs.png' %}" alt="sponsor">
-                            <p class="sponsor_name">Drylabs</p>
-                        </div>
-                        <div class="sponsor_item">
-{#                            <img src="{% include 'img/itcanfly.png' %}" alt="sponsor">#}
-                            <p class="sponsor_name">itcanfly</p>
-                        </div>
-                        <div class="sponsor_item">
-                            <img src="{% include 'img/best.png' %}" alt="sponsor">
-                            <p class="sponsor_name">BestDoctor</p>
-                        </div>
-                        <div class="sponsor_item">
-                            <img src="{% include 'img/evrone.png' %}" alt="sponsor">
-                            <p class="sponsor_name">Evrone</p>
-                        </div>
-                    </div>
-                </div>
+                {% include 'blocks/left_blck_tag_and_friends.html' %}
             </div>
             <div class="events_item sec_col">
                 <h1>Мероприятия</h1>
@@ -102,12 +65,12 @@
                     <article>
                         <div class="event">
                             <div class="image_wrapper">
-                                <img src="static/new-design/img/event.png" alt="event">
+                                <img src="static/img/event.png" alt="event">
                             </div>
                          <div class="content_wrapper">
                              <div class="event_info">
                                  <div class="event_logo">
-                                     <img src="static/new-design/img/event_logo.png" alt="event_logo">
+                                     <img src="static/img/event_logo.png" alt="event_logo">
                                  </div>
                                  <div class="event_date">
                                      <p class="date">25</p>
@@ -138,12 +101,12 @@
                     <article>
                         <div class="event">
                             <div class="image_wrapper">
-                                <img src="static/new-design/img/event.png" alt="event">
+                                <img src="static/img/event.png" alt="event">
                             </div>
                          <div class="content_wrapper">
                              <div class="event_info">
                                  <div class="event_logo">
-                                     <img src="static/new-design/img/event_logo.png" alt="event_logo">
+                                     <img src="static/img/event_logo.png" alt="event_logo">
                                  </div>
                                  <div class="event_date">
                                      <p class="date">25</p>
@@ -174,12 +137,12 @@
                     <article>
                         <div class="event">
                             <div class="image_wrapper">
-                                <img src="static/new-design/img/event.png" alt="event">
+                                <img src="static/img/event.png" alt="event">
                             </div>
                          <div class="content_wrapper">
                              <div class="event_info">
                                  <div class="event_logo">
-                                     <img src="static/new-design/img/event_logo.png" alt="event_logo">
+                                     <img src="static/img/event_logo.png" alt="event_logo">
                                  </div>
                                  <div class="event_date">
                                      <p class="date">25</p>
@@ -210,12 +173,12 @@
                     <article>
                         <div class="event">
                             <div class="image_wrapper">
-                                <img src="static/new-design/img/event.png" alt="event">
+                                <img src="static/img/event.png" alt="event">
                             </div>
                          <div class="content_wrapper">
                              <div class="event_info">
                                  <div class="event_logo">
-                                     <img src="static/new-design/img/event_logo.png" alt="event_logo">
+                                     <img src="static/img/event_logo.png" alt="event_logo">
                                  </div>
                                  <div class="event_date">
                                      <p class="date">25</p>
@@ -246,12 +209,12 @@
                     <article>
                         <div class="event">
                             <div class="image_wrapper">
-                                <img src="static/new-design/img/event.png" alt="event">
+                                <img src="static/img/event.png" alt="event">
                             </div>
                          <div class="content_wrapper">
                              <div class="event_info">
                                  <div class="event_logo">
-                                     <img src="static/new-design/img/event_logo.png" alt="event_logo">
+                                     <img src="static/img/event_logo.png" alt="event_logo">
                                  </div>
                                  <div class="event_date">
                                      <p class="date">25</p>
@@ -281,16 +244,16 @@
                     </article>
                     <div class="bonus_mobile">
                         <a href="#">
-                            <img src="static/new-design/img/bonus.jpg" alt="image">
+                            <img src="static/img/bonus.jpg" alt="image">
                         </a>
                     </div>
                 </div>
-                <button class="btn">еще 5</button>
+{#                <button class="btn">еще 5</button>#}
             </div>
             <div class="events_item">
                 <div class="bonus">
                     <a href="#">
-                        <img src="static/new-design/img/bonus.jpg" alt="image">
+                        <img src="static/img/bonus.jpg" alt="image">
                     </a>
                 </div>
             </div>

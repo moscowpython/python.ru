@@ -15,7 +15,7 @@
             </div>
             <div class="posts_item sec_col">
                 <div class="articles">
-                    {% for article in articles_all %}
+                    {% for article in articles %}
 
                         <article>
                         <a href="post/{{ article.id }}">
@@ -69,7 +69,7 @@
                         </a>
                     </div>
                 </div>
-                <button class="btn">все посты</button>
+                <a href="/blog" class="btn">все посты</a>
             </div>
             <div class="posts_item">
                 <div class="bonus">

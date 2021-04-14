@@ -4,7 +4,7 @@
         <div class="main_menu_logo_wrapper">
             <div class="mobile_menu_bg"></div>
             <div class="logo">
-                <a href="">
+                <a href="/">
                     <img src="{% static "/img/python.png" %}" alt="logo" class="image">
                     <img src="{% static "/img/PythonRu.png" %}" alt="logo" class="name">
                 </a>
@@ -18,13 +18,19 @@
                 <div class="main_menu_block">
                     <div class="main_menu">
                         <ul class="nav">
-                            <li class="active">
+                            <li {% if page == "index" %}
+                            class="active"
+                            {% endif %}>
                                 <a href="/">Главная</a>
                             </li>
-                            <li class="">
+                            <li {% if page == "blog" %}
+                            class="active"
+                            {% endif %}>
                                 <a href="/blog">Блог</a>
                             </li>
-                            <li class="">
+                            <li {% if page == "events" %}
+                            class="active"
+                            {% endif %}>
                                 <a href="/events">Мероприятия</a>
                             </li>
                         </ul>

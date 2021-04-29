@@ -1,56 +1,20 @@
 {% load staticfiles %}
 <section class="projects_wrapper">
     <div class="projects_list">
-        <div class="project_item learn_python">
-            <h6>Наш проект</h6>
+        {% for slide in slider %}
+        <div class="project_item {{ slide.color }}">
+            <h6>{{ slide.top_badge }}</h6>
             <div class="logo">
-                <a href="">
-                    <p class="logo_title">
-                        <span class="blue">L</span>EARN <span class="yellow">P</span>YTHON
-                    </p>
-                </a>
+                {{ slide.logo|safe }}
             </div>
             <h4>
-                Курс программирования
-                на Python 3.8 для любого уровня
-                с упором на практику
+                {{ slide.title }}
             </h4>
             <p class="date">
-                <span>[</span>5 — 7 ноября 2020<span>]</span>
+                {{ slide.date|safe }}
             </p>
-            <p class="descr">Место для краткого описания</p>
+            <p class="descr">{{ slide.description }}</p>
         </div>
-        <div class="project_item python_week">
-            <h6>Наш проект</h6>
-            <div class="logo">
-                <a href="#">
-                    <img src="{% static "/img/python_week.png" %}" alt="logo">
-                </a>
-            </div>
-            <h4>
-                Профессиональная
-                конференция для Python
-                разработчиков
-            </h4>
-            <p class="date">
-                14 — 18 сентября 2020
-            </p>
-            <p class="descr">Место для краткого описания</p>
-        </div>
-        <div class="project_item moscow_python">
-            <h6>Наш проект</h6>
-            <div class="logo">
-                <a href="#">
-                    <img src="{% static "/img/moscow_python.png" %}" alt="logo">
-                </a>
-            </div>
-            <h4>
-                Подкаст о Python. Актуальные события мира IT, тренды, подходы и тд.
-            </h4>
-            <p class="date">
-                Каждую неделю
-            </p>
-            <p class="descr">Место для краткого описания</p>
-        </div>
+        {% endfor %}
     </div>
 </section>

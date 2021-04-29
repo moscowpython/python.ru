@@ -125,33 +125,15 @@
                     </div>
                 </div>
                 <div class="similar_posts">
-                    <h2>Похожие посты</h2>
+                    <h2>Рекомендации</h2>
                     <ul>
+                        {% for sim_post in similar_posts %}
                         <li>
-                            <a href="#">
-                                HR-аналитика и Python для чайников (есть котики)
+                            <a href="{{ sim_post.url }}">
+                                {{ sim_post.name_for_template }}
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
-                                HR-аналитика и Python для чайников (есть котики)
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                HR-аналитика и Python для чайников (есть котики)
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                HR-аналитика и Python для чайников (есть котики)
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                HR-аналитика и Python для чайников (есть котики)
-                            </a>
-                        </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
@@ -159,108 +141,6 @@
     </div>
 </section>
 <!--SECTION SINGLE POST CONTENT END-->
-<!--SECTION POSTS CAROUSEL START-->
-<section class="posts_carousel_wrapper">
-    <div class="container">
-        <div class="posts_carousel">
-            <div class="posts_item">
-                <a href="#">
-                    <div class="user_info_content">
-                        <div class="avatar">
-                            <img src="{% static 'img/avatar.png' %}" alt="avatar">
-                        </div>
-                        <div class="user_info">
-                            <div class="name">{{ post.author.name }} <span class="job">[python.ru]</span></div>
-                            <div class="date">17 апреля</div>
-                        </div>
-                    </div>
-                    <div class="article_title">
-                        HR-аналитика и Python для чайников (есть котики)
-                    </div>
-                </a>
-                <ul class="article_tags">
-                    <li><a href="#">#Поиск работы</a></li>
-                    <li><a href="#">#Аналитика</a></li>
-                </ul>
-                <div class="article_descr">
-                    В своём стремлении улучшить пользовательский опыт мы упускаем,
-                    что сделанные на базе интернет-аналитики выводы.
-                </div>
-            </div>
-            <div class="posts_item">
-                <a href="#">
-                    <div class="user_info_content">
-                        <div class="avatar">
-                            <img src="{% static 'img/avatar.png' %}" alt="avatar">
-                        </div>
-                        <div class="user_info">
-                            <div class="name">{{ post.author.name }}  <span class="job">[python.ru]</span></div>
-                            <div class="date">17 апреля</div>
-                        </div>
-                    </div>
-                    <div class="article_title">
-                        HR-аналитика и Python для чайников (есть котики)
-                    </div>
-                </a>
-                <ul class="article_tags">
-                    <li><a href="#">#Поиск работы</a></li>
-                    <li><a href="#">#Аналитика</a></li>
-                </ul>
-                <div class="article_descr">
-                    В своём стремлении улучшить пользовательский опыт мы упускаем,
-                    что сделанные на базе интернет-аналитики выводы.
-                </div>
-            </div>
-            <div class="posts_item">
-                <a href="#">
-                    <div class="user_info_content">
-                        <div class="avatar">
-                            <img src="{% static 'img/avatar.png' %}" alt="avatar">
-                        </div>
-                        <div class="user_info">
-                            <div class="name">{{ post.author.name }}  <span class="job">[python.ru]</span></div>
-                            <div class="date">17 апреля</div>
-                        </div>
-                    </div>
-                    <div class="article_title">
-                        HR-аналитика и Python для чайников (есть котики)
-                    </div>
-                </a>
-                <ul class="article_tags">
-                    <li><a href="#">#Поиск работы</a></li>
-                    <li><a href="#">#Аналитика</a></li>
-                </ul>
-                <div class="article_descr">
-                    В своём стремлении улучшить пользовательский опыт мы упускаем,
-                    что сделанные на базе интернет-аналитики выводы.
-                </div>
-            </div>
-            <div class="posts_item">
-                <a href="#">
-                    <div class="user_info_content">
-                        <div class="avatar">
-                            <img src="{% static 'img/avatar.png' %}" alt="avatar">
-                        </div>
-                        <div class="user_info">
-                            <div class="name">{{ post.author.name }}  <span class="job">[python.ru]</span></div>
-                            <div class="date">17 апреля</div>
-                        </div>
-                    </div>
-                    <div class="article_title">
-                        HR-аналитика и Python для чайников (есть котики)
-                    </div>
-                </a>
-                <ul class="article_tags">
-                    <li><a href="#">#Поиск работы</a></li>
-                    <li><a href="#">#Аналитика</a></li>
-                </ul>
-                <div class="article_descr">
-                    В своём стремлении улучшить пользовательский опыт мы упускаем,
-                    что сделанные на базе интернет-аналитики выводы.
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 
 {% endblock %}

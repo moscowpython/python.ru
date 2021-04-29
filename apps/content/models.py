@@ -22,3 +22,14 @@ class Link(TimeStampedModel):
         verbose_name = 'Ссылка'
         verbose_name_plural = 'Ссылки'
         ordering = ['section', 'order', '-id']
+
+
+class Slider(TimeStampedModel):
+    """Main slider in top page."""
+    top_badge = models.CharField('значок в верхней части', max_length=32)
+    color = models.CharField('Background color', max_length=32)
+    logo = models.CharField('Логотип', max_length=140)
+    title = models.CharField('Заголовок слайда', max_length=140)
+    is_visible = models.BooleanField('Видимость слайда', default=True)
+    date = models.CharField('Дата проведение проекта', max_length=140)
+    description = models.CharField('Описание проекта', max_length=300)

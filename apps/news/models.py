@@ -62,4 +62,4 @@ class HashTag(models.Model):
     name = models.CharField('ХешТэг', max_length=100, unique=True)
 
     def __str__(self):
-        return {self.name}
+        return self.name

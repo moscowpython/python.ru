@@ -1,7 +1,7 @@
 from django.views.generic import RedirectView
 from django.views.generic import TemplateView
 
-from apps.content.models import Link, Slider
+from apps.content.models import Link, Slider, Sponsor
 from apps.events.models import Event
 from apps.news.models import Article, HashTag
 
@@ -43,6 +43,7 @@ class PostView(TemplateView):
             'articles_top': [a for a in Article.objects.active()[:4] if a != article_featured],
             'events': Event.objects.upcoming()[:2],
             'slider': Slider.objects.filter(is_visible=True),
+            'sponsors': Sponsor.objects.all(),
             'post': post,
             "page": "post",
             'links': sorted(Link.objects.all(), key=lambda i: Link.SECTION_SLUGS.index(i.section)),
@@ -67,6 +68,7 @@ class BlogView(TemplateView):
             'posts': article,
             'slider': Slider.objects.filter(is_visible=True),
             'events': Event.objects.upcoming()[:2],
+            'sponsors': Sponsor.objects.all(),
             'links': sorted(Link.objects.all(), key=lambda i: Link.SECTION_SLUGS.index(i.section)),
             'tags': HashTag.objects.all(),
             "page": "blog",

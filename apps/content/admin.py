@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from apps.content.models import Link, Slider
+from apps.content.models import Link, Slider, Sponsor
 
 
 @admin.register(Link)
@@ -13,3 +13,8 @@ class LinkAdmin(admin.ModelAdmin):
 @admin.register(Slider)
 class SliderAdmin(admin.ModelAdmin):
     list_display = ['title', 'is_visible', 'date', 'description']
+
+
+@admin.register(Sponsor)
+class SponsorAdmin(admin.ModelAdmin):
+    list_display = ['title', 'link']

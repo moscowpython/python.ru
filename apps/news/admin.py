@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.utils.html import format_html
 from django.utils.translation import ugettext as _
 
-from apps.news.models import Article
+from apps.news.models import Article, HashTag
 
 
 class HasImage(admin.SimpleListFilter):
@@ -47,3 +47,8 @@ class ArticleAdmin(admin.ModelAdmin):
     def make_inactive(self, request, queryset):
         queryset.update(is_active=False)
     make_inactive.short_description = 'Снять с публикации'
+
+
+@admin.register(HashTag)
+class HashTagAdmin(admin.ModelAdmin):
+    list_display = ['name']

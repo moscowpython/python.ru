@@ -62,186 +62,41 @@
             <div class="events_item sec_col">
                 <h1>Мероприятия</h1>
                 <div class="articles">
-                    <article>
-                        <div class="event">
-                            <div class="image_wrapper">
-                                <img src="static/img/event.png" alt="event">
+                    {% for event in events %}
+                        <article>
+                            <div class="event">
+                                <div class="image_wrapper">
+                                    <img src="static/img/event.png" alt="event">
+                                </div>
+                             <div class="content_wrapper">
+                                 <div class="event_info">
+                                     <div class="event_logo">
+                                         <img src="static/img/event_logo.png" alt="event_logo">
+                                     </div>
+                                     <div class="event_date">
+                                        <p class="date">{{ event.date|date:'d' }}</p>
+                                        <p class="month">{{ event.date|date:'M' }}</p>
+                                     </div>
+                                     <div class="event_location">
+                                         <div class="place">{{ event.city }}</div>
+                                         <div class="day">{{ event.date|date:'d M Y' }} / <span class="time">{{ event.date|date:'H:m' }}</span></div>
+                                     </div>
+                                     <div class="price">
+                                         5500
+                                         <i class="fa fa-rub" aria-hidden="true"></i>
+                                     </div>
+                                 </div>
+                                 <div class="event_title">
+                                     {{ event.name }}
+                                 </div>
+                                 <div class="event_descr">
+                                     {{  event.description_html }}
+                                 </div>
+                                 <a href="{{ event.url }}" class="event_detail">Подробнее</a>
+                             </div>
                             </div>
-                         <div class="content_wrapper">
-                             <div class="event_info">
-                                 <div class="event_logo">
-                                     <img src="static/img/event_logo.png" alt="event_logo">
-                                 </div>
-                                 <div class="event_date">
-                                     <p class="date">25</p>
-                                     <p class="month">Декабря</p>
-                                 </div>
-                                 <div class="event_location">
-                                     <div class="place">Москва</div>
-                                     <div class="day">Пятница / <span class="time">16:00</span></div>
-                                 </div>
-                                 <div class="price">
-                                     5500
-                                     <i class="fa fa-rub" aria-hidden="true"></i>
-                                 </div>
-                             </div>
-                             <div class="event_title">
-                                 Moscow Python Cong
-                             </div>
-                             <div class="event_descr">
-                                 В целом, конечно, существующая теория однозначно фиксирует
-                                 необходимость приоритизации разума над эмоциями. Господа,
-                                 постоянное информационно-пропагандистское обеспечение нашей
-                                 деятельности обеспечивает актуальность поставленных обществом.
-                             </div>
-                             <a href="#" class="event_detail">Подробнее</a>
-                         </div>
-                        </div>
-                    </article>
-                    <article>
-                        <div class="event">
-                            <div class="image_wrapper">
-                                <img src="static/img/event.png" alt="event">
-                            </div>
-                         <div class="content_wrapper">
-                             <div class="event_info">
-                                 <div class="event_logo">
-                                     <img src="static/img/event_logo.png" alt="event_logo">
-                                 </div>
-                                 <div class="event_date">
-                                     <p class="date">25</p>
-                                     <p class="month">Декабря</p>
-                                 </div>
-                                 <div class="event_location">
-                                     <div class="place">Москва</div>
-                                     <div class="day">Пятница / <span class="time">16:00</span></div>
-                                 </div>
-                                 <div class="price">
-                                     5500
-                                     <i class="fa fa-rub" aria-hidden="true"></i>
-                                 </div>
-                             </div>
-                             <div class="event_title">
-                                 Moscow Python Cong
-                             </div>
-                             <div class="event_descr">
-                                 В целом, конечно, существующая теория однозначно фиксирует
-                                 необходимость приоритизации разума над эмоциями. Господа,
-                                 постоянное информационно-пропагандистское обеспечение нашей
-                                 деятельности обеспечивает актуальность поставленных обществом.
-                             </div>
-                             <a href="#" class="event_detail">Подробнее</a>
-                         </div>
-                        </div>
-                    </article>
-                    <article>
-                        <div class="event">
-                            <div class="image_wrapper">
-                                <img src="static/img/event.png" alt="event">
-                            </div>
-                         <div class="content_wrapper">
-                             <div class="event_info">
-                                 <div class="event_logo">
-                                     <img src="static/img/event_logo.png" alt="event_logo">
-                                 </div>
-                                 <div class="event_date">
-                                     <p class="date">25</p>
-                                     <p class="month">Декабря</p>
-                                 </div>
-                                 <div class="event_location">
-                                     <div class="place">Москва</div>
-                                     <div class="day">Пятница / <span class="time">16:00</span></div>
-                                 </div>
-                                 <div class="price">
-                                     5500
-                                     <i class="fa fa-rub" aria-hidden="true"></i>
-                                 </div>
-                             </div>
-                             <div class="event_title">
-                                 Moscow Python Cong
-                             </div>
-                             <div class="event_descr">
-                                 В целом, конечно, существующая теория однозначно фиксирует
-                                 необходимость приоритизации разума над эмоциями. Господа,
-                                 постоянное информационно-пропагандистское обеспечение нашей
-                                 деятельности обеспечивает актуальность поставленных обществом.
-                             </div>
-                             <a href="#" class="event_detail">Подробнее</a>
-                         </div>
-                        </div>
-                    </article>
-                    <article>
-                        <div class="event">
-                            <div class="image_wrapper">
-                                <img src="static/img/event.png" alt="event">
-                            </div>
-                         <div class="content_wrapper">
-                             <div class="event_info">
-                                 <div class="event_logo">
-                                     <img src="static/img/event_logo.png" alt="event_logo">
-                                 </div>
-                                 <div class="event_date">
-                                     <p class="date">25</p>
-                                     <p class="month">Декабря</p>
-                                 </div>
-                                 <div class="event_location">
-                                     <div class="place">Москва</div>
-                                     <div class="day">Пятница / <span class="time">16:00</span></div>
-                                 </div>
-                                 <div class="price">
-                                     5500
-                                     <i class="fa fa-rub" aria-hidden="true"></i>
-                                 </div>
-                             </div>
-                             <div class="event_title">
-                                 Moscow Python Cong
-                             </div>
-                             <div class="event_descr">
-                                 В целом, конечно, существующая теория однозначно фиксирует
-                                 необходимость приоритизации разума над эмоциями. Господа,
-                                 постоянное информационно-пропагандистское обеспечение нашей
-                                 деятельности обеспечивает актуальность поставленных обществом.
-                             </div>
-                             <a href="#" class="event_detail">Подробнее</a>
-                         </div>
-                        </div>
-                    </article>
-                    <article>
-                        <div class="event">
-                            <div class="image_wrapper">
-                                <img src="static/img/event.png" alt="event">
-                            </div>
-                         <div class="content_wrapper">
-                             <div class="event_info">
-                                 <div class="event_logo">
-                                     <img src="static/img/event_logo.png" alt="event_logo">
-                                 </div>
-                                 <div class="event_date">
-                                     <p class="date">25</p>
-                                     <p class="month">Декабря</p>
-                                 </div>
-                                 <div class="event_location">
-                                     <div class="place">Москва</div>
-                                     <div class="day">Пятница / <span class="time">16:00</span></div>
-                                 </div>
-                                 <div class="price">
-                                     5500
-                                     <i class="fa fa-rub" aria-hidden="true"></i>
-                                 </div>
-                             </div>
-                             <div class="event_title">
-                                 Moscow Python Cong
-                             </div>
-                             <div class="event_descr">
-                                 В целом, конечно, существующая теория однозначно фиксирует
-                                 необходимость приоритизации разума над эмоциями. Господа,
-                                 постоянное информационно-пропагандистское обеспечение нашей
-                                 деятельности обеспечивает актуальность поставленных обществом.
-                             </div>
-                             <a href="#" class="event_detail">Подробнее</a>
-                         </div>
-                        </div>
-                    </article>
+                        </article>
+                    {% endfor %}
                     <div class="bonus_mobile">
                         <a href="#">
                             <img src="static/img/bonus.jpg" alt="image">

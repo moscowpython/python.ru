@@ -95,6 +95,7 @@ class EventsView(TemplateView):
         context = super().get_context_data()
         context.update({
             "page": "events",
+            'events': Event.objects.upcoming()[:10],
             'sponsors': Sponsor.objects.all(),
             'links': sorted(Link.objects.all(), key=lambda i: Link.SECTION_SLUGS.index(i.section)),
             'tags': HashTag.objects.all(),

@@ -34,7 +34,7 @@ class Article(TimeStampedModel):
     image = models.ImageField('Изображение', blank=True, upload_to='articles')
     is_active = models.BooleanField('Показывать', default=False)
     is_featured = models.BooleanField('Главная новость', default=False)
-    is_recommend = models.BooleanField('Рекомендовать этот опст?', default=True)
+    is_recommend = models.BooleanField('Рекомендовать этот пост?', default=True)
 
     objects = ArticleQuerySet.as_manager()
 

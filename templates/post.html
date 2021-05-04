@@ -2,11 +2,16 @@
 {% load staticfiles %}
 
 {% block page %}
+{% include 'blocks/header_top_ad.html' %}
 <!--SECTION POST PREVIEW CAROUSEL START-->
 <section class="post_preview_carousel_wrapper">
     <div class="post_preview_carousel">
         <div class="carousel_item">
-            <img src="{% static 'img/single_post.png' %}" alt="preview">
+            {% if post.image %}
+                <img src="{% static post.image %}" alt="preview">
+            {% else %}
+                <img src="{% static 'img/single_post.png' %}" alt="preview">
+            {% endif %}
             <div class="container">
                 <div class="carousel_content_wrapper">
                     <h1 class="title">
@@ -43,7 +48,7 @@
                     <dl>
                         <div>
                             <dt>Posted</dt>
-                            <dd>14.08.2019</dd>
+                            <dd>{{ post.published_at|date:"Y-m-d H:m" }}</dd>
                         </div>
                         <div>
                             <dt>Read time</dt>
@@ -52,21 +57,23 @@
                     </dl>
                 </div>
                 <ul class="article_tags">
-                    <li><a href="#">#Tutorials</a></li>
-                    <li><a href="#">#Аналитика</a></li>
+                    {% for tag in post.tags.all %}
+                        <li><a href="{{ tag.name }}">#{{ tag.name }}</a></li>
+                    {% endfor %}
+                    <li><a href="/">#python.ru</a></li>
                 </ul>
-                <div class="single_post_text">
+                <div class="single_post_text" style="width: 100%">
                     {{ post.text|safe }}
                 </div>
             </div>
-            <div class="user_info_wrapper">
+            <div class="user_info_wrapper" style="width: 120%">
                 <div class="user_info">
                     <div class="personal_info_wrapper">
                         <div class="personal_info">
                             <object
                                     width="100px"
                                     height="100px"
-                              type="image/svg+xml" data="/get-avatar/{{ post.author.username }}.svg">
+                              type="image/svg+xml" data="/get-avatar/admin.svg">
                             </object>
                             <div class="user_name">
                                 {{ post.author.first_name }}
@@ -85,8 +92,10 @@
 {#                             <dd>Russian</dd>#}
 {#                        </div>#}
                         <div>
-                            <dt>Joined</dt>
-                            <dd>{{ post.author.date_joined|date:"Y-m-d H:m" }}</dd>
+                            {% if post.author.date_joined %}
+                                <dt>Joined</dt>
+                                <dd>{{ post.author.date_joined|date:"Y-m-d H:m" }}</dd>
+                            {% endif %}
                         </div>
                     </dl>
                 </div>
@@ -105,22 +114,22 @@
                         <a href="#">
                             <i class="fa fa-facebook" aria-hidden="true"></i>
                             <span class="name">Facebook</span>
-                            <span class="qty">[10]</span>
+{#                            <span class="qty">[10]</span>#}
                         </a>
                         <a href="#">
                             <i class="fa fa-twitter" aria-hidden="true"></i>
                             <span class="name">Twitter</span>
-                            <span class="qty">[10]</span>
+{#                            <span class="qty">[10]</span>#}
                         </a>
                         <a href="#">
                             <i class="fa fa-vk" aria-hidden="true"></i>
                             <span class="name">VK</span>
-                            <span class="qty">[10]</span>
+{#                            <span class="qty">[10]</span>#}
                         </a>
                         <a href="#">
                             <i class="fa fa-linkedin" aria-hidden="true"></i>
                             <span class="name">Linked In</span>
-                            <span class="qty">[10]</span>
+{#                            <span class="qty">[10]</span>#}
                         </a>
                     </div>
                 </div>
@@ -130,7 +139,7 @@
                         {% for sim_post in similar_posts %}
                         <li>
                             <a href="{{ sim_post.url }}">
-                                {{ sim_post.name_for_template }}
+                                {{ sim_post.name_for_template|safe }}
                             </a>
                         </li>
                         {% endfor %}
@@ -141,6 +150,5 @@
     </div>
 </section>
 <!--SECTION SINGLE POST CONTENT END-->
-
 
 {% endblock %}

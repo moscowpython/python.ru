@@ -5,18 +5,12 @@
     </div>
     <h4>Тэги</h4>
     <ul class="tags">
-        <li><a href="#"># Tutorials</a></li>
-        <li><a href="#"># Tutorials</a></li>
-        <li><a href="#"># Tutorials</a></li>
-        <li><a href="#"># Tutorials</a></li>
-        <li><a href="#"># Tutorials</a></li>
-        <li><a href="#"># Tutorials</a></li>
-        <li><a href="#"># Tutorials</a></li>
-        <li><a href="#"># Tutorials</a></li>
-        <li><a href="#"># Tutorials</a></li>
-        <li><a href="#"># Tutorials</a></li>
+        {% for tag in tags %}
+        <li><a href="/tag/{{ tag.name }}"># {{ tag.name }}</a></li>
+        {% endfor %}
     </ul>
     <div class="sponsor_wrapper">
+
         <div class="sponsor_title">
             <div class="title">Community sponsor</div>
             <div class="heart">
@@ -24,22 +18,14 @@
             </div>
         </div>
         <div class="sponsor_list">
-            <div class="sponsor_item">
-                <img src="{% static 'img/drylabs.png' %}" alt="sponsor">
-                <p class="sponsor_name">Drylabs</p>
+            {% for sponsor in sponsors %}
+                <div class="sponsor_item">
+                <a href="{{ sponsor.link }}" style="text-decoration: none;">
+                    <img src="{{ sponsor.img }}" alt="sponsor">
+                    <p class="sponsor_name">{{ sponsor.title }}</p>
+                </a>
             </div>
-            <div class="sponsor_item">
-                <img src="{% static 'img/itcanfly.png' %}" alt="sponsor">
-                <p class="sponsor_name">itcanfly</p>
-            </div>
-            <div class="sponsor_item">
-                <img src="{% static 'img/best.png' %}" alt="sponsor">
-                <p class="sponsor_name">BestDoctor</p>
-            </div>
-            <div class="sponsor_item">
-                <img src="{% static 'img/evrone.png' %}" alt="sponsor">
-                <p class="sponsor_name">Evrone</p>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>

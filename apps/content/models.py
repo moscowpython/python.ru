@@ -33,3 +33,10 @@ class Slider(TimeStampedModel):
     is_visible = models.BooleanField('Видимость слайда', default=True)
     date = models.CharField('Дата проведение проекта', max_length=140)
     description = models.CharField('Описание проекта', max_length=300)
+
+
+class Sponsor(TimeStampedModel):
+    """Sponsor button model."""
+    title = models.CharField(max_length=32)
+    link = models.CharField(max_length=120)
+    img = models.ImageField('Изображение', blank=True, upload_to='sponsor')

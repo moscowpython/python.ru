@@ -42,6 +42,7 @@ class PostView(TemplateView):
             'article_featured': article_featured,
             'articles_top': [a for a in Article.objects.active()[:4] if a != article_featured],
             'events': Event.objects.upcoming()[:2],
+            'slider': Slider.objects.filter(is_visible=True),
             'post': post,
             "page": "post",
             'links': sorted(Link.objects.all(), key=lambda i: Link.SECTION_SLUGS.index(i.section)),
@@ -64,6 +65,7 @@ class BlogView(TemplateView):
         article = Article.objects.filter(is_active=True).order_by("-published_at")[:10]
         context.update({
             'posts': article,
+            'slider': Slider.objects.filter(is_visible=True),
             'events': Event.objects.upcoming()[:2],
             'links': sorted(Link.objects.all(), key=lambda i: Link.SECTION_SLUGS.index(i.section)),
             'tags': HashTag.objects.all(),
@@ -91,5 +93,6 @@ class EventsView(TemplateView):
         context = super().get_context_data()
         context.update({
             "page": "events",
+            'slider': Slider.objects.filter(is_visible=True),
         })
         return context

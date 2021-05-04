@@ -25,11 +25,17 @@
                 <div class="articles">
                     {% for post in posts %}
                     <article>
-                        <a href="/post/{{ post.id }}">
+                        {% if post.is_our %}
+                            <a href="/post/{{ post.id }}">
+                        {% else %}
+                            <a href="{{ post.url }}">
+                        {% endif %}
                             <div class="user_info_content">
-                                <div class="avatar">
-                                    <img src="/static/img/tmp_avatar.png" alt="avatar">
-                                </div>
+{#                                <div class="avatar">#}
+{#                                    <object type="image/svg+xml" data="/get-avatar/admin.svg" width="64" height="64" >#}
+{#                                        Your browser does not support SVG#}
+{#                                    </object>#}
+{#                                </div>#}
                                 <div class="user_info">
                                     <div class="name">
                                         {% if post.author.first_name %}
@@ -60,7 +66,7 @@
                             {% endfor %}
                         </ul>
                         {% if post.image %}
-                            <img src="{{ post.image }}">
+                            <img src="/media/{{  post.image }}">
                         {% endif %}
                         <div class="article_descr">
                             {{ post.description|safe }}

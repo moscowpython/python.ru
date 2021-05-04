@@ -21,7 +21,7 @@
             {% for sponsor in sponsors %}
                 <div class="sponsor_item">
                 <a href="{{ sponsor.link }}" style="text-decoration: none;">
-                    <img src="{{ sponsor.img }}" alt="sponsor">
+                    <img src="/media/{{ sponsor.img }}" alt="sponsor">
                     <p class="sponsor_name">{{ sponsor.title }}</p>
                 </a>
             </div>

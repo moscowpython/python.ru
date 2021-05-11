@@ -2,7 +2,7 @@ from django.views.generic import RedirectView
 from django.views.generic import TemplateView
 
 from apps.content.models import Link, Slider, Sponsor
-from apps.events.models import Event
+from apps.events.models import Event, City
 from apps.news.models import Article, HashTag
 
 
@@ -94,7 +94,8 @@ class EventsView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data()
         context.update({
-            "page": "events",
+            'page': 'events',
+            'citys': City.objects.all(),
             'events': Event.objects.upcoming()[:10],
             'sponsors': Sponsor.objects.all(),
             'links': sorted(Link.objects.all(), key=lambda i: Link.SECTION_SLUGS.index(i.section)),

@@ -28,6 +28,8 @@ class EventQuerySet(QuerySet):
 class Event(TimeStampedModel):
     name = models.CharField('Название события', max_length=256)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
+    image = models.ImageField('Изображение', blank=True, upload_to='events')
+    image_link = models.URLField('Ссылка на картинку мероприятия', blank=True, null=True)
     date = models.DateTimeField('Начало события', blank=True, null=True)
     is_active = models.BooleanField('Отображается на сайте', default=True)
     url = models.URLField('Ссылка на событие', blank=True)

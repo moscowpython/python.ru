@@ -35,11 +35,9 @@
                         <div class="select_wrapper">
                             <select>
                                 <option value="Все города">Все города</option>
-                                <option>Москва</option>
-                                <option>Санкт-Петербург</option>
-                                <option>Казань</option>
-                                <option>Тольятти</option>
-                                <option>Екатеренбург</option>
+                                {% for city in citys %}
+                                    <option>{{ city }}</option>
+                                {% endfor %}
                             </select>
                         </div>
                     </div>
@@ -59,19 +57,25 @@
                 </div>
                 {% include 'blocks/left_blck_tag_and_friends.html' %}
             </div>
-            <div class="events_item sec_col">
+            <div class="events_item sec_col" style="width: 60%">
                 <h1>Мероприятия</h1>
                 <div class="articles">
                     {% for event in events %}
                         <article>
                             <div class="event">
-                                <div class="image_wrapper">
-                                    <img src="/static/img/event.png" alt="event">
-                                </div>
-                             <div class="content_wrapper">
+                                {% if event.image %}
+                                    <div class="image_wrapper">
+                                        <img src="/static/{{ event.image }}" alt="event">
+                                    </div>
+                                {% elif event.image_link %}
+                                    <div class="image_wrapper">
+                                        <img src="{{ event.image_link }}" alt="event">
+                                    </div>
+                                {% endif %}
+                                <div class="content_wrapper">
                                  <div class="event_info">
                                      <div class="event_logo">
-                                         <img src="/static/img/event_logo.png" alt="event_logo">
+                                         <img src="/static/img/PythonRu.png" alt="event_logo">
                                      </div>
                                      <div class="event_date">
                                         <p class="date">{{ event.date|date:'d' }}</p>
@@ -83,7 +87,7 @@
                                      </div>
                                      <div class="price">
                                          Free
-{#                                         <i class="fa fa-rub" aria-hidden="true"></i>#}
+                                {#                                         <i class="fa fa-rub" aria-hidden="true"></i>#}
                                      </div>
                                  </div>
                                  <div class="event_title">
@@ -93,7 +97,7 @@
                                      {{  event.description_html }}
                                  </div>
                                  <a href="{{ event.url }}" class="event_detail">Подробнее</a>
-                             </div>
+                                </div>
                             </div>
                         </article>
                     {% endfor %}

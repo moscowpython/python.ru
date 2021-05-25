@@ -31,11 +31,6 @@
                             <a href="{{ post.url }}">
                         {% endif %}
                             <div class="user_info_content">
-{#                                <div class="avatar">#}
-{#                                    <object type="image/svg+xml" data="/get-avatar/admin.svg" width="64" height="64" >#}
-{#                                        Your browser does not support SVG#}
-{#                                    </object>#}
-{#                                </div>#}
                                 <div class="user_info">
                                     <div class="name">
                                         {% if post.author.first_name %}
@@ -73,6 +68,9 @@
                         </div>
                     </article>
                     {% endfor %}
+
+                    <span href="/blog" class="btn">все посты</span>
+
                     <div class="bonus_mobile">
                         <a href="#">
                             <img src="{% static 'img/bonus.jpg' %}" alt="image">

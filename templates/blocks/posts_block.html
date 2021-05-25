@@ -13,6 +13,27 @@
                     {% endfor %}
                 </ul>
             </div>
+            <br><br>
+            {% if sponsors %}
+            <div class="sponsor_wrapper">
+                <div class="sponsor_title">
+                    <div class="title">Community sponsor</div>
+                    <div class="heart">
+                        <img src="{% static 'img/heart.png' %}" alt="heart">
+                    </div>
+                </div>
+                <div class="sponsor_list">
+                    {% for sponsor in sponsors %}
+                        <div class="sponsor_item">
+                        <a href="{{ sponsor.link }}" style="text-decoration: none;">
+                            <img src="/media/{{ sponsor.img }}" alt="sponsor">
+                            <p class="sponsor_name">{{ sponsor.title }}</p>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
             <div class="posts_item sec_col">
                 <div class="articles">
                     {% for article in articles %}
@@ -20,9 +41,6 @@
                         <article>
                         <a href="post/{{ article.id }}">
                             <div class="user_info_content">
-{#                                <div class="avatar">#}
-{#                                    <img src="{% static "/img/avatar.png" %}" alt="avatar">#}
-{#                                </div>#}
                                 <div class="user_info">
                                     <div class="name">
                                         {% if article.author.first_name %}

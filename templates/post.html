@@ -66,6 +66,7 @@
                     {{ post.text|safe }}
                 </div>
             </div>
+
             <div class="user_info_wrapper" style="width: 120%">
                 <div class="user_info">
                     <div class="personal_info_wrapper">
@@ -80,17 +81,8 @@
                                 {{ post.author.last_name }}
                             </div>
                         </div>
-{#                        <button type="submit" class="btn subscribe">Подписаться</button>#}
                     </div>
                     <dl>
-{#                        <div>#}
-{#                            <dt>Work</dt>#}
-{#                            <dd>X5 Group</dd>#}
-{#                        </div>#}
-{#                        <div>#}
-{#                             <dt>Location</dt>#}
-{#                             <dd>Russian</dd>#}
-{#                        </div>#}
                         <div>
                             {% if post.author.date_joined %}
                                 <dt>Joined</dt>
@@ -107,32 +99,36 @@
                         <dd>{{ post.read_time }}</dd>
                     </dl>
                 </div>
-                <div class="share">
-                    <h2>Share</h2>
-                    <p>Поделись постом, будь молодцом ;)</p>
-                    <div class="social_media">
-                        <a href="#">
-                            <i class="fa fa-facebook" aria-hidden="true"></i>
-                            <span class="name">Facebook</span>
-{#                            <span class="qty">[10]</span>#}
-                        </a>
-                        <a href="#">
-                            <i class="fa fa-twitter" aria-hidden="true"></i>
-                            <span class="name">Twitter</span>
-{#                            <span class="qty">[10]</span>#}
-                        </a>
-                        <a href="#">
-                            <i class="fa fa-vk" aria-hidden="true"></i>
-                            <span class="name">VK</span>
-{#                            <span class="qty">[10]</span>#}
-                        </a>
-                        <a href="#">
-                            <i class="fa fa-linkedin" aria-hidden="true"></i>
-                            <span class="name">Linked In</span>
-{#                            <span class="qty">[10]</span>#}
-                        </a>
+                <br>
+                <br>
+                <div class="bonus">
+                    <a href="#">
+                        <img src="/static/img/bonus.jpg" alt="image">
+                    </a>
+                </div>
+                <br>
+                <br>
+
+                <div class="sponsor_wrapper">
+
+                    <div class="sponsor_title">
+                        <div class="title">Community sponsor</div>
+                        <div class="heart">
+                            <img src="{% static 'img/heart.png' %}" alt="heart">
+                        </div>
+                    </div>
+                    <div class="sponsor_list">
+                        {% for sponsor in sponsors %}
+                            <div class="sponsor_item">
+                            <a href="{{ sponsor.link }}" style="text-decoration: none;">
+                                <img src="/media/{{ sponsor.img }}" alt="sponsor">
+                                <p class="sponsor_name">{{ sponsor.title }}</p>
+                            </a>
+                        </div>
+                        {% endfor %}
                     </div>
                 </div>
+                <div class="share"></div>
                 <div class="similar_posts">
                     <h2>Рекомендации</h2>
                     <ul>
@@ -147,6 +143,38 @@
                 </div>
             </div>
         </div>
+
+    <div class="user_info_wrapper">
+        <div class="user_info">
+            <div class="share">
+                <h2>Share</h2>
+                <p>Поделись постом, будь молодцом ;)</p>
+                <div class="social_media">
+                    <a href="#">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                        <span class="name">Facebook</span>
+                        <span class="qty"> </span>
+                    </a>
+                    <a href="#">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                        <span class="name">Twitter</span>
+                        <span class="qty"> </span>
+                    </a>
+                    <a href="#">
+                        <i class="fa fa-vk" aria-hidden="true"></i>
+                        <span class="name">VK</span>
+                        <span class="qty"> </span>
+                    </a>
+                    <a href="#">
+                        <i class="fa fa-linkedin" aria-hidden="true"></i>
+                        <span class="name">Linked In</span>
+                        <span class="qty"> </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     </div>
 </section>
 <!--SECTION SINGLE POST CONTENT END-->

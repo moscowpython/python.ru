@@ -50,8 +50,8 @@ jQuery(function() {
                 }
             }
         ],
-        prevArrow: '<button type="button" class="slick-prev slick-arrow"><span>Предыдущий пост</span></button>',
-        nextArrow: '<button type="button" class="slick-next slick-arrow"><span>Следующий пост</span></button>'
+        prevArrow: '<button type="button" class="slick-prev slick-arrow"><span></span></button>',
+        nextArrow: '<button type="button" class="slick-next slick-arrow"><span></span></button>'
     });
     // SECTION POSTS CAROUSEL END
 
@@ -61,7 +61,7 @@ jQuery(function() {
         slidesToShow: 1,
         slidesToScroll: 1,
         prevArrow: false,
-        nextArrow: '<button type="button" class="slick-next slick-arrow"><span>Следующая статья </span></button>'
+        nextArrow: ''
     });
     // SECTION POST PREVIEW CAROUSEL END
 

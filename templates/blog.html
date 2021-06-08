@@ -7,7 +7,11 @@
 <section class="search_wrapper">
     <div class="container">
         <div class="search_block">
-            <input type="search" placeholder="Поиск по постам">
+            {% if tag %}
+                <input type="search" placeholder="Поиск по постам" value="{{ tag }}">
+            {% else %}
+                <input type="search" placeholder="Поиск по постам">
+            {% endif %}
             <button type="submit">
                 <img src="{% static 'img/search.png' %}" alt="search">
             </button>

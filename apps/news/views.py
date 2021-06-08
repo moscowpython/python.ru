@@ -7,6 +7,7 @@ from apps.news.models import Article, HashTag
 
 
 class IndexView(TemplateView):
+    """Main page."""
     template_name = 'index.html'
 
     def get_context_data(self, **kwargs):
@@ -30,6 +31,7 @@ class IndexView(TemplateView):
 
 
 class PostView(TemplateView):
+    """Post page."""
     template_name = 'post.html'
 
     def get_context_data(self, **kwargs):
@@ -58,6 +60,7 @@ class PostView(TemplateView):
 
 
 class BlogView(TemplateView):
+    """Blog page"""
     template_name = "blog.html"
 
     def get_context_data(self, **kwargs):
@@ -89,6 +92,7 @@ class JuniorView(RedirectView):
 
 
 class EventsView(TemplateView):
+    """Page events."""
     template_name = "events.html"
 
     def get_context_data(self, **kwargs):
@@ -103,3 +107,30 @@ class EventsView(TemplateView):
             'slider': Slider.objects.filter(is_visible=True),
         })
         return context
+
+
+class TagView(TemplateView):
+    """Page the tag."""
+    template_name = "blog.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+
+        article = Article.objects.filter(is_active=True).order_by("-published_at")[:10]
+        context.update({
+            'tag': kwargs.get("name_tag"),
+            'posts': article,
+            'slider': Slider.objects.filter(is_visible=True),
+            'events': Event.objects.upcoming()[:2],
+            'sponsors': Sponsor.objects.all(),
+            'links': sorted(Link.objects.all(), key=lambda i: Link.SECTION_SLUGS.index(i.section)),
+            'tags': HashTag.objects.all(),
+            "page": "blog",
+            'social_links': [
+                {'id': 'facebook', 'url': 'https://www.facebook.com/groups/MoscowDjango/', 'name': 'facebook'},
+                {'id': 'twitter', 'url': 'https://twitter.com/moscowpython', 'name': 'twitter'},
+                {'id': 'slack', 'url': 'http://slack.python.ru/', 'name': 'slack'},
+            ]
+        })
+        return context
+

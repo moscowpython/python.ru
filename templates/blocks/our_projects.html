@@ -2,20 +2,19 @@
 <section class="projects_wrapper">
     <div class="projects_list">
         {% for slide in slider %}
-        <div class="project_item {{ slide.color }}">
-            <h6>{{ slide.top_badge }}</h6>
-            <div class="logo">
-                {{ slide.logo|safe }}
-
+            <div class="project_item {{ slide.color }}">
+                <h6>{{ slide.top_badge }}</h6>
+                <div class="logo">
+                    {{ slide.logo|safe }}
+                </div>
+                <h4>
+                    {{ slide.title }}
+                </h4>
+                <p class="date">
+                    {{ slide.date|safe }}
+                </p>
+                <p class="descr">{{ slide.description }}</p>
             </div>
-            <h4>
-                {{ slide.title }}
-            </h4>
-            <p class="date">
-                {{ slide.date|safe }}
-            </p>
-            <p class="descr">{{ slide.description }}</p>
-        </div>
         {% endfor %}
     </div>
 </section>

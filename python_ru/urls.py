@@ -2,7 +2,6 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
@@ -14,6 +13,7 @@ urlpatterns = [
     url(r'^$', news_views.IndexView.as_view(), name='index'),
     url(r'^blog/$', news_views.BlogView.as_view(), name='blog'),
     url(r'^events/$', news_views.EventsView.as_view(), name='events'),
+    url(r'^tag/(?P<name_tag>\w+)$', news_views.TagView.as_view(), name='tag'),
     url(r'^get-avatar/(?P<msg_text>\w+).svg$', content_views.get_avatar, name='get_avatar'),
     url(r'^meetups/', include('apps.meetups.urls')),
     url(r'^junior/$', news_views.JuniorView.as_view(), name='junior'),

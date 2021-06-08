@@ -39,10 +39,10 @@
                     {% for article in articles %}
 
                         <article>
-                        {% if post.is_our %}
-                            <a href="/post/{{ post.id }}">
+                        {% if article.is_our %}
+                            <a href="/post/{{ article.pk }}">
                         {% else %}
-                            <a href="{{ post.url }}">
+                            <a href="{{ article.url }}">
                         {% endif %}
                             <div class="user_info_content">
                                 <div class="user_info">

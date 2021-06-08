@@ -18,6 +18,7 @@ class IndexView(TemplateView):
             'articles': article_featured,
             'slider': Slider.objects.filter(is_visible=True),
             'events': Event.objects.upcoming()[:2],
+            'sponsors': Sponsor.objects.all(),
             'links': sorted(Link.objects.all(), key=lambda i: Link.SECTION_SLUGS.index(i.section)),
             'tags': HashTag.objects.all(),
             "page": "index",

@@ -9,7 +9,7 @@ dj-database-url = "==0.4.1"
 python-decouple = "==3.1"
 django-ckeditor = "==5.4.0"
 django-model-utils = "==2.5"
-pillow = "==5.1.0"
+pillow = "==9.0.1"
 
 [dev-packages]
 pylint = "*"

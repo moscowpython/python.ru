@@ -20,7 +20,7 @@ fake-factory==9999.9.9
 Faker==0.7.7
 feedparser==5.2.1
 flake8==3.5.0
-html5lib==0.9999999
+html5lib==0.99999999
 httplib2==0.9.1
 idna==2.6
 lxml==4.6.2
